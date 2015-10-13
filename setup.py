@@ -9,5 +9,7 @@ setup(
     author_email='jack.grahl@yahoo.co.uk',
     license='Apache License 2.0',
     packages=['qual'],
+    test_suite='nose.collector',
+    tests_require=['nose']
 )
 
