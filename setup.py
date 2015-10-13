@@ -10,6 +10,6 @@ setup(
     license='Apache License 2.0',
     packages=['qual'],
     test_suite='nose.collector',
-    tests_require=['nose', 'hypothesis', 'hypothesis[extra]']
+    tests_require=['nose', 'hypothesis', 'hypothesis[extras]']
 )
 
