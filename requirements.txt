@@ -1,5 +1,9 @@
 argparse==1.2.1
-hypothesis[datetime]==1.11.4
+hypothesis==1.11.4
+linecache2==1.0.0
 nose==1.3.7
 pytz==2015.6
+six==1.10.0
+traceback2==1.4.0
+unittest2==1.1.0
 wsgiref==0.1.2
