@@ -9,16 +9,17 @@ from datetime import date
 
 import qual
 
-class TestProlepticGregorianCalendar(unittest.TestCase):
-    def setUp(self):
-        self.calendar = qual.ProlepticGregorianCalendar()
-
+class CalendarTest(unittest.TestCase):
     def check_valid_date(self, year, month, day):
         d = self.calendar.date(year, month, day)
         self.assertIsNotNone(d)
 
     def check_invalid_date(self, year, month, day):
         self.assertRaises(Exception, lambda : self.calendar(year, month, day))
+
+class TestProlepticGregorianCalendar(CalendarTest):
+    def setUp(self):
+        self.calendar = qual.ProlepticGregorianCalendar()
 
     def test_leap_year_from_before_1582(self):
         """Pope Gregory introduced the calendar in 1582"""
