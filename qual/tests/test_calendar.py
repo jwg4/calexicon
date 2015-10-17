@@ -41,3 +41,11 @@ class TestProlepticGregorianCalendar(CalendarTest):
         """Can we retrieve the calendar from the date"""
         d = self.calendar.date(2010, 8, 1)
         self.assertEqual(d.calendar, qual.ProlepticGregorianCalendar)
+
+class TestJulianCalendar(CalendarTest):
+    def setUp(self):
+        self.calendar = qual.JulianCalendar()
+
+    def test_Julian_to_Gregorian_conversion(self):
+        d = self.calendar.date(1582, 10, 5)
+
