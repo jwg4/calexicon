@@ -10,3 +10,8 @@ class ProlepticGregorianCalendar(object):
         d = date(year, month, day)
         return DateWithCalendar(ProlepticGregorianCalendar, d)
 
+class JulianCalendar(object):
+    def date(self, year, month, day):
+        d = date(year, month, day)
+        return DateWithCalendar(JulianCalendar, d)
+
