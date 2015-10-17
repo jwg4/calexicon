@@ -47,6 +47,9 @@ class TestJulianCalendar(CalendarTest):
         self.calendar = qual.JulianCalendar()
 
     def test_Julian_to_Gregorian_conversion(self):
+        """ This date is the first day the Gregorian calendar was used
+            in Catholic countries which adopted the new calendar immediately.
+            We should be able to convert it from Julian to Gregorian."""
         d = self.calendar.date(1582, 10, 5)
         c = qual.ProlepticGregorianCalendar()
         d2 = c.date(1582, 10, 15)
