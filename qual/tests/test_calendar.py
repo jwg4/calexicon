@@ -31,3 +31,7 @@ class TestProlepticGregorianCalendar(unittest.TestCase):
            but is not a valid date of the Gregorian calendar."""
         self.check_invalid_date(1300, 2, 29)
 
+    def test_calendar_reference(self):
+        """Can we retrieve the calendar from the date"""
+        d = self.calendar.date(2010, 8, 1)
+        self.assertEqual(d.calendar, qual.ProlepticGregorianCalendar)
