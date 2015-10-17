@@ -48,4 +48,6 @@ class TestJulianCalendar(CalendarTest):
 
     def test_Julian_to_Gregorian_conversion(self):
         d = self.calendar.date(1582, 10, 5)
-
+        c = qual.ProlepticGregorianCalendar()
+        d2 = c.date(1582, 10, 15)
+        self.assertEqual(d.convert_to(c), d2)
