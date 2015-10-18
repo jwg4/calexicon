@@ -25,3 +25,6 @@ class JulianCalendar(object):
         d = d + timedelta(days=10)
         return DateWithCalendar(JulianCalendar, d)
 
+    def from_date(self, date):
+        return DateWithCalendar(JulianCalendar, date)
+

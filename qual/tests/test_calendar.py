@@ -54,3 +54,11 @@ class TestJulianCalendar(CalendarTest):
         c = qual.ProlepticGregorianCalendar()
         d2 = c.date(1582, 10, 15)
         self.assertEqual(d.convert_to(c), d2)
+
+    def test_Gregorian_to_Julian_conversion(self):
+        """Convert the first date of the Gregorian calendar to Julian."""
+        gregorian_calendar = qual.ProlepticGregorianCalendar()
+        gregorian_date = gregorian_calendar.date(1582, 10, 15)
+        julian_date = self.calendar.date(1582, 10, 5)
+        self.assertEqual(gregorian_date.convert_to(self.calendar), julian_date)
+
