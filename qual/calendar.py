@@ -21,8 +21,16 @@ class ProlepticGregorianCalendar(Calendar):
         return self.from_date(d)
 
 class JulianCalendar(Calendar):
+    @staticmethod
+    def is_julian_leap_year(y):
+        return (y % 4) == 0
+
     def date(self, year, month, day):
-        d = date(year, month, day)
-        d = d + timedelta(days=10)
+        if day == 29 and month == 2 and self.is_julian_leap_year(year):
+            d = date(year, month, 28)
+            d = d + timedelta(days=11)
+        else:
+            d = date(year, month, day)
+            d = d + timedelta(days=10)
         return self.from_date(d)
 
