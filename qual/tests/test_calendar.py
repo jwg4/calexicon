@@ -5,6 +5,9 @@ if sys.hexversion < 0x02070000:
 else:
     import unittest
 
+from hypothesis import given
+from hypothesis.extra.datetime import datetimes
+
 from datetime import date
 
 import qual
@@ -132,4 +135,11 @@ class JulianGregorianConversion(unittest.TestCase):
             (1500, 2, 19),
             (1500, 2, 28)
         )
+
+    @given(datetimes(timezones=[]))
+    def test_round_trip_Gregorian_Julian_Gregorian(self, dt):
+        original_gregorian_date = self.gregorian.from_date(dt.date())
+        converted_date = original_gregorian_date.convert_to(self.julian)
+        round_tripped_date = converted_date.convert_to(self.gregorian)
+        self.assertEqual(original_gregorian_date, round_tripped_date)
 
