@@ -39,7 +39,7 @@ class JulianCalendar(Calendar):
     def is_julian_leap_year(y):
         return (y % 4) == 0
 
-    def number_of_extra_leap_days(self, end, start=date(100, 3, 1)):
+    def number_of_extra_leap_days(self, end, start=date(200, 3, 1)):
         def is_gregorian_leap_year(y):
             if (y % 400) == 0:
                 return True
@@ -49,7 +49,7 @@ class JulianCalendar(Calendar):
                 return True
             return False
         count = 0
-        for x in range(100, end.year + 1, 100):
+        for x in range(start.year, end.year + 1, 100):
             if not is_gregorian_leap_year(x):
                 leap_day = date(x, 2, 28)
                 if start < leap_day < end:
@@ -58,9 +58,11 @@ class JulianCalendar(Calendar):
 
     def date(self, year, month, day):
         if day == 29 and month == 2 and self.is_julian_leap_year(year):
-            d = date(year, month, 28)
+            d = date(year, 2, 28)
+            offset = self.number_of_extra_leap_days(d) + 1
         else:
             d = date(year, month, day)
-        d = d + timedelta(days=self.number_of_extra_leap_days(d))
+            offset = self.number_of_extra_leap_days(d)
+        d = d + timedelta(days=offset)
         return self.from_date(d)
 
