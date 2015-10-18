@@ -94,3 +94,12 @@ class JulianGregorianConversion(unittest.TestCase):
             (1500, 2, 29),
             (1500, 3, 10)
         )
+
+    def test_another_Julian_only_leap_day(self):
+        """ This date is a leap day of the Julian calendar.
+            The corresponding day of the Gregorian calendar is not a leap day,
+            and that year is not leap in the Gregorian calendar. """
+        self.check_both_conversions(
+            (1400, 2, 29),
+            (1400, 3, 9)
+        )
