@@ -24,5 +24,5 @@ class JulianCalendar(Calendar):
     def date(self, year, month, day):
         d = date(year, month, day)
         d = d + timedelta(days=10)
-        return DateWithCalendar(JulianCalendar, d)
+        return self.from_date(d)
 
