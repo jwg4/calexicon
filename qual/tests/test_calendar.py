@@ -103,3 +103,15 @@ class JulianGregorianConversion(unittest.TestCase):
             (1400, 2, 29),
             (1400, 3, 9)
         )
+
+    def test_a_Gregorian_March_1st(self):
+        """ This Gregorian date is March 1st, of a Julian-only leap year.
+            Although the Julian date falls before the leap day,
+            since the Gregorian date falls after it, the number of 
+            days difference between the dates in the two calendars
+            depends which calendar you use to measure it. """
+        self.check_both_conversions(
+            (1500, 2, 20),
+            (1500, 3, 1)
+        )
+
