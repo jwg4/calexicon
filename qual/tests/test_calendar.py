@@ -52,14 +52,14 @@ class JulianGregorianConversion(unittest.TestCase):
         self.julian = qual.JulianCalendar()
 
     def Julian_to_Gregorian_conversion(self, julian_args, gregorian_args):
-        """ This date is the first day the Gregorian calendar was used
-            in Catholic countries which adopted the new calendar immediately.
-            We should be able to convert it from Julian to Gregorian."""
         d = self.julian.date(*julian_args)
         d2 = self.gregorian.date(*gregorian_args)
         self.assertEqual(d.convert_to(self.gregorian), d2)
 
     def test_first_day_of_Gregorian_calendar(self):
+        """ This date is the first day the Gregorian calendar was used
+            in Catholic countries which adopted the new calendar immediately.
+            We should be able to convert it from Julian to Gregorian."""
         self.Julian_to_Gregorian_conversion(
             (1582, 10, 5),
             (1582, 10, 15)
