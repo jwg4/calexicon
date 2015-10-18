@@ -14,7 +14,7 @@ class DateWithCalendar(object):
 class ProlepticGregorianCalendar(object):
     def date(self, year, month, day):
         d = date(year, month, day)
-        return DateWithCalendar(ProlepticGregorianCalendar, d)
+        return self.from_date(d)
 
     def from_date(self, date):
         return DateWithCalendar(ProlepticGregorianCalendar, date)
