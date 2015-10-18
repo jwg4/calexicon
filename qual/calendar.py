@@ -31,9 +31,8 @@ class JulianCalendar(Calendar):
     def date(self, year, month, day):
         if day == 29 and month == 2 and self.is_julian_leap_year(year):
             d = date(year, month, 28)
-            d = d + timedelta(days=11)
         else:
             d = date(year, month, day)
-            d = d + timedelta(days=10)
+        d = d + timedelta(days=10)
         return self.from_date(d)
 
