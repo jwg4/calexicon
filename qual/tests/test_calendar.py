@@ -50,6 +50,10 @@ class JulianGregorianConversion(unittest.TestCase):
     def setUp(self):
         self.gregorian = qual.ProlepticGregorianCalendar()
         self.julian = qual.JulianCalendar()
+        self.addTypeEqualityFunc(
+            qual.DateWithCalendar,
+            qual.DateWithCalendar.make_assertEqual(self)
+        )
 
     def Julian_to_Gregorian_conversion(self, julian_args, gregorian_args):
         julian_date = self.julian.date(*julian_args)
@@ -58,7 +62,6 @@ class JulianGregorianConversion(unittest.TestCase):
         self.assertEqual(
             converted_date,
             gregorian_date,
-            "%s is not equal to %s" % (converted_date, gregorian_date)
         )
 
     def Gregorian_to_Julian_conversion(self, julian_args, gregorian_args):
@@ -68,7 +71,6 @@ class JulianGregorianConversion(unittest.TestCase):
         self.assertEqual(
             converted_date,
             julian_date,
-            "%s is not equal to %s" % (converted_date, julian_date)    
         )
 
     def check_both_conversions(self, julian_args, gregorian_args):
