@@ -57,7 +57,6 @@ class JulianGregorianConversion(unittest.TestCase):
         self.assertEqual(julian_date.convert_to(self.gregorian), gregorian_date)
 
     def Gregorian_to_Julian_conversion(self, julian_args, gregorian_args):
-        """Convert the first date of the Gregorian calendar to Julian."""
         gregorian_date = self.gregorian.date(*gregorian_args)
         julian_date = self.julian.date(*julian_args)
         self.assertEqual(gregorian_date.convert_to(self.julian), julian_date)
