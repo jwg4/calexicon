@@ -11,20 +11,18 @@ class DateWithCalendar(object):
     def __eq__(self, other):
         return self.calendar == other.calendar and self.date == other.date
 
-class ProlepticGregorianCalendar(object):
+class Calendar(object):
+    def from_date(self, date):
+        return DateWithCalendar(self.__class__, date)
+
+class ProlepticGregorianCalendar(Calendar):
     def date(self, year, month, day):
         d = date(year, month, day)
         return self.from_date(d)
 
-    def from_date(self, date):
-        return DateWithCalendar(ProlepticGregorianCalendar, date)
-
-class JulianCalendar(object):
+class JulianCalendar(Calendar):
     def date(self, year, month, day):
         d = date(year, month, day)
         d = d + timedelta(days=10)
         return DateWithCalendar(JulianCalendar, d)
-
-    def from_date(self, date):
-        return DateWithCalendar(JulianCalendar, date)
 
