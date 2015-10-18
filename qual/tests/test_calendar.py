@@ -54,12 +54,22 @@ class JulianGregorianConversion(unittest.TestCase):
     def Julian_to_Gregorian_conversion(self, julian_args, gregorian_args):
         julian_date = self.julian.date(*julian_args)
         gregorian_date = self.gregorian.date(*gregorian_args)
-        self.assertEqual(julian_date.convert_to(self.gregorian), gregorian_date)
+        converted_date = julian_date.convert_to(self.gregorian)
+        self.assertEqual(
+            converted_date,
+            gregorian_date,
+            "%s is not equal to %s" % (converted_date, gregorian_date)
+        )
 
     def Gregorian_to_Julian_conversion(self, julian_args, gregorian_args):
         gregorian_date = self.gregorian.date(*gregorian_args)
         julian_date = self.julian.date(*julian_args)
-        self.assertEqual(gregorian_date.convert_to(self.julian), julian_date)
+        converted_date = gregorian_date.convert_to(self.julian)
+        self.assertEqual(
+            converted_date,
+            julian_date,
+            "%s is not equal to %s" % (converted_date, julian_date)    
+        )
 
     def check_both_conversions(self, julian_args, gregorian_args):
         self.Julian_to_Gregorian_conversion(julian_args, gregorian_args)

@@ -11,6 +11,9 @@ class DateWithCalendar(object):
     def __eq__(self, other):
         return self.calendar == other.calendar and self.date == other.date
 
+    def __str__(self):
+        return "%s (%s)" % (self.date, self.calendar.__name__)
+
 class Calendar(object):
     def from_date(self, date):
         return DateWithCalendar(self.__class__, date)
