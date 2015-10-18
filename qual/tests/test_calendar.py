@@ -104,6 +104,15 @@ class JulianGregorianConversion(unittest.TestCase):
             (1400, 3, 9)
         )
 
+    def test_the_day_before_a_Julian_only_leap_day(self):
+        """ This date is Feb 28th before leap day of the Julian calendar.
+            The corresponding day of the Gregorian calendar is not a leap day,
+            and that year is not leap in the Gregorian calendar. """
+        self.check_both_conversions(
+            (1500, 2, 28),
+            (1500, 3, 9)
+        )
+
     def test_a_Gregorian_March_1st(self):
         """ This Gregorian date is March 1st, of a Julian-only leap year.
             Although the Julian date falls before the leap day,
@@ -113,5 +122,14 @@ class JulianGregorianConversion(unittest.TestCase):
         self.check_both_conversions(
             (1500, 2, 20),
             (1500, 3, 1)
+        )
+
+    def test_a_Gregorian_Feb_28th(self):
+        """ This Gregorian date is Feb 28th, of a Julian-only leap year.
+            Both the Gregorian date, and the Julian date, are unaffected
+            by the Julian leap day later in that year."""
+        self.check_both_conversions(
+            (1500, 2, 19),
+            (1500, 2, 28)
         )
 
