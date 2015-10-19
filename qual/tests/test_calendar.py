@@ -19,7 +19,7 @@ class CalendarTest(unittest.TestCase):
         self.assertEqual(d.calendar, self.calendar.__class__)
 
     def check_invalid_date(self, year, month, day):
-        self.assertRaises(Exception, lambda : self.calendar(year, month, day))
+        self.assertRaises(InvalidDate, lambda : self.calendar.date(year, month, day))
 
 class TestProlepticGregorianCalendar(CalendarTest):
     def setUp(self):
