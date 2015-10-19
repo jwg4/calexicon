@@ -1,11 +1,14 @@
 from datetime import date, timedelta
 
-from date import DateWithCalendar
+from date import DateWithCalendar, InvalidDate
 from base import Calendar
 
 class ProlepticGregorianCalendar(Calendar):
     def date(self, year, month, day):
-        d = date(year, month, day)
+        try:
+            d = date(year, month, day)
+        except ValueError as e:
+            raise InvalidDate(e.message)
         return self.from_date(d)
 
 class JulianCalendar(Calendar):
