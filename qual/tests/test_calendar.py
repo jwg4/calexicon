@@ -10,7 +10,7 @@ from hypothesis.extra.datetime import datetimes
 
 from datetime import date
 
-from qual.calendars import DateWithCalendar, ProlepticGregorianCalendar, JulianCalendar
+from qual.calendars import DateWithCalendar, ProlepticGregorianCalendar, JulianCalendar, EnglishHistoricalCalendar
 
 class CalendarTest(unittest.TestCase):
     def check_valid_date(self, year, month, day):
@@ -48,6 +48,13 @@ class TestProlepticGregorianCalendar(CalendarTest):
 class TestJulianCalendar(CalendarTest):
     def setUp(self):
         self.calendar = JulianCalendar()
+
+class TestEnglishHistoricalCalendar(CalendarTest):
+    def setUp(self):
+        self.calendar = EnglishHistoricalCalendar()
+
+    def test_before_switch(self):
+        self.check_valid_date(1752, 9, 2)
 
 class JulianGregorianConversion(unittest.TestCase):
     def setUp(self):
