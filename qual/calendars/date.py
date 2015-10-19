@@ -17,6 +17,18 @@ class DateWithCalendar(object):
     def __str__(self):
         return "%s (%s)" % (self.date, self.calendar.__name__)
 
+    def __lt__(self, other):
+        other_date = other
+        if isinstance(other, DateWithCalendar):
+            other_date = other.date
+        return self.date < other_date
+
+    def __gt__(self, other):
+        other_date = other
+        if isinstance(other, DateWithCalendar):
+            other_date = other.date
+        return self.date > other_date
+
     @staticmethod
     def make_assertEqual(test_case):
         def assertEqual(a, b, msg):
