@@ -16,6 +16,7 @@ class CalendarTest(unittest.TestCase):
     def check_valid_date(self, year, month, day):
         d = self.calendar.date(year, month, day)
         self.assertIsNotNone(d)
+        self.assertEqual(d.calendar, self.calendar.__class__)
 
     def check_invalid_date(self, year, month, day):
         self.assertRaises(Exception, lambda : self.calendar(year, month, day))
