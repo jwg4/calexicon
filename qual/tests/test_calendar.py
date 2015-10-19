@@ -10,7 +10,7 @@ from hypothesis.extra.datetime import datetimes
 
 from datetime import date
 
-import qual
+from qual.calendars import DateWithCalendar, ProlepticGregorianCalendar, JulianCalendar
 
 class CalendarTest(unittest.TestCase):
     def check_valid_date(self, year, month, day):
@@ -22,7 +22,7 @@ class CalendarTest(unittest.TestCase):
 
 class TestProlepticGregorianCalendar(CalendarTest):
     def setUp(self):
-        self.calendar = qual.ProlepticGregorianCalendar()
+        self.calendar = ProlepticGregorianCalendar()
 
     def test_leap_year_from_before_1582(self):
         """Pope Gregory introduced the calendar in 1582"""
@@ -43,19 +43,19 @@ class TestProlepticGregorianCalendar(CalendarTest):
     def test_calendar_reference(self):
         """Can we retrieve the calendar from the date"""
         d = self.calendar.date(2010, 8, 1)
-        self.assertEqual(d.calendar, qual.ProlepticGregorianCalendar)
+        self.assertEqual(d.calendar, ProlepticGregorianCalendar)
 
 class TestJulianCalendar(CalendarTest):
     def setUp(self):
-        self.calendar = qual.JulianCalendar()
+        self.calendar = JulianCalendar()
 
 class JulianGregorianConversion(unittest.TestCase):
     def setUp(self):
-        self.gregorian = qual.ProlepticGregorianCalendar()
-        self.julian = qual.JulianCalendar()
+        self.gregorian = ProlepticGregorianCalendar()
+        self.julian = JulianCalendar()
         self.addTypeEqualityFunc(
-            qual.DateWithCalendar,
-            qual.DateWithCalendar.make_assertEqual(self)
+            DateWithCalendar,
+            DateWithCalendar.make_assertEqual(self)
         )
 
     def Julian_to_Gregorian_conversion(self, julian_args, gregorian_args):
