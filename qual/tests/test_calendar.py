@@ -10,7 +10,7 @@ from hypothesis.extra.datetime import datetimes
 
 from datetime import date
 
-from qual.calendars import DateWithCalendar, ProlepticGregorianCalendar, JulianCalendar
+from qual.calendars import DateWithCalendar, ProlepticGregorianCalendar, JulianCalendar, InvalidDate
 
 class CalendarTest(unittest.TestCase):
     def check_valid_date(self, year, month, day):

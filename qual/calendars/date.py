@@ -1,5 +1,8 @@
 from datetime import date, timedelta
 
+class InvalidDate(Exception):
+    pass
+
 class DateWithCalendar(object):
     def __init__(self, calendar_class, date):
         self.calendar = calendar_class
