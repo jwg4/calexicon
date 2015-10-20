@@ -16,18 +16,20 @@ class JulianCalendar(Calendar):
     def is_julian_leap_year(y):
         return (y % 4) == 0
 
-    def number_of_extra_leap_days(self, end, start=date(200, 3, 1)):
-        def is_gregorian_leap_year(y):
-            if (y % 400) == 0:
-                return True
-            if (y % 100) == 0:
-                return False
-            if (y % 4) == 0:
-                return True
+    @staticmethod
+    def is_gregorian_leap_year(y):
+        if (y % 400) == 0:
+            return True
+        if (y % 100) == 0:
             return False
+        if (y % 4) == 0:
+            return True
+        return False
+
+    def number_of_extra_leap_days(self, end, start=date(200, 3, 1)):
         count = 0
         for x in range(start.year, end.year + 1, 100):
-            if not is_gregorian_leap_year(x):
+            if not self.is_gregorian_leap_year(x):
                 leap_day = date(x, 2, 28)
                 if start < leap_day < end:
                     count = count + 1
