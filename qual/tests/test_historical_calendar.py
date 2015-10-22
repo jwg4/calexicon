@@ -20,6 +20,6 @@ class TestHistoricalCalendar(object):
 
 class TestEnglishHistoricalCalendar(TestHistoricalCalendar, CalendarTest):
     calendar_type = EnglishHistoricalCalendar
-    gregorian_triplets = [(1752, 9, 13)]
-    julian_triplets = [(1752, 9, 1)]
-    transition_triplets = [(1752, 9, 6)]
+    gregorian_triplets = [(1752, 9, 14)]
+    julian_triplets = [(1752, 9, 1), (1752, 9, 2)]
+    transition_triplets = [(1752, 9, 3), (1752, 9, 6), (1752, 9, 13)]
