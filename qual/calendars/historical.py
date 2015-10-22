@@ -9,7 +9,7 @@ class JulianToGregorianCalendar(Calendar):
         gregorian_date = date(year, month, day)
         if gregorian_date < self.first_gregorian_day:
             julian_date = JulianCalendar().date(year, month, day)
-            if julian_date > self.first_gregorian_day:
+            if not julian_date < self.first_gregorian_day:
                 raise InvalidDate("This is a 'missing day' when the calendars changed.")
             self.bless(julian_date)
             return julian_date
