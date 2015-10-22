@@ -19,4 +19,4 @@ class JulianToGregorianCalendar(Calendar):
         date.calendar = self.__class__
 
 class EnglishHistoricalCalendar(JulianToGregorianCalendar):
-    first_gregorian_day = date(1752, 9, 13)
+    first_gregorian_day = date(1752, 9, 14)
