@@ -2,15 +2,24 @@ from test_calendar import CalendarTest
 
 from qual.calendars import EnglishHistoricalCalendar
 
-class TestEnglishHistoricalCalendar(CalendarTest):
+class TestHistoricalCalendar(object):
     def setUp(self):
-        self.calendar = EnglishHistoricalCalendar()
+        self.calendar = self.calendar_type()
 
     def test_before_switch(self):
-        self.check_valid_date(1752, 9, 1)
+        for triplet in self.julian_triplets:
+            self.check_valid_date(*triplet)
 
     def test_after_switch(self):
-        self.check_valid_date(1752, 9, 13)
+        for triplet in self.gregorian_triplets:
+            self.check_valid_date(*triplet)
 
     def test_during_switch(self):
-        self.check_invalid_date(1752, 9, 6)
+        for triplet in self.transition_triplets:
+            self.check_invalid_date(*triplet)
+
+class TestEnglishHistoricalCalendar(TestHistoricalCalendar, CalendarTest):
+    calendar_type = EnglishHistoricalCalendar
+    gregorian_triplets = [(1752, 9, 13)]
+    julian_triplets = [(1752, 9, 1)]
+    transition_triplets = [(1752, 9, 6)]
