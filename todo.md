@@ -5,3 +5,9 @@
  3. Years before 1.
  4. Astronomical calendar (depends on 3.).
 
+## TODO after completing features for 0.1
+
+ 1. Register with pypi and upload.
+ 2. Make it work with Python 3.x.
+ 3. Documentation.
+
