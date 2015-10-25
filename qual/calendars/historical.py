@@ -20,3 +20,7 @@ class JulianToGregorianCalendar(Calendar):
 
 class EnglishHistoricalCalendar(JulianToGregorianCalendar):
     first_gregorian_day = date(1752, 9, 14)
+
+class SpanishHistoricalCalendar(JulianToGregorianCalendar):
+    first_gregorian_day = date(1582, 10, 15)
+

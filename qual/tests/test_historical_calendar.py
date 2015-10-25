@@ -1,6 +1,6 @@
 from test_calendar import CalendarTest
 
-from qual.calendars import EnglishHistoricalCalendar
+from qual.calendars import EnglishHistoricalCalendar, SpanishHistoricalCalendar
 
 class BaseTestHistoricalCalendar(object):
     def setUp(self):
