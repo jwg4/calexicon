@@ -1,6 +1,8 @@
+import unittest 
+
 from test_calendar import CalendarTest
 
-from qual.calendars import EnglishHistoricalCalendar, SpanishHistoricalCalendar
+from qual.calendars import EnglishHistoricalCalendar, SpanishHistoricalCalendar, FrenchHistoricalCalendar
 
 class BaseTestHistoricalCalendar(object):
     def setUp(self):
@@ -29,3 +31,8 @@ class TestSpanishHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
     gregorian_triplets = [(1582, 10, 15), (1752, 9, 2), (1752, 9, 14)]
     julian_triplets = [(1582, 10, 4)]
     transition_triplets = [(1582, 10, 5), (1582, 10, 9), (1582, 10, 14)]
+
+class TestHistoricalCalendars(unittest.TestCase):
+    def test_FrenchHistoricalCalendar(self):
+        self.assertIsNotNone(TestFrenchHistoricalCalendar())
+

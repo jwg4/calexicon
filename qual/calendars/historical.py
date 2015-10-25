@@ -24,3 +24,6 @@ class EnglishHistoricalCalendar(JulianToGregorianCalendar):
 class SpanishHistoricalCalendar(JulianToGregorianCalendar):
     first_gregorian_day = date(1582, 10, 15)
 
+class FrenchHistoricalCalendar(JulianToGregorianCalendar):
+    first_gregorian_day = date(1582, 12, 20)
+
