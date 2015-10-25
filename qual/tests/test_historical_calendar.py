@@ -23,3 +23,9 @@ class TestEnglishHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
     gregorian_triplets = [(1752, 9, 14)]
     julian_triplets = [(1752, 9, 1), (1752, 9, 2)]
     transition_triplets = [(1752, 9, 3), (1752, 9, 6), (1752, 9, 13)]
+
+class TestSpanishHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
+    calendar_type = SpanishHistoricalCalendar
+    gregorian_triplets = [(1582, 10, 15), (1752, 9, 2), (1752, 9, 14)]
+    julian_triplets = [(1582, 10, 4)]
+    transition_triplets = [(1582, 10, 5), (1582, 10, 9), (1582, 10, 14)]
