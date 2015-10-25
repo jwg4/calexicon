@@ -34,5 +34,5 @@ class TestSpanishHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
 
 class TestHistoricalCalendars(unittest.TestCase):
     def test_FrenchHistoricalCalendar(self):
-        self.assertIsNotNone(TestFrenchHistoricalCalendar())
+        self.assertIsNotNone(FrenchHistoricalCalendar())
 
