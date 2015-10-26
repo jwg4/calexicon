@@ -4,6 +4,7 @@
 ## Calendar sources
  - Lots of detail about calendar conversion is at http://norbyhus.dk/calendar.php
  - A mistake in Wolfram Alpha (and a good test case) http://mathematica.stackexchange.com/questions/97818/why-does-mathematicas-date-for-the-battle-agincourt-differ-from-the-us-navys
+ - This page has lots of information about conversion algorithms: https://en.wikipedia.org/wiki/Julian_day
 
 ## Interesting calendars
  - Swedish historical calendar
