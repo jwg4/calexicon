@@ -22,3 +22,6 @@
  - Soviet five-day work week
  - Phases of the moon
 
+## 'Day collections'
+ For example, the set of public holidays in the UK is a day collection. It isn't a single recurrent event, but we can check if any day is in the collection, or count the number of such days between any two dates.
+
