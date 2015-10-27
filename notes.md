@@ -17,6 +17,7 @@
  - Thanksgiving
  - Rosh Hashanah
  - Hannukah
+ - Leap days
 
 ## Daily observations
  - Soviet five-day work week
