@@ -18,6 +18,7 @@
  - Rosh Hashanah
  - Hannukah
 
-## Unclassified calendar things
+## Daily observations
  - Soviet five-day work week
+ - Phases of the moon
 
