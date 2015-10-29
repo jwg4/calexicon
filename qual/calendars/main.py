@@ -1,5 +1,6 @@
 from datetime import date, timedelta
 
+from qual.helpers import ordinal
 from date import DateWithCalendar, InvalidDate
 from base import Calendar
 
@@ -14,14 +15,8 @@ class ProlepticGregorianCalendar(Calendar):
         return self.from_date(d)
 
     @staticmethod
-    def ordinal(n):
-        if n == 3:
-            return "3rd"
-        return "%dth" % n
-
-    @staticmethod
     def date_display_string(d):
-        return "%s %s %s" % (ProlepticGregorianCalendar.ordinal(d.day), d.month, d.year)
+        return "%s %s %s" % (ordinal(d.day), d.month, d.year)
 
 class JulianCalendar(Calendar):
     @staticmethod
