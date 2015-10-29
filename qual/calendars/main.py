@@ -13,6 +13,16 @@ class ProlepticGregorianCalendar(Calendar):
             raise InvalidDate(e.message)
         return self.from_date(d)
 
+    @staticmethod
+    def ordinal(n):
+        if n == 3:
+            return "3rd"
+        return "%dth" % n
+
+    @staticmethod
+    def date_display_string(d):
+        return "%s %s %s" % (ProlepticGregorianCalendar.ordinal(d.day), d.month, d.year)
+
 class JulianCalendar(Calendar):
     @staticmethod
     def is_julian_leap_year(y):

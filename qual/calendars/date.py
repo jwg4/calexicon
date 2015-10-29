@@ -15,7 +15,7 @@ class DateWithCalendar(object):
         return self.calendar == other.calendar and self.date == other.date
 
     def __str__(self):
-        return "%s (%s)" % (self.date, self.calendar.display_name)
+        return "%s (%s)" % (self.calendar.date_display_string(self.date), self.calendar.display_name)
 
     def __lt__(self, other):
         other_date = other
