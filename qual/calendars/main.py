@@ -19,6 +19,8 @@ class ProlepticGregorianCalendar(Calendar):
         return "%s %s %s" % (ordinal(d.day), month_string(d.month), d.year)
 
 class JulianCalendar(Calendar):
+    display_name = "Julian Calendar"
+
     @staticmethod
     def is_julian_leap_year(y):
         return (y % 4) == 0
