@@ -26,3 +26,9 @@
 ## 'Day collections'
  For example, the set of public holidays in the UK is a day collection. It isn't a single recurrent event, but we can check if any day is in the collection, or count the number of such days between any two dates.
 
+## Date edge cases
+ 1. Days which are in a different year in Julian and Gregorian.
+ 2. Epochs: Microsoft, Java, Unix, Julian.
+ 3. End days, Millenium, Mayan, Unix 32-bit rollover.
+ 4. Dates which are in different years depending on when the year starts.
+ 5. Dates which are leap days of the Julian calendar.
