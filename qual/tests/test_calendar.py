@@ -60,6 +60,15 @@ class TestJulianCalendar(CalendarTest):
         d = self.calendar.date(1415, 10, 25)
         self.assertEqual(str(d), "25th October 1415 (Julian Calendar)")
 
+    @given(datetimes(timezones=[]))
+    def test_make_julian_date_directly_and_via_year_month_day(self, dt):
+        d = dt.date()
+        julian_date_from_date = self.calendar.from_date(d)
+        julian_representation = self.calendar.julian_representation(d)
+        year, month, day = julian_representation
+        julian_date_from_representation = self.calendar.date(year, month, day)
+        self.assertEqual(julian_date_from_date, julian_date_from_representation)
+
 class JulianGregorianConversion(unittest.TestCase):
     def setUp(self):
         self.gregorian = ProlepticGregorianCalendar()
