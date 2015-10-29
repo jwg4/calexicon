@@ -4,6 +4,8 @@ from date import DateWithCalendar, InvalidDate
 from base import Calendar
 
 class ProlepticGregorianCalendar(Calendar):
+    display_name = "Proleptic Gregorian Calendar"
+
     def date(self, year, month, day):
         try:
             d = date(year, month, day)
