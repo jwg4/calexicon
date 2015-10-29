@@ -46,6 +46,11 @@ class TestProlepticGregorianCalendar(CalendarTest):
         d = self.calendar.date(2010, 8, 1)
         self.assertEqual(d.calendar, ProlepticGregorianCalendar)
 
+    def test_display_string(self):
+        """ The display string for a date gives the correct date and specifies the calendar. """
+        d = self.calendar.date(1415, 11, 3)
+        self.assertEqual(str(d), "3rd November 1415 (Proleptic Gregorian Calendar)")
+
 class TestJulianCalendar(CalendarTest):
     def setUp(self):
         self.calendar = JulianCalendar()
