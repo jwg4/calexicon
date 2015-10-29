@@ -35,10 +35,22 @@ class JulianCalendar(Calendar):
             return True
         return False
 
-    def number_of_extra_leap_days(self, end, start=date(200, 3, 1)):
+    @staticmethod
+    def date_display_string(d):
+        year, month, day = JulianCalendar.julian_representation(d)
+        return "%s %s %s" % (ordinal(day), month_string(month), year)
+
+    @staticmethod
+    def julian_representation(d):
+        offset = JulianCalendar.number_of_extra_leap_days(d)
+        d = d - timedelta(days=offset)
+        return (d.year, d.month, d.day)
+        
+    @staticmethod
+    def number_of_extra_leap_days(end, start=date(200, 3, 1)):
         count = 0
         for x in range(start.year, end.year + 1, 100):
-            if not self.is_gregorian_leap_year(x):
+            if not JulianCalendar.is_gregorian_leap_year(x):
                 leap_day = date(x, 2, 28)
                 if start < leap_day < end:
                     count = count + 1
