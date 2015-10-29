@@ -5,10 +5,10 @@ if sys.hexversion < 0x02070000:
 else:
     import unittest
 
-from hypothesis import given
+from hypothesis import given, example
 from hypothesis.extra.datetime import datetimes
 
-from datetime import date
+from datetime import date, datetime
 
 from qual.calendars import DateWithCalendar, ProlepticGregorianCalendar, JulianCalendar, InvalidDate
 
@@ -61,6 +61,7 @@ class TestJulianCalendar(CalendarTest):
         self.assertEqual(str(d), "25th October 1415 (Julian Calendar)")
 
     @given(datetimes(timezones=[]))
+    @example(datetime(2100, 3, 1, 0, 0, 0))
     def test_make_julian_date_directly_and_via_year_month_day(self, dt):
         d = dt.date()
         julian_date_from_date = self.calendar.from_date(d)
