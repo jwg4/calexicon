@@ -47,6 +47,8 @@ class JulianCalendar(Calendar):
         d = d - timedelta(days=offset)
         if JulianCalendar.is_julian_leap_year(d.year) and not JulianCalendar.is_gregorian_leap_year(d.year):
             if original_month >= 3 and d.month <= 2:
+                if d.month == 2 and d.day == 28:
+                    return (d.year, 2, 29)
                 d = d + timedelta(days=1)
         return (d.year, d.month, d.day)
         
