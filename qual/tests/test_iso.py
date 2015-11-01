@@ -23,3 +23,8 @@ class TestIsoUtils(unittest.TestCase):
     @given(integers(MINYEAR, MAXYEAR), integers(54), integers(1, 7))
     def test_weeks_greater_than_53_fail(self, year, week, day):
         self.assertRaises(ValueError, lambda : qual.iso_to_gregorian(year, week, day))
+
+    @given(integers(MINYEAR, MAXYEAR), integers(None, 0), integers(1, 7))
+    def test_weeks_smaller_than_1_fail(self, year, week, day):
+        self.assertRaises(ValueError, lambda : qual.iso_to_gregorian(year, week, day))
+
