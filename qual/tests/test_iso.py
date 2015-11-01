@@ -28,3 +28,18 @@ class TestIsoUtils(unittest.TestCase):
     def test_weeks_smaller_than_1_fail(self, year, week, day):
         self.assertRaises(ValueError, lambda : qual.iso_to_gregorian(year, week, day))
 
+    @given(integers(MINYEAR, MAXYEAR), integers(1, 7))
+    def test_week_53_either_raises_or_roundtrips(self, year, day):
+        week = 53
+        dt = None
+        try:
+            dt = qual.iso_to_gregorian(year, week, day)
+        except ValueError:
+            # This error is ok - some years don't have a 53rd week
+            return
+        # If we don't get a value error, it has to be the right date
+        y, w, d = dt.isocalendar()
+        self.assertEqual(year, y)
+        self.assertEqual(week, w)
+        self.assertEqual(day, d)
+
