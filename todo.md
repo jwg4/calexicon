@@ -4,6 +4,7 @@
  2. Display strings for dates.
  3. Years before 1.
  4. Astronomical calendar (depends on 3.).
+ 5. Make a calendar for ISO.
 
 ## TODO after completing features for 0.1
 
