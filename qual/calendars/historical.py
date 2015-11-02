@@ -19,11 +19,14 @@ class JulianToGregorianCalendar(Calendar):
         date.calendar = self.__class__
 
 class EnglishHistoricalCalendar(JulianToGregorianCalendar):
+    display_name = "English Historical Calendar"
     first_gregorian_day = date(1752, 9, 14)
 
 class SpanishHistoricalCalendar(JulianToGregorianCalendar):
+    display_name = "Spanish Historical Calendar"
     first_gregorian_day = date(1582, 10, 15)
 
 class FrenchHistoricalCalendar(JulianToGregorianCalendar):
+    display_name = "French Historical Calendar"
     first_gregorian_day = date(1582, 12, 20)
 
