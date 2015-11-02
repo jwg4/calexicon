@@ -21,6 +21,12 @@ class CalendarTest(unittest.TestCase):
     def check_invalid_date(self, year, month, day):
         self.assertRaises(InvalidDate, lambda : self.calendar.date(year, month, day))
 
+    @given(datetimes(timezones=[]))
+    def test_date_strings(self, dt):
+        d = dt.date()
+        dc = self.calendar.from_date(d)
+        self.assertIsNotNone(dc.__str__())
+
 class TestProlepticGregorianCalendar(CalendarTest):
     def setUp(self):
         self.calendar = ProlepticGregorianCalendar()
