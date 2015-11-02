@@ -15,6 +15,10 @@ class JulianToGregorianCalendar(Calendar):
             return julian_date
         return self.from_date(gregorian_date)
 
+    @staticmethod
+    def date_display_string(date):
+        return ""
+
     def bless(self, date):
         date.calendar = self.__class__
 
