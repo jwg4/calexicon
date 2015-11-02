@@ -26,6 +26,9 @@
 ## 'Day collections'
  For example, the set of public holidays in the UK is a day collection. It isn't a single recurrent event, but we can check if any day is in the collection, or count the number of such days between any two dates.
 
+## 'Day measurements'
+ A function from the set of pairs of days, to a set of measurements. For example, age, measured in weeks for young babies, months for infants, years and quarter years for children, years for older people.
+
 ## Date edge cases
  1. Days which are in a different year in Julian and Gregorian.
  2. Epochs: Microsoft, Java, Unix, Julian.
