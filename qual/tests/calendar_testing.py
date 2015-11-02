@@ -21,9 +21,10 @@ class CalendarTest(unittest.TestCase):
     def check_invalid_date(self, year, month, day):
         self.assertRaises(InvalidDate, lambda : self.calendar.date(year, month, day))
 
-    @unittest.skipIf(calendar is None, 'We do not want this test to run in the base class.')
     @given(datetimes(timezones=[]))
     def test_date_strings(self, dt):
+        if self.calendar is None:
+            return
         d = dt.date()
         dc = self.calendar.from_date(d)
         self.assertIsNotNone(dc.__str__())
