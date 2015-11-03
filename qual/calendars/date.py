@@ -18,15 +18,17 @@ class DateWithCalendar(object):
         return "%s (%s)" % (self.calendar.date_display_string(self.date), self.calendar.display_name)
 
     def __lt__(self, other):
-        other_date = other
-        if isinstance(other, DateWithCalendar):
+        try:
             other_date = other.date
+        except:
+            other_date = other
         return self.date < other_date
 
     def __gt__(self, other):
-        other_date = other
-        if isinstance(other, DateWithCalendar):
+        try:
             other_date = other.date
+        except:
+            other_date = other
         return self.date > other_date
 
     @staticmethod
