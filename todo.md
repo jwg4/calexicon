@@ -12,6 +12,7 @@
  4. Astronomical calendar (depends on 3.).
  5. Make a calendar for ISO.
  6. README.md
+ 7. Julian Date numbers (calendar?)
 
 ## TODO after completing features for 0.1
 
