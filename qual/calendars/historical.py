@@ -7,9 +7,9 @@ from main import JulianCalendar, ProlepticGregorianCalendar
 class SwitchDateWithCalendar(DateWithCalendar):
     def __str__(self):
         return "%s (%s - %s)" % (
-            self.calendar.date_display_string(self.date),
+            self.calendar.date_display_string(self._date),
             self.calendar.display_name,
-            self.calendar.period_string(self.date)
+            self.calendar.period_string(self._date)
         )
 
 class JulianToGregorianCalendar(Calendar):
@@ -19,7 +19,7 @@ class JulianToGregorianCalendar(Calendar):
             julian_date = JulianCalendar().date(year, month, day)
             if not julian_date < self.first_gregorian_day:
                 raise InvalidDate("This is a 'missing day' when the calendars changed.")
-            return self.from_date(julian_date.date)
+            return self.from_date(julian_date._date)
         return self.from_date(gregorian_date)
 
     @classmethod

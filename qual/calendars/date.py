@@ -6,30 +6,30 @@ class InvalidDate(Exception):
 class DateWithCalendar(object):
     def __init__(self, calendar_class, date):
         self.calendar = calendar_class
-        self.date = date
+        self._date = date
 
     def convert_to(self, calendar):
-        return calendar.from_date(self.date)
+        return calendar.from_date(self._date)
 
     def __eq__(self, other):
-        return self.calendar == other.calendar and self.date == other.date
+        return self.calendar == other.calendar and self._date == other._date
 
     def __str__(self):
-        return "%s (%s)" % (self.calendar.date_display_string(self.date), self.calendar.display_name)
+        return "%s (%s)" % (self.calendar.date_display_string(self._date), self.calendar.display_name)
 
     def __lt__(self, other):
         try:
-            other_date = other.date
+            other_date = other._date
         except:
             other_date = other
-        return self.date < other_date
+        return self._date < other_date
 
     def __gt__(self, other):
         try:
-            other_date = other.date
+            other_date = other._date
         except:
             other_date = other
-        return self.date > other_date
+        return self._date > other_date
 
     @staticmethod
     def make_assertEqual(test_case):
