@@ -29,3 +29,7 @@ class CalendarTest(unittest.TestCase):
         dc = self.calendar.from_date(d)
         self.assertIsNotNone(dc.__str__())
 
+    def display_string_comparison(self, year, month, day, expected):
+        d = self.calendar.date(year, month, day)
+        self.assertEqual(d.__str__(), expected)
+

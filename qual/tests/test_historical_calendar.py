@@ -31,6 +31,9 @@ class TestEnglishHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
     julian_triplets = [(1752, 9, 1), (1752, 9, 2)]
     transition_triplets = [(1752, 9, 3), (1752, 9, 6), (1752, 9, 13)]
 
+    def test_display_string(self):
+        self.display_string_comparison(1415, 10, 25, "25th October 1415 (English Historical Calendar - Julian)")
+
 class TestSpanishHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
     calendar_type = SpanishHistoricalCalendar
     gregorian_triplets = [(1582, 10, 15), (1752, 9, 2), (1752, 9, 14)]
