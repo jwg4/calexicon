@@ -8,6 +8,7 @@ else:
 from test_calendar import CalendarTest
 
 from qual.calendars import EnglishHistoricalCalendar, SpanishHistoricalCalendar, FrenchHistoricalCalendar
+from qual.calendars.historical import SwitchDateWithCalendar
 
 class BaseTestHistoricalCalendar(object):
     def setUp(self):
@@ -30,6 +31,9 @@ class TestEnglishHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
     gregorian_triplets = [(1752, 9, 14)]
     julian_triplets = [(1752, 9, 1), (1752, 9, 2)]
     transition_triplets = [(1752, 9, 3), (1752, 9, 6), (1752, 9, 13)]
+
+    def test_correct_class(self):
+        self.assertIsInstance(self.calendar.date(1415, 10, 25), SwitchDateWithCalendar)
 
     def test_display_string(self):
         self.display_string_comparison(1415, 10, 25, "25th October 1415 (English Historical Calendar - Julian)")

@@ -1,8 +1,16 @@
 from datetime import date
 
 from base import Calendar
-from date import InvalidDate
+from date import InvalidDate, DateWithCalendar
 from main import JulianCalendar, ProlepticGregorianCalendar
+
+class SwitchDateWithCalendar(DateWithCalendar):
+    def __str__(self):
+        return "%s (%s - %s)" % (
+            self.calendar.date_display_string(self.date),
+            self.calendar.display_name,
+            'Julian'
+        )
 
 class JulianToGregorianCalendar(Calendar):
     def date(self, year, month, day):
@@ -11,8 +19,7 @@ class JulianToGregorianCalendar(Calendar):
             julian_date = JulianCalendar().date(year, month, day)
             if not julian_date < self.first_gregorian_day:
                 raise InvalidDate("This is a 'missing day' when the calendars changed.")
-            self.bless(julian_date)
-            return julian_date
+            return self.from_date(julian_date.date)
         return self.from_date(gregorian_date)
 
     @classmethod
@@ -23,6 +30,9 @@ class JulianToGregorianCalendar(Calendar):
 
     def bless(self, date):
         date.calendar = self.__class__
+
+    def from_date(self, date):
+        return SwitchDateWithCalendar(self.__class__, date)
 
 class EnglishHistoricalCalendar(JulianToGregorianCalendar):
     display_name = "English Historical Calendar"
