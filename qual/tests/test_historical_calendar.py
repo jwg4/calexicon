@@ -5,7 +5,10 @@ if sys.hexversion < 0x02070000:
 else:
     import unittest
 
+from datetime import date
+
 from test_calendar import CalendarTest
+from test_date import TestDateWithCalendar
 
 from qual.calendars import EnglishHistoricalCalendar, SpanishHistoricalCalendar, FrenchHistoricalCalendar
 from qual.calendars.historical import SwitchDateWithCalendar
@@ -50,4 +53,8 @@ class TestSpanishHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
 class TestHistoricalCalendars(unittest.TestCase):
     def test_FrenchHistoricalCalendar(self):
         self.assertIsNotNone(FrenchHistoricalCalendar())
+
+class TestSwitchDateWithCalendar(TestDateWithCalendar):
+    def setUp(self):
+        self.date_wc = SwitchDateWithCalendar(None, date(2010, 8, 1))
 
