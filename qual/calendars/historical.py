@@ -2,7 +2,7 @@ from datetime import date
 
 from base import Calendar
 from date import InvalidDate
-from main import JulianCalendar
+from main import JulianCalendar, ProlepticGregorianCalendar
 
 class JulianToGregorianCalendar(Calendar):
     def date(self, year, month, day):
@@ -15,9 +15,11 @@ class JulianToGregorianCalendar(Calendar):
             return julian_date
         return self.from_date(gregorian_date)
 
-    @staticmethod
-    def date_display_string(date):
-        return ""
+    @classmethod
+    def date_display_string(cls, date):
+        if date >= cls.first_gregorian_day:
+            return ProlepticGregorianCalendar.date_display_string(date)
+        return JulianCalendar.date_display_string(date)
 
     def bless(self, date):
         date.calendar = self.__class__
