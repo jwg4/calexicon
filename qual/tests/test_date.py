@@ -4,7 +4,7 @@ from datetime import date
 
 from qual.calendars import DateWithCalendar
 
-class TestDateWtihCalendar(unittest.TestCase):
+class TestDateWithCalendar(unittest.TestCase):
     def setUp(self):
         date_dt = date(2010, 8, 1)
         self.date_wc = DateWithCalendar(None, date_dt)
