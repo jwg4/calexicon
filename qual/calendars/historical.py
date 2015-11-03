@@ -9,7 +9,7 @@ class SwitchDateWithCalendar(DateWithCalendar):
         return "%s (%s - %s)" % (
             self.calendar.date_display_string(self.date),
             self.calendar.display_name,
-            'Julian'
+            self.calendar.period_string(self.date)
         )
 
 class JulianToGregorianCalendar(Calendar):
@@ -27,6 +27,13 @@ class JulianToGregorianCalendar(Calendar):
         if date >= cls.first_gregorian_day:
             return ProlepticGregorianCalendar.date_display_string(date)
         return JulianCalendar.date_display_string(date)
+
+    @classmethod
+    def period_string(cls, date):
+        if date >= cls.first_gregorian_day:
+            return 'Gregorian'
+        else:
+            return 'Julian'
 
     def bless(self, date):
         date.calendar = self.__class__
