@@ -23,23 +23,23 @@ class JulianToGregorianCalendar(Calendar):
         return self.from_date(gregorian_date)
 
     @classmethod
-    def date_display_string(cls, date):
-        if date >= cls.first_gregorian_day:
-            return ProlepticGregorianCalendar.date_display_string(date)
-        return JulianCalendar.date_display_string(date)
+    def date_display_string(cls, d):
+        if d >= cls.first_gregorian_day:
+            return ProlepticGregorianCalendar.date_display_string(d)
+        return JulianCalendar.date_display_string(d)
 
     @classmethod
-    def period_string(cls, date):
-        if date >= cls.first_gregorian_day:
+    def period_string(cls, d):
+        if d >= cls.first_gregorian_day:
             return 'Gregorian'
         else:
             return 'Julian'
 
-    def bless(self, date):
-        date.calendar = self.__class__
+    def bless(self, d):
+        d.calendar = self.__class__
 
-    def from_date(self, date):
-        return SwitchDateWithCalendar(self.__class__, date)
+    def from_date(self, d):
+        return SwitchDateWithCalendar(self.__class__, d)
 
 class EnglishHistoricalCalendar(JulianToGregorianCalendar):
     display_name = "English Historical Calendar"

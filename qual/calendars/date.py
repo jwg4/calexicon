@@ -4,9 +4,9 @@ class InvalidDate(Exception):
     pass
 
 class DateWithCalendar(object):
-    def __init__(self, calendar_class, date):
+    def __init__(self, calendar_class, d):
         self.calendar = calendar_class
-        self._date = date
+        self._date = d
 
     def convert_to(self, calendar):
         return calendar.from_date(self._date)
