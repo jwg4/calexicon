@@ -1,7 +1,7 @@
 from datetime import date, timedelta
 
 from qual.helpers import ordinal, month_string
-from date import DateWithCalendar, InvalidDate
+from dates import DateWithCalendar, InvalidDate
 from base import Calendar
 
 class ProlepticGregorianCalendar(Calendar):

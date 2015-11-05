@@ -1,6 +1,6 @@
 from datetime import date, timedelta
 
-from date import DateWithCalendar
+from dates import DateWithCalendar
 
 class Calendar(object):
     def from_date(self, d):
