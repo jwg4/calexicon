@@ -8,7 +8,7 @@ else:
 from datetime import date
 
 from test_calendar import CalendarTest
-from test_date import TestDateWithCalendar
+from test_dates import TestDateWithCalendar
 
 from qual.calendars import EnglishHistoricalCalendar, SpanishHistoricalCalendar, FrenchHistoricalCalendar
 from qual.calendars.historical import SwitchDateWithCalendar
