@@ -37,7 +37,7 @@ class JulianCalendar(Calendar):
 
     def julian_day_number(self, d):
         td = d - self.date(1, 1, 1)
-        return td.days + 1000
+        return td.days + 1721426
 
     @staticmethod
     def date_display_string(d):
