@@ -63,6 +63,10 @@ class TestJulianCalendar(CalendarTest):
         julian_date_from_representation = self.calendar.date(year, month, day)
         self.assertEqual(julian_date_from_date, julian_date_from_representation)
 
+    def test_julian_number(self):
+        d = self.calendar.date(1415, 10, 25)
+        self.assertEqual(self.calendar.julian_day_number(d), 2238184)
+
 class JulianGregorianConversion(unittest.TestCase):
     def setUp(self):
         self.gregorian = ProlepticGregorianCalendar()
