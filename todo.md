@@ -1,7 +1,7 @@
 ## Cleanups and fixes TODO
 
  1. ~~DateWithCalendar should not have member 'date' -> 'inner_date'~~
- 2. Don't use a variable name 'date' either -> 'dt_date'
+ 2. ~~Don't use a variable name 'date' either -> 'dt_date'~~
  3. Implement all the comparison operators correctly for DateWithCalendar.
 
 ## TODO before version 0.1
