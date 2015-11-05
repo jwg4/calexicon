@@ -45,6 +45,13 @@ class DateWithCalendar(object):
             other_date = other
         return self._date >= other_date
 
+    def __sub__(self, other):
+        try:
+            other_date = other._date
+        except:
+            other_date = other
+        return self._date - other_date
+
     @staticmethod
     def make_assertEqual(test_case):
         def assertEqual(a, b, msg):
