@@ -15,6 +15,9 @@
  6. ~~README.md~~
  7. ~~Julian Date numbers (calendar?)~~
 
+## Fixes before version 0,1
+ 1. ~~'1th March 1500'~~
+
 ## TODO after completing features for 0.1
 
  1. Register with pypi and upload.
