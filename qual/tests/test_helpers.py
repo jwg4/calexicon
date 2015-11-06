@@ -14,6 +14,8 @@ class TestOrdinal(unittest.TestCase):
         
     def test_other_suffixes(self):
         self.assertEqual(ordinal(22), '22nd')
+        self.assertEqual(ordinal(12), '12th')
+        self.assertEqual(ordinal(112), '112th')
 
 class TestMonthString(unittest.TestCase):
     def test_valid_month(self):

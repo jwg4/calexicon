@@ -8,6 +8,8 @@ def ordinal(n):
         suffix =  "nd"
     if n % 10 == 3:
         suffix =  "rd"
+    if 10 < n % 100 < 20:
+        suffix = "th"
     return "%d%s" % (n, suffix)
 
 def month_string(n):
