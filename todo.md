@@ -3,7 +3,7 @@
  1. ~~DateWithCalendar should not have member 'date' -> 'inner_date'~~
  2. ~~Don't use a variable name 'date' either -> 'dt_date'~~
  3. ~~Implement all the comparison operators correctly for DateWithCalendar.~~
- 4. Make DateWithCalendar inherit from datetime.date so that operators don't have to be reimplemented.
+ 4. ~~Make DateWithCalendar inherit from datetime.date so that operators don't have to be reimplemented.~~ Not going to do this - datetime.date is an old-style object.
 
 ## TODO before version 0.1
 
