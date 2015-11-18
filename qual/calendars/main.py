@@ -79,6 +79,8 @@ class JulianCalendar(Calendar):
 class ProlepticJulianCalendar(JulianCalendar):
     class BCEDate(DateWithCalendar):
         def __init__(self, year, month, day):
+            if year == 0:
+                raise InvalidDate()
             self.calendar = None
             self.date = None
             self.year = year

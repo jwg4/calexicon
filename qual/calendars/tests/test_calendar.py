@@ -74,6 +74,9 @@ class TestProlepticJulianCalendar(TestJulianCalendar):
     def test_year_1_bce(self):
         self.check_valid_date(-1, 3, 1)
 
+    def test_year_0_does_not_exist(self):
+        self.check_invalid_date(0, 3, 1)
+
 class JulianGregorianConversion(unittest.TestCase):
     def setUp(self):
         self.gregorian = ProlepticGregorianCalendar()
