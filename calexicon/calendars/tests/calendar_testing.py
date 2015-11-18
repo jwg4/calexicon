@@ -8,7 +8,7 @@ else:
 from hypothesis import given, example
 from hypothesis.extra.datetime import datetimes
 
-from qual.calendars import DateWithCalendar, ProlepticGregorianCalendar, JulianCalendar, InvalidDate
+from calexicon.calendars import DateWithCalendar, ProlepticGregorianCalendar, JulianCalendar, InvalidDate
 
 class CalendarTest(unittest.TestCase):
     calendar = None
