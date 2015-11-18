@@ -1,4 +1,4 @@
-# qual - QUite comprehensive cALendars
+# calexicon - dates and calendars
 
 This is package for interpretation, conversion, information and testing of calendar systems. 
 
