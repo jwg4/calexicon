@@ -77,4 +77,18 @@ class JulianCalendar(Calendar):
         return self.from_date(d)
 
 class ProlepticJulianCalendar(JulianCalendar):
-    pass
+    class BCEDate(DateWithCalendar):
+        def __init__(self, year, month, day):
+            self.calendar = None
+            self.date = None
+            self.year = year
+            self.month = month
+            self.day = day
+        
+    def date(self, year, month, day):
+        try:
+            d = JulianCalendar().date(year, month, day)
+        except ValueError:
+            d = ProlepticJulianCalendar.BCEDate(year, month, day)
+        self.bless(d)
+        return d
