@@ -12,6 +12,10 @@
  - French revolutionary calendar
  - Julian day numbers
 
+## Year conversions
+ - A special case of calendars - all dates are the same, but the years have different numbers.
+ - Juche calendar https://en.wikipedia.org/wiki/North_Korean_calendar
+
 ## Recurrent events
  - Easter
  - Thanksgiving
