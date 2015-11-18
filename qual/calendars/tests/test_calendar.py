@@ -6,6 +6,7 @@ else:
     import unittest
 
 from hypothesis import given, example
+from hypothesis.strategies import integers
 from hypothesis.extra.datetime import datetimes
 
 from datetime import date, datetime
@@ -74,8 +75,9 @@ class TestProlepticJulianCalendar(TestJulianCalendar):
     def test_year_1_bce(self):
         self.check_valid_date(-1, 3, 1)
 
-    def test_year_0_does_not_exist(self):
-        self.check_invalid_date(0, 3, 1)
+    @given(integers(1, 12), integers(1, 31))
+    def test_year_0_does_not_exist(self, month, day):
+        self.check_invalid_date(0, month, day)
 
 class JulianGregorianConversion(unittest.TestCase):
     def setUp(self):
