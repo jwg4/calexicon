@@ -10,8 +10,8 @@ from datetime import date
 from test_calendar import CalendarTest
 from test_dates import TestDateWithCalendar
 
-from qual.calendars import EnglishHistoricalCalendar, SpanishHistoricalCalendar, FrenchHistoricalCalendar
-from qual.calendars.historical import SwitchDateWithCalendar
+from calexicon.calendars import EnglishHistoricalCalendar, SpanishHistoricalCalendar, FrenchHistoricalCalendar
+from calexicon.calendars.historical import SwitchDateWithCalendar
 
 class BaseTestHistoricalCalendar(object):
     def setUp(self):

@@ -11,7 +11,7 @@ from hypothesis.extra.datetime import datetimes
 
 from datetime import date, datetime
 
-from qual.calendars import DateWithCalendar, ProlepticGregorianCalendar, JulianCalendar, InvalidDate, ProlepticJulianCalendar
+from calexicon.calendars import DateWithCalendar, ProlepticGregorianCalendar, JulianCalendar, InvalidDate, ProlepticJulianCalendar
 from calendar_testing import CalendarTest
 
 class TestProlepticGregorianCalendar(CalendarTest):
