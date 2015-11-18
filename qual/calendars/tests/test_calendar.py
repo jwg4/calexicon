@@ -5,7 +5,7 @@ if sys.hexversion < 0x02070000:
 else:
     import unittest
 
-from hypothesis import given, example
+from hypothesis import given, example, assume
 from hypothesis.strategies import integers
 from hypothesis.extra.datetime import datetimes
 
@@ -78,6 +78,11 @@ class TestProlepticJulianCalendar(TestJulianCalendar):
     @given(integers(1, 12), integers(1, 31))
     def test_year_0_does_not_exist(self, month, day):
         self.check_invalid_date(0, month, day)
+
+    @given(integers(-1000, 0))
+    def test_feb_29th_does_not_exist_except_julian_leap_years(self, year):
+        assume(year % 4 != 0)
+        self.check_invalid_date(year, 2, 29)
 
 class JulianGregorianConversion(unittest.TestCase):
     def setUp(self):
