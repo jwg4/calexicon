@@ -76,3 +76,5 @@ class JulianCalendar(Calendar):
         d = d + timedelta(days=offset)
         return self.from_date(d)
 
+class ProlepticJulianCalendar(JulianCalendar):
+    pass

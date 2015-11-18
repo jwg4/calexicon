@@ -10,7 +10,7 @@ from hypothesis.extra.datetime import datetimes
 
 from datetime import date, datetime
 
-from qual.calendars import DateWithCalendar, ProlepticGregorianCalendar, JulianCalendar, InvalidDate
+from qual.calendars import DateWithCalendar, ProlepticGregorianCalendar, JulianCalendar, InvalidDate, ProlepticJulianCalendar
 from calendar_testing import CalendarTest
 
 class TestProlepticGregorianCalendar(CalendarTest):
@@ -66,6 +66,10 @@ class TestJulianCalendar(CalendarTest):
     def test_julian_number(self):
         d = self.calendar.date(1415, 10, 25)
         self.assertEqual(self.calendar.julian_day_number(d), 2238184)
+
+class TestProlepticJulianCalendar(CalendarTest):
+    def setUp(self):
+        self.calendar = ProlepticJulianCalendar()
 
 class JulianGregorianConversion(unittest.TestCase):
     def setUp(self):
