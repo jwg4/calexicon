@@ -84,6 +84,11 @@ class TestProlepticJulianCalendar(TestJulianCalendar):
         assume(year % 4 != 0)
         self.check_invalid_date(year, 2, 29)
 
+    @given(integers(None, -1))
+    def test_feb_29th_does_exist_in_julian_leap_years(self, year):
+        assume(year % 4 == 0)
+        self.check_valid_date(year, 2, 29)
+
 class JulianGregorianConversion(unittest.TestCase):
     def setUp(self):
         self.gregorian = ProlepticGregorianCalendar()
