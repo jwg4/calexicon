@@ -1,5 +1,5 @@
 import unittest
-from hypothesis import given
+from hypothesis import given, example
 from hypothesis.strategies import integers
 from hypothesis.extra.datetime import datetimes
 
@@ -29,6 +29,7 @@ class TestIsoUtils(unittest.TestCase):
         self.assertRaises(ValueError, lambda : qual.iso_to_gregorian(year, week, day))
 
     @given(integers(MINYEAR, MAXYEAR), integers(1, 7))
+    @example(9999, 1)
     def test_week_53_either_raises_or_roundtrips(self, year, day):
         week = 53
         dt = None
