@@ -14,7 +14,9 @@
 
 ## Year conversions
  - A special case of calendars - all dates are the same, but the years have different numbers.
- - Juche calendar https://en.wikipedia.org/wiki/North_Korean_calendar
+ - Eg. Juche calendar https://en.wikipedia.org/wiki/North_Korean_calendar
+ - Given a calendar, we should be able map a given year number to the start and end days of the year.
+ - Eg. the British tax year, the Jewish year.
 
 ## Recurrent events
  - Easter
