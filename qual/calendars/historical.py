@@ -35,9 +35,6 @@ class JulianToGregorianCalendar(Calendar):
         else:
             return 'Julian'
 
-    def bless(self, d):
-        d.calendar = self.__class__
-
     def from_date(self, d):
         return SwitchDateWithCalendar(self.__class__, d)
 
