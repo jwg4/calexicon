@@ -77,6 +77,8 @@ class JulianCalendar(Calendar):
         return self.from_date(d)
 
 class ProlepticJulianCalendar(JulianCalendar):
+    display_name = "Julian Calendar"
+
     class BCEDate(DateWithCalendar):
         def __init__(self, year, month, day):
             self._validate(year, month, day)
@@ -95,6 +97,10 @@ class ProlepticJulianCalendar(JulianCalendar):
                 lengths[2] = 29
             if day > lengths[month]:
                 raise InvalidDate('That month does not have %d days.' % day) 
+
+        def __str__(self):
+            date_string = "%s %s %s BCE" % (ordinal(self.day), month_string(self.month), -self.year)
+            return "%s (%s)" % (date_string, self.calendar.display_name)
         
     def date(self, year, month, day):
         try:

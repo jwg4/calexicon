@@ -89,6 +89,11 @@ class TestProlepticJulianCalendar(TestJulianCalendar):
         assume(year % 4 == 0)
         self.check_valid_date(year, 2, 29)
 
+    def test_display_string_for_bce_date(self):
+        """ The display string for a date gives the correct date and specifies the calendar. """
+        d = self.calendar.date(-44, 3, 15)
+        self.assertEqual(str(d), "15th March 44 BCE (Julian Calendar)")
+
 class JulianGregorianConversion(unittest.TestCase):
     def setUp(self):
         self.gregorian = ProlepticGregorianCalendar()
