@@ -77,8 +77,6 @@ class JulianCalendar(Calendar):
         return self.from_date(d)
 
 class ProlepticJulianCalendar(JulianCalendar):
-    display_name = "Julian Calendar"
-
     class BCEDate(DateWithCalendar):
         def __init__(self, year, month, day):
             self._validate(year, month, day)
@@ -100,7 +98,8 @@ class ProlepticJulianCalendar(JulianCalendar):
 
         def __str__(self):
             date_string = "%s %s %s BCE" % (ordinal(self.day), month_string(self.month), -self.year)
-            return "%s (%s)" % (date_string, self.calendar.display_name)
+            display_name = "Julian Calendar" if (self >= ProlepticJulianCalendar.first_date) else "Proleptic Julian Calendar"
+            return "%s (%s)" % (date_string, display_name)
         
         def __ge__(self, other):
             if self.year != other.year:
@@ -108,6 +107,8 @@ class ProlepticJulianCalendar(JulianCalendar):
             if self.month != other.month:
                 return self.month > other.month
             return self.day >= other.day
+
+    first_date = BCEDate(-45, 1, 1)
         
     def date(self, year, month, day):
         try:

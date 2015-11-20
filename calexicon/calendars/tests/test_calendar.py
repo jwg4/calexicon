@@ -94,6 +94,11 @@ class TestProlepticJulianCalendar(TestJulianCalendar):
         d = self.calendar.date(-44, 3, 15)
         self.assertEqual(str(d), "15th March 44 BCE (Julian Calendar)")
 
+    def test_display_string_for_proleptic_date(self):
+        """ The display string for a date gives the correct date and specifies the calendar. """
+        d = self.calendar.date(-100, 7, 13)
+        self.assertEqual(str(d), "13th July 100 BCE (Proleptic Julian Calendar)")
+
 class TestBCEDate(unittest.TestCase):
     def test_greater_than(self):
         self.assertFalse(
