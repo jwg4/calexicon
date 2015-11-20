@@ -94,6 +94,13 @@ class TestProlepticJulianCalendar(TestJulianCalendar):
         d = self.calendar.date(-44, 3, 15)
         self.assertEqual(str(d), "15th March 44 BCE (Julian Calendar)")
 
+class TestBCEDate(unittest.TestCase):
+    def test_greater_than(self):
+        self.assertFalse(
+            ProlepticJulianCalendar.BCEDate(-100, 7, 13) >= 
+            ProlepticJulianCalendar.BCEDate(-45, 1, 1)
+        )
+
 class JulianGregorianConversion(unittest.TestCase):
     def setUp(self):
         self.gregorian = ProlepticGregorianCalendar()

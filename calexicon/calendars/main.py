@@ -102,6 +102,13 @@ class ProlepticJulianCalendar(JulianCalendar):
             date_string = "%s %s %s BCE" % (ordinal(self.day), month_string(self.month), -self.year)
             return "%s (%s)" % (date_string, self.calendar.display_name)
         
+        def __ge__(self, other):
+            if self.year != other.year:
+                return self.year > other.year
+            if self.month != other.month:
+                return self.month > other.month
+            return self.day >= other.day
+        
     def date(self, year, month, day):
         try:
             d = JulianCalendar().date(year, month, day)
