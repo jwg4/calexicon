@@ -9,7 +9,7 @@
 
  1. ~~Catholic historical calendar.~~
  2. ~~Display strings for dates.~~
- 3. Years before 1.
+ 3. ~~Years before 1.~~
  4. Astronomical calendar (depends on 3.).
  5. Make a calendar for ISO.
  6. ~~README.md~~
