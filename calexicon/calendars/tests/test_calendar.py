@@ -77,6 +77,10 @@ class TestJulianCalendar(CalendarTest):
         d = date(8200, 3, 1)
         self.assertEqual(self.calendar.julian_representation(d), (8200, 1, 1))
 
+    def test_making_a_tricky_date_correctly(self):
+        julian_date = self.calendar.date(8200, 1, 1)
+        self.assertEqual(julian_date._date, date(8200, 3, 1))
+
     @given(datetimes(timezones=[]))
     @example(datetime(8200, 3, 1, 0, 0, 0))
     @example(datetime(8200, 2, 28, 0, 0, 0))
