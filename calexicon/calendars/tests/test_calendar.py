@@ -56,6 +56,7 @@ class TestJulianCalendar(CalendarTest):
     @given(datetimes(timezones=[]))
     @example(datetime(2100, 3, 1, 0, 0, 0))
     @example(datetime(4500, 4, 1, 0, 0, 0))
+    @example(datetime(8200, 3, 1, 0, 0, 0))
     def test_make_julian_date_directly_and_via_year_month_day(self, dt):
         d = dt.date()
         julian_date_from_date = self.calendar.from_date(d)
