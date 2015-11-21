@@ -47,10 +47,11 @@ class JulianCalendar(Calendar):
     @staticmethod
     def julian_representation(d):
         original_month = d.month
+        original_year = d.year
         offset = JulianCalendar._number_of_extra_leap_days(d)
         d = d - timedelta(days=offset)
-        if JulianCalendar._is_julian_leap_year(d.year) and not JulianCalendar._is_gregorian_leap_year(d.year):
-            if original_month >= 3 and d.month <= 2:
+        if JulianCalendar._is_julian_leap_year(original_year) and not JulianCalendar._is_gregorian_leap_year(original_year):
+            if original_month >= 3 and (d.month <= 2 or d.year < original_year):
                 if d.month == 2 and d.day == 28:
                     return (d.year, 2, 29)
                 d = d + timedelta(days=1)
