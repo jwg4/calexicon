@@ -73,6 +73,10 @@ class TestJulianCalendar(CalendarTest):
         d = self.calendar.date(1415, 10, 25)
         self.assertEqual(self.calendar.julian_day_number(d), 2238184)
 
+    def test_julian_representation(self):
+        d = date(8200, 3, 1)
+        self.assertEqual(self.calendar.julian_representation(d), (8200, 1, 1))
+
 class TestProlepticJulianCalendar(TestJulianCalendar):
     def setUp(self):
         self.calendar = ProlepticJulianCalendar()
