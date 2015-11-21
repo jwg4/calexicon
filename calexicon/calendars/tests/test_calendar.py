@@ -203,6 +203,9 @@ class JulianGregorianConversion(unittest.TestCase):
         )
 
     @given(datetimes(timezones=[]))
+    @example(datetime(8200, 3, 1, 0, 0, 0))
+    @example(datetime(8200, 2, 28, 0, 0, 0))
+    @example(datetime(8199, 12, 31, 0, 0, 0))
     def test_round_trip_Gregorian_Julian_Gregorian(self, dt):
         original_gregorian_date = self.gregorian.from_date(dt.date())
         converted_date = original_gregorian_date.convert_to(self.julian)
@@ -210,6 +213,9 @@ class JulianGregorianConversion(unittest.TestCase):
         self.assertEqual(original_gregorian_date, round_tripped_date)
     
     @given(datetimes(timezones=[]))
+    @example(datetime(8200, 3, 1, 0, 0, 0))
+    @example(datetime(8200, 2, 28, 0, 0, 0))
+    @example(datetime(8199, 12, 31, 0, 0, 0))
     def test_round_trip_Julian_Gregorian_Julian(self, dt):
         original_julian_date = self.julian.from_date(dt.date())
         converted_date = original_julian_date.convert_to(self.gregorian)
