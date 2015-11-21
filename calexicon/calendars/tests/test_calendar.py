@@ -202,6 +202,31 @@ class JulianGregorianConversion(unittest.TestCase):
             (1500, 2, 28)
         )
 
+    def test_28th_Feb_8200(self):
+        """This is a Julian-only leap year and Feb 28th and March 1st
+           Gregorian fall in different years by the Julian calendar
+           for the first time."""
+        self.check_both_conversions(
+            (8199, 12, 31),
+            (8200, 2, 28)
+        )
+        
+    def test_1st_March_8200(self):
+        """This is a Julian-only leap year and Feb 28th Gregorian
+           falls in a different Julian year for the first time."""
+        self.check_both_conversions(
+            (8200, 1, 1),
+            (8200, 3, 1)
+        )
+
+    def test_1st_March_8300(self):
+        """This is a Julian-only leap year and 1st March Gregorian
+           falls in a different Julian year for the first time."""
+        self.check_both_conversions(
+            (8299, 12, 31),
+            (8300, 3, 1)
+        )
+
     @given(datetimes(timezones=[]))
     @example(datetime(8200, 3, 1, 0, 0, 0))
     @example(datetime(8200, 2, 28, 0, 0, 0))
