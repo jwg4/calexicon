@@ -59,7 +59,7 @@ class DateWithCalendar(object):
                 return True
             else:
                 if msg is None:
-                    msg = "%s is not equal to %s" % (a, b)
+                    msg = "%s (%s) is not equal to %s (%s)" % (a, a._date, b, b._date)
                 raise test_case.failureException(msg)
         return assertEqual
 
