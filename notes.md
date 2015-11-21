@@ -11,6 +11,7 @@
  - Alaskan historical calendar
  - French revolutionary calendar
  - Julian day numbers
+ - Roman historical calendar - not Julian until 4BC, due to leap year corrections.
 
 ## Year conversions
  - A special case of calendars - all dates are the same, but the years have different numbers.

@@ -18,6 +18,9 @@
 ## Fixes before version 0,1
  1. ~~'1th March 1500'~~
 
+## Changes before version 0.1
+ 1. Create a property which returns a datetime.date if possible, rather than using x._date
+
 ## TODO after completing features for 0.1
 
  1. Register with pypi and upload.
