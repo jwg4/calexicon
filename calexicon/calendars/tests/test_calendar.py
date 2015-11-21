@@ -77,6 +77,15 @@ class TestJulianCalendar(CalendarTest):
         d = date(8200, 3, 1)
         self.assertEqual(self.calendar.julian_representation(d), (8200, 1, 1))
 
+    @given(datetimes(timezones=[]))
+    @example(datetime(8200, 3, 1, 0, 0, 0))
+    @example(datetime(8200, 2, 28, 0, 0, 0))
+    def test_julian_representation_round_trips_with_conversion(self, dt):
+        d = dt.date()
+        y, m, day = self.calendar.julian_representation(d)
+        julian_date = self.calendar.date(y, m, day)
+        self.assertEqual(julian_date._date, d)
+
 class TestProlepticJulianCalendar(TestJulianCalendar):
     def setUp(self):
         self.calendar = ProlepticJulianCalendar()
