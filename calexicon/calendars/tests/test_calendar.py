@@ -245,6 +245,7 @@ class JulianGregorianConversion(unittest.TestCase):
             (8300, 3, 1)
         )
 
+class JulianGregorianRoundTripHypothesisTesting(JulianGregorianConversion):
     @given(datetimes(timezones=[]))
     @example(datetime(8200, 3, 1, 0, 0, 0))
     @example(datetime(8200, 2, 28, 0, 0, 0))
