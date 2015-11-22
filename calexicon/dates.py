@@ -63,3 +63,6 @@ class DateWithCalendar(object):
                 raise test_case.failureException(msg)
         return assertEqual
 
+    def native_representation(self):
+        return self.calendar.representation(self._date)
+
