@@ -2,7 +2,7 @@ import unittest
 
 from datetime import date
 
-from calexicon.calendars import DateWithCalendar
+from calexicon.dates import DateWithCalendar
 
 class TestDateWithCalendar(unittest.TestCase):
     def setUp(self):
