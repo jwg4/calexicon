@@ -14,6 +14,7 @@
  5. Make a calendar for ISO.
  6. ~~README.md~~
  7. ~~Julian Date numbers (calendar?)~~
+ 8. ~~Methods for direct conversion between Julian and Gregorian.~~
 
 ## Fixes before version 0,1
  1. ~~'1th March 1500'~~
