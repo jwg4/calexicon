@@ -1,7 +1,7 @@
 from datetime import date
 
 from base import Calendar
-from dates import InvalidDate, DateWithCalendar
+from calexicon.dates import InvalidDate, DateWithCalendar
 from main import JulianCalendar, ProlepticGregorianCalendar
 
 class SwitchDateWithCalendar(DateWithCalendar):
