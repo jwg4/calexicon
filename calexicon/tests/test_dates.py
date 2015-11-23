@@ -1,6 +1,6 @@
 import unittest
 
-from datetime import date
+from datetime import date, timedelta
 
 from calexicon.dates import DateWithCalendar
 
@@ -23,3 +23,5 @@ class TestDateWithCalendar(unittest.TestCase):
         self.assertTrue(self.date_wc <= date(2010, 8, 1))
         self.assertTrue(self.date_wc >= date(2010, 8, 1))
         
+    def test_subtraction(self):
+        self.assertEqual(self.date_wc - date(2012, 10, 30), timedelta(days=-821))
