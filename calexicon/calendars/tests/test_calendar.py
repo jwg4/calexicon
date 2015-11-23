@@ -85,6 +85,7 @@ class TestJulianCalendar(CalendarTest):
     @given(datetimes(timezones=[]))
     @example(datetime(8200, 3, 1, 0, 0, 0))
     @example(datetime(8200, 2, 28, 0, 0, 0))
+    @example(datetime(8199, 12, 31, 0, 0, 0))
     def test_julian_representation_round_trips_with_conversion(self, dt):
         d = dt.date()
         y, m, day = self.calendar.julian_representation(d)
