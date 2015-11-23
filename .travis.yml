@@ -6,7 +6,11 @@ python:
 install: 
   - pip install -r requirements.txt
   - python setup.py install
-script: python setup.py test
+  - pip install coveralls
+script:
+  coverage run --source=calexicon setup.py test
+after_success:
+  coveralls
 
 branches:
   only:
