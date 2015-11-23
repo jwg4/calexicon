@@ -134,6 +134,18 @@ class TestBCEDate(unittest.TestCase):
             ProlepticJulianCalendar.BCEDate(-45, 1, 1)
         )
 
+    def test_greater_than_same_year(self):
+        self.assertTrue(
+            ProlepticJulianCalendar.BCEDate(-45, 7, 13) >= 
+            ProlepticJulianCalendar.BCEDate(-45, 1, 1)
+        )
+
+    def test_greater_than_same_month(self):
+        self.assertTrue(
+            ProlepticJulianCalendar.BCEDate(-100, 7, 13) >= 
+            ProlepticJulianCalendar.BCEDate(-100, 7, 1)
+        )
+
 class JulianGregorianConversion(unittest.TestCase):
     def setUp(self):
         self.gregorian = ProlepticGregorianCalendar()
