@@ -27,12 +27,12 @@ In [4]: cal3 = calexicon.calendars.ProlepticGregorianCalendar()
 In [5]: d = cal.date(1500, 3, 1)
 
 In [6]: str(d)
-Out[6]: '1th March 1500 (French Historical Calendar - Julian)'
+Out[6]: '1st March 1500 (French Historical Calendar - Julian)'
 
 In [7]: d2 = d.convert_to(cal2)
 
 In [8]: str(d2)
-Out[8]: '1th March 1500 (Julian Calendar)'
+Out[8]: '1st March 1500 (Julian Calendar)'
 
 In [9]: d3 = d.convert_to(cal3)
 
