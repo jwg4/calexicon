@@ -38,7 +38,7 @@ class JulianCalendar(Calendar):
             return False
         if (y % 4) == 0:
             return True
-        return False
+        return False # pragma: no cover
 
     def julian_day_number(self, d):
         td = d - self.date(1, 1, 1)
