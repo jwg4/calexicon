@@ -38,5 +38,8 @@ In [9]: d3 = d.convert_to(cal3)
 
 In [10]: str(d3)
 Out[10]: '11th March 1500 (Proleptic Gregorian Calendar)'
+
+In [11]: d3.native_representation()
+Out[11]: {'day': 11, 'month': 3, 'year': 1500}
 ```
 
