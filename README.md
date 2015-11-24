@@ -16,13 +16,13 @@ This is package for interpretation, conversion, information and testing of calen
 
 ## How to create a date in a given calendar
 ```
-In [1]: import qual
+In [1]: import calexicon
 
-In [2]: cal = qual.calendars.FrenchHistoricalCalendar()
+In [2]: cal = calexicon.calendars.FrenchHistoricalCalendar()
 
-In [3]: cal2 = qual.calendars.JulianCalendar()
+In [3]: cal2 = calexicon.calendars.JulianCalendar()
 
-In [4]: cal3 = qual.calendars.ProlepticGregorianCalendar()
+In [4]: cal3 = calexicon.calendars.ProlepticGregorianCalendar()
 
 In [5]: d = cal.date(1500, 3, 1)
 
