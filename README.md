@@ -37,6 +37,6 @@ Out[8]: '1st March 1500 (Julian Calendar)'
 In [9]: d3 = d.convert_to(cal3)
 
 In [10]: str(d3)
-Out[10]: '12th March 1500 (Proleptic Gregorian Calendar)'
+Out[10]: '11th March 1500 (Proleptic Gregorian Calendar)'
 ```
 
