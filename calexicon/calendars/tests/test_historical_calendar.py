@@ -50,6 +50,12 @@ class TestSpanishHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
     julian_triplets = [(1582, 10, 4)]
     transition_triplets = [(1582, 10, 5), (1582, 10, 9), (1582, 10, 14)]
 
+class TestFrenchHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
+    calendar_type = FrenchHistoricalCalendar
+    gregorian_triplets = []
+    julian_triplets = []
+    transition_triplets = []
+
 class TestHistoricalCalendars(unittest.TestCase):
     def test_FrenchHistoricalCalendar(self):
         self.assertIsNotNone(FrenchHistoricalCalendar())
