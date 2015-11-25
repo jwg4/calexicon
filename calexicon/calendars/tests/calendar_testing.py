@@ -30,6 +30,14 @@ class CalendarTest(unittest.TestCase):
         dc = self.calendar.from_date(d)
         self.assertIsNotNone(dc.__str__())
 
+    @given(datetimes(timezones=[]))
+    def test_date_strings(self, dt):
+        if self.calendar is None:
+            return 
+        d = dt.date()
+        dc = self.calendar.from_date(d)
+        self.assertIsNotNone(dc.native_representation())
+
     def display_string_comparison(self, year, month, day, expected):
         d = self.calendar.date(year, month, day)
         self.assertEqual(d.__str__(), expected)
