@@ -23,14 +23,18 @@ class JulianToGregorianCalendar(Calendar):
         return self.from_date(gregorian_date)
 
     @classmethod
+    def is_gregorian_date(cls, d):
+        return d >= cls.first_gregorian_day
+
+    @classmethod
     def date_display_string(cls, d):
-        if d >= cls.first_gregorian_day:
+        if cls.is_gregorian_date(d):
             return ProlepticGregorianCalendar.date_display_string(d)
         return JulianCalendar.date_display_string(d)
 
     @classmethod
     def representation(cls, d):
-        if d >= cls.first_gregorian_day:
+        if cls.is_gregorian_date(d):
             return ProlepticGregorianCalendar.representation(d)
         return JulianCalendar.representation(d)
 
