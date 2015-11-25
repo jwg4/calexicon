@@ -29,6 +29,12 @@ class JulianToGregorianCalendar(Calendar):
         return JulianCalendar.date_display_string(d)
 
     @classmethod
+    def representation(cls, d):
+        if d >= cls.first_gregorian_day:
+            return ProlepticGregorianCalendar.representation(d)
+        return JulianCalendar.representation(d)
+
+    @classmethod
     def period_string(cls, d):
         if d >= cls.first_gregorian_day:
             return 'Gregorian'
