@@ -42,3 +42,7 @@
  3. End days, Millenium, Mayan, Unix 32-bit rollover.
  4. Dates which are in different years depending on when the year starts.
  5. Dates which are leap days of the Julian calendar.
+
+## Code things
+ 1. Always do `import ..helpers` etc. instead of `import calexicon.helpers`, except in tests where we can equally expect to run the tests from a the root folder and from a virtualenv which contains an installed version of the package.
+

@@ -1,4 +1,4 @@
-from calexicon.calendars import JulianCalendar, ProlepticGregorianCalendar
+from ..calendars import JulianCalendar, ProlepticGregorianCalendar
 
 def julian_to_gregorian(year, month, day):
     calendar = JulianCalendar()
