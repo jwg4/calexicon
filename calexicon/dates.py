@@ -8,6 +8,9 @@ class DateWithCalendar(object):
         self.calendar = calendar_class
         self._date = d
 
+    def to_date(self):
+        return self._date
+
     def convert_to(self, calendar):
         return calendar.from_date(self._date)
 

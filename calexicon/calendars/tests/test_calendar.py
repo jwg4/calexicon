@@ -80,7 +80,7 @@ class TestJulianCalendar(CalendarTest):
 
     def test_making_a_tricky_date_correctly(self):
         julian_date = self.calendar.date(8200, 1, 1)
-        self.assertEqual(julian_date._date, date(8200, 3, 1))
+        self.assertEqual(julian_date.to_date(), date(8200, 3, 1))
 
     @given(datetimes(timezones=[]))
     @example(datetime(8200, 3, 1, 0, 0, 0))
@@ -90,7 +90,7 @@ class TestJulianCalendar(CalendarTest):
         d = dt.date()
         y, m, day = self.calendar.julian_representation(d)
         julian_date = self.calendar.date(y, m, day)
-        self.assertEqual(julian_date._date, d)
+        self.assertEqual(julian_date.to_date(), d)
 
 class TestProlepticJulianCalendar(TestJulianCalendar):
     def setUp(self):
