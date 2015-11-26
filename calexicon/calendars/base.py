@@ -1,5 +1,3 @@
-from datetime import date, timedelta
-
 from ..dates import DateWithCalendar
 
 class Calendar(object):
