@@ -1,4 +1,4 @@
-from datetime import date, timedelta
+from datetime import date as vanilla_date, timedelta
 
 from ..helpers import ordinal, month_string
 from ..dates import DateWithCalendar, InvalidDate
@@ -9,7 +9,7 @@ class ProlepticGregorianCalendar(Calendar):
 
     def date(self, year, month, day):
         try:
-            d = date(year, month, day)
+            d = vanilla_date(year, month, day)
         except ValueError as e:
             raise InvalidDate(e.message)
         return self.from_date(d)
@@ -68,21 +68,21 @@ class JulianCalendar(Calendar):
         return { 'year': year, 'month': month, 'day': day }
         
     @staticmethod
-    def _number_of_extra_leap_days(end, start=date(200, 3, 1)):
+    def _number_of_extra_leap_days(end, start=vanilla_date(200, 3, 1)):
         count = 0
         for x in range(start.year, end.year + 1, 100):
             if not JulianCalendar._is_gregorian_leap_year(x):
-                leap_day = date(x, 2, 28)
+                leap_day = vanilla_date(x, 2, 28)
                 if start < leap_day < end:
                     count = count + 1
         return count
 
     def date(self, year, month, day):
         if day == 29 and month == 2 and self._is_julian_leap_year(year):
-            d = date(year, 2, 28)
+            d = vanilla_date(year, 2, 28)
             offset = self._number_of_extra_leap_days(d) + 1
         else:
-            d = date(year, month, day)
+            d = vanilla_date(year, month, day)
             offset = self._number_of_extra_leap_days(d)
         d = d + timedelta(days=offset)
         return self.from_date(d)

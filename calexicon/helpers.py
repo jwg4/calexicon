@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date as vanilla_date
 
 def ordinal(n):
     suffix = "th"
@@ -13,6 +13,6 @@ def ordinal(n):
     return "%d%s" % (n, suffix)
 
 def month_string(n):
-    d = date(1995, n, 1)
+    d = vanilla_date(1995, n, 1)
     return d.strftime("%B")
     

@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date as vanilla_date
 
 from base import Calendar
 from ..dates import InvalidDate, DateWithCalendar
@@ -14,7 +14,7 @@ class SwitchDateWithCalendar(DateWithCalendar):
 
 class JulianToGregorianCalendar(Calendar):
     def date(self, year, month, day):
-        gregorian_date = date(year, month, day)
+        gregorian_date = vanilla_date(year, month, day)
         if gregorian_date < self.first_gregorian_day:
             julian_date = JulianCalendar().date(year, month, day)
             if not julian_date < self.first_gregorian_day:
@@ -50,13 +50,13 @@ class JulianToGregorianCalendar(Calendar):
 
 class EnglishHistoricalCalendar(JulianToGregorianCalendar):
     display_name = "English Historical Calendar"
-    first_gregorian_day = date(1752, 9, 14)
+    first_gregorian_day = vanilla_date(1752, 9, 14)
 
 class SpanishHistoricalCalendar(JulianToGregorianCalendar):
     display_name = "Spanish Historical Calendar"
-    first_gregorian_day = date(1582, 10, 15)
+    first_gregorian_day = vanilla_date(1582, 10, 15)
 
 class FrenchHistoricalCalendar(JulianToGregorianCalendar):
     display_name = "French Historical Calendar"
-    first_gregorian_day = date(1582, 12, 20)
+    first_gregorian_day = vanilla_date(1582, 12, 20)
 
