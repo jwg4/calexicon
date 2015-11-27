@@ -31,7 +31,7 @@ class CalendarTest(unittest.TestCase):
         self.assertIsNotNone(dc.__str__())
 
     @given(datetimes(timezones=[]))
-    def test_date_strings(self, dt):
+    def test_native_representation(self, dt):
         if self.calendar is None:
             return 
         d = dt.date()
