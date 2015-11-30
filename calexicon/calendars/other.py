@@ -4,13 +4,13 @@ from .base import Calendar
 
 class JulianDayNumber(Calendar):
     first_ce_day = vanilla_date(1, 1, 1)
-    first_ce_day_number = 1000
+    first_ce_day_number = 1721423
     display_name = "Julian Day Number"
 
     @staticmethod
     def date_display_string(d):
         n = JulianDayNumber._day_number(d)
-        return "%d" % n
+        return "Day %d" % n
 
     @staticmethod
     def representation(d):

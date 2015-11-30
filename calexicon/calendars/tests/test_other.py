@@ -13,4 +13,8 @@ class TestJulianDayNumber(CalendarTest):
         d = self.calendar.from_date(vd)
         self.assertIsNotNone(d)
 
+    def test_first_date(self):
+        vd = vanilla_date(1, 1, 1)
+        d = self.calendar.from_date(vd)
+        self.assertEqual(str(d), 'Day 1721423 (Julian Day Number)')
 
