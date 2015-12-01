@@ -5,9 +5,11 @@ __all__ = [
     'ProlepticJulianCalendar',
     'EnglishHistoricalCalendar',
     'SpanishHistoricalCalendar',
-    'FrenchHistoricalCalendar'
+    'FrenchHistoricalCalendar',
+    'JulianDayNumber'
 ]
 
 from main import JulianCalendar, ProlepticGregorianCalendar, ProlepticJulianCalendar
 from historical import EnglishHistoricalCalendar, SpanishHistoricalCalendar, FrenchHistoricalCalendar
+from other import JulianDayNumber
 
