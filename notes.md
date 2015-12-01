@@ -46,3 +46,16 @@
 ## Code things
  1. Always do `import ..helpers` etc. instead of `import calexicon.helpers`, except in tests where we can equally expect to run the tests from a the root folder and from a virtualenv which contains an installed version of the package.
 
+## Issues with navy.mil
+
+We have used numbers from navy.mil to set up some of the conversion. However it looks like they have a mistake. This page is supposed to be Gregorian dates to Julian day numbers, but the results are:
+http://aa.usno.navy.mil/cgi-bin/aa_jdconv.pl?form=1&year=100&month=3&day=1&era=1&hr=0&min=0&sec=0.0
+The Julian date for CE   100 March  1 00:00:00.0 UT is
+JD 1757642.500000
+
+http://aa.usno.navy.mil/cgi-bin/aa_jdconv.pl?form=1&year=100&month=2&day=28&era=1&hr=0&min=0&sec=0.0
+The Julian date for CE   100 February 28 00:00:00.0 UT is
+JD 1757640.500000
+
+This suggests that there is a day in between these two. But by the Gregorian calendar they were adjacent - there was no leap year in 100.
+
