@@ -45,4 +45,4 @@ class TestJulianDayNumber(CalendarTest):
         self.compare_date_and_number(2013, 1, 1, first_jan_2001 + 365 * 12 + 3)
 
     def test_another_date(self):
-        self.compare_date_and_number(2013, 1, 1, 2456293)
+        self.compare_date_and_number(2013, 1, 1, 2456291)
