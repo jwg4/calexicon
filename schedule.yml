@@ -1,0 +1,64 @@
+ - date: 2015-12-02
+   task: create schedule
+   done: 1
+ - date: 2015-12-03
+   task: round trip testing of JulianDayNumber
+   done: 0
+ - date: 2015-12-04
+   task: complete implementation of JulianDayNumber
+   done: 0
+ - date: 2015-12-05
+   task: universal testing of cross conversions
+   done: 0
+ - date: 2015-12-06
+   task: PEP8 testing
+   done: 0
+ - date: 2015-12-07
+   task: complete PEP compliance
+   done: 0
+ - date: 2015-12-08
+   task: tests for astronomical calendar
+   done: 0
+ - date: 2015-12-09
+   task: astronomical calendar
+   done: 0
+ - date: 2015-12-10
+   task: complete astronomical calendar 
+   done: 0
+ - date: 2015-12-11
+   task: tests for ISO calendar
+   done: 0
+ - date: 2015-12-12
+   task: ISO calendar
+   done: 0
+ - date: 2015-12-13
+   task: complete ISO calendar
+   done: 0
+ - date: 2015-12-14
+   task: examples
+   done: 0
+ - date: 2015-12-15
+   task: document examples
+   done: 0
+ - date: 2015-12-16
+   task: ???
+   done: 0
+ - date: 2015-12-17
+   task: re-read all docs
+   done: 0
+ - date: 2015-12-18
+   task: register with pypi
+   done: 0
+ - date: 2015-12-19
+   task: deploy to pypi
+   done: 0
+ - date: 2015-12-20
+   task: checks and fixes
+   done: 0
+ - date: 2015-12-21
+   task: final checks
+   done: 0
+ - date: 2015-12-22
+   task: final release
+   done: 0
+
