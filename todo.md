@@ -22,7 +22,7 @@
 ## Changes before version 0.1
  1. ~~Create a property which returns a datetime.date if possible, rather than using x._date._~~
  2. ~~Check all imports to make sure that we are importing the local code correctly.~~
- 3. Change all imports of date/datetime so that we import them as 'vanilla_date' etc.
+ 3. ~~Change all imports of date/datetime so that we import them as 'vanilla_date' etc.~~
 
 ## Tests before version 0.1
  1. ~~Every calendar should be able to generate a representation for all reasonable dates.~~
