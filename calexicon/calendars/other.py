@@ -1,4 +1,4 @@
-from datetime import date as vanilla_date
+from datetime import date as vanilla_date, timedelta
 
 from .base import Calendar
 
@@ -20,4 +20,6 @@ class JulianDayNumber(Calendar):
     def _day_number(d):
         return (d - JulianDayNumber.first_ce_day).days + JulianDayNumber.first_ce_day_number
 
-
+    def date(self, n):
+        vd = self.first_ce_day + timedelta(days=n - self.first_ce_day_number)
+        return self.bless(vd)
