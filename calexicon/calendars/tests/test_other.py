@@ -6,6 +6,7 @@ from hypothesis.strategies import integers
 from calendar_testing import CalendarTest
 
 from calexicon.calendars.other import JulianDayNumber
+from calexicon.constants import julian_day_number_of_last_vanilla_date
 
 class TestJulianDayNumber(CalendarTest):
     def setUp(self):
@@ -50,7 +51,7 @@ class TestJulianDayNumber(CalendarTest):
     def test_another_date(self):
         self.compare_date_and_number(2013, 1, 1, 2456291)
 
-    @given(integers())
+    @given(integers(max_value=julian_day_number_of_last_vanilla_date))
     def test_construct_from_day_number(self, x):
         d = self.calendar.date(x)
         self.assertIsNotNone(d)
