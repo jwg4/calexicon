@@ -28,6 +28,9 @@
  1. ~~Every calendar should be able to generate a representation for all reasonable dates.~~
  2. ~~Every calendar should be able to generate a display string for all reasonable dates.~~
 
+## Cleanups before version 0.1
+ 1. Move all constants into constants.py.
+
 ## TODO after completing features for 0.1
 
  1. Register with pypi and upload.
