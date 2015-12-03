@@ -1,5 +1,8 @@
 from datetime import date as vanilla_date
 
+from hypothesis import given
+from hypothesis.strategies import integers
+
 from calendar_testing import CalendarTest
 
 from calexicon.calendars.other import JulianDayNumber
@@ -46,3 +49,8 @@ class TestJulianDayNumber(CalendarTest):
 
     def test_another_date(self):
         self.compare_date_and_number(2013, 1, 1, 2456291)
+
+    @given(integers())
+    def test_construct_from_day_number(self, x):
+        d = self.calendar.date(x)
+        self.assertIsNotNone(d)
