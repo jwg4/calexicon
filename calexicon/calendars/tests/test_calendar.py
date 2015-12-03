@@ -12,7 +12,7 @@ from hypothesis.extra.datetime import datetimes
 from datetime import date, datetime
 
 from calexicon.calendars import ProlepticGregorianCalendar, JulianCalendar, ProlepticJulianCalendar
-from calexicon.dates import DateWithCalendar, InvalidDate
+from calexicon.dates import DateWithCalendar, InvalidDate, BCEDate
 from calendar_testing import CalendarTest
 
 class TestProlepticGregorianCalendar(CalendarTest):
@@ -130,20 +130,20 @@ class TestProlepticJulianCalendar(TestJulianCalendar):
 class TestBCEDate(unittest.TestCase):
     def test_greater_than(self):
         self.assertFalse(
-            ProlepticJulianCalendar.BCEDate(-100, 7, 13) >= 
-            ProlepticJulianCalendar.BCEDate(-45, 1, 1)
+            BCEDate(-100, 7, 13) >= 
+            BCEDate(-45, 1, 1)
         )
 
     def test_greater_than_same_year(self):
         self.assertTrue(
-            ProlepticJulianCalendar.BCEDate(-45, 7, 13) >= 
-            ProlepticJulianCalendar.BCEDate(-45, 1, 1)
+            BCEDate(-45, 7, 13) >= 
+            BCEDate(-45, 1, 1)
         )
 
     def test_greater_than_same_month(self):
         self.assertTrue(
-            ProlepticJulianCalendar.BCEDate(-100, 7, 13) >= 
-            ProlepticJulianCalendar.BCEDate(-100, 7, 1)
+            BCEDate(-100, 7, 13) >= 
+            BCEDate(-100, 7, 1)
         )
 
 class JulianGregorianConversion(unittest.TestCase):

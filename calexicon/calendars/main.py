@@ -2,6 +2,7 @@ from datetime import date as vanilla_date, timedelta
 
 from ..helpers import ordinal, month_string
 from ..dates import DateWithCalendar, InvalidDate
+from ..dates.bce import BCEDate
 from base import Calendar
 
 class ProlepticGregorianCalendar(Calendar):
@@ -88,43 +89,12 @@ class JulianCalendar(Calendar):
         return self.from_date(d)
 
 class ProlepticJulianCalendar(JulianCalendar):
-    class BCEDate(DateWithCalendar):
-        def __init__(self, year, month, day):
-            self._validate(year, month, day)
-            self.calendar = None
-            self.date = None
-            self.year = year
-            self.month = month
-            self.day = day
-
-        @staticmethod
-        def _validate(year, month, day):
-            if year == 0:
-                raise InvalidDate('There is no year 0 in the Proleptic Julian Calendar')
-            lengths = [None, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-            if year % 4 == 0:
-                lengths[2] = 29
-            if day > lengths[month]:
-                raise InvalidDate('That month does not have %d days.' % day) 
-
-        def __str__(self):
-            date_string = "%s %s %s BCE" % (ordinal(self.day), month_string(self.month), -self.year)
-            display_name = "Julian Calendar" if (self >= ProlepticJulianCalendar.first_date) else "Proleptic Julian Calendar"
-            return "%s (%s)" % (date_string, display_name)
-        
-        def __ge__(self, other):
-            if self.year != other.year:
-                return self.year > other.year
-            if self.month != other.month:
-                return self.month > other.month
-            return self.day >= other.day
-
     first_date = BCEDate(-45, 1, 1)
         
     def date(self, year, month, day):
         try:
             d = JulianCalendar().date(year, month, day)
         except ValueError:
-            d = ProlepticJulianCalendar.BCEDate(year, month, day)
+            d = BCEDate(year, month, day)
         self.bless(d)
         return d
