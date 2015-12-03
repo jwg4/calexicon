@@ -3,6 +3,7 @@ from datetime import date as vanilla_date, timedelta
 from ..helpers import ordinal, month_string
 from ..dates import DateWithCalendar, InvalidDate
 from ..dates.bce import BCEDate
+from ..constants import first_julian_date
 from base import Calendar
 
 class ProlepticGregorianCalendar(Calendar):
@@ -89,7 +90,7 @@ class JulianCalendar(Calendar):
         return self.from_date(d)
 
 class ProlepticJulianCalendar(JulianCalendar):
-    first_date = BCEDate(-45, 1, 1)
+    first_date = first_julian_date
         
     def date(self, year, month, day):
         try:
