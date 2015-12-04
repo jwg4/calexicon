@@ -7,6 +7,9 @@
  - date: 2015-12-04
    task:
      - round trip testing of JulianDayNumber
+   done: 1
+ - date: 2015-12-04
+   task:
      - complete implementation of JulianDayNumber
    done: 0
  - date: 2015-12-05
