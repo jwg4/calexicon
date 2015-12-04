@@ -2,6 +2,7 @@ from datetime import date as vanilla_date
 
 from hypothesis import given
 from hypothesis.strategies import integers
+from hypothesis.extra.datetime import datetimes
 
 from calendar_testing import CalendarTest
 
@@ -61,4 +62,12 @@ class TestJulianDayNumber(CalendarTest):
         d = self.calendar.date(x)
         rep = d.native_representation()
         self.assertTrue('day_number' in rep)
+
+    @given(datetimes(timezones=[]))
+    def test_round_trip_from_date(self, dt):
+        vd = dt.date()
+        d = self.calendar.from_date(vd)
+        dn = d.native_representation()['day_number']
+        new_d = self.calendar.date(dn)
+        self.assertEqual(d, new_d)
 
