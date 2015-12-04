@@ -55,3 +55,10 @@ class TestJulianDayNumber(CalendarTest):
     def test_construct_from_day_number(self, x):
         d = self.calendar.date(x)
         self.assertIsNotNone(d)
+
+    @given(integers(max_value=julian_day_number_of_last_vanilla_date))
+    def test_round_trip_from_day_number(self, x):
+        d = self.calendar.date(x)
+        rep = d.native_representation()
+        self.assertTrue('day_number' in rep)
+
