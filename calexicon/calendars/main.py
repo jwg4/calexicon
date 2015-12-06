@@ -6,6 +6,7 @@ from ..dates.bce import BCEDate
 from ..constants import first_julian_date
 from base import Calendar
 
+
 class ProlepticGregorianCalendar(Calendar):
     display_name = "Proleptic Gregorian Calendar"
     representation_keys = set(['year', 'month', 'day'])
@@ -90,6 +91,7 @@ class JulianCalendar(Calendar):
             offset = self._number_of_extra_leap_days(d)
         d = d + timedelta(days=offset)
         return self.from_date(d)
+
 
 class ProlepticJulianCalendar(JulianCalendar):
     first_date = first_julian_date

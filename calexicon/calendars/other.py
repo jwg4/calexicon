@@ -3,6 +3,7 @@ from datetime import date as vanilla_date, timedelta
 from .base import Calendar
 from ..dates.bce import BCEDate
 
+
 class JulianDayNumber(Calendar):
     first_ce_day = vanilla_date(1, 1, 1)
     first_ce_day_number = 1721423

@@ -13,6 +13,7 @@ from calexicon.tests.test_dates import TestDateWithCalendar
 from calexicon.calendars import EnglishHistoricalCalendar, SpanishHistoricalCalendar, FrenchHistoricalCalendar
 from calexicon.calendars.historical import SwitchDateWithCalendar
 
+
 class BaseTestHistoricalCalendar(object):
     def setUp(self):
         self.calendar = self.calendar_type()
@@ -29,6 +30,7 @@ class BaseTestHistoricalCalendar(object):
         for triplet in self.transition_triplets:
             self.check_invalid_date(*triplet)
 
+
 class TestEnglishHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
     calendar_type = EnglishHistoricalCalendar
     gregorian_triplets = [(1752, 9, 14)]
@@ -44,11 +46,13 @@ class TestEnglishHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
     def test_display_string_gregorian_date(self):
         self.display_string_comparison(2012, 10, 30, "30th October 2012 (English Historical Calendar - Gregorian)")
 
+
 class TestSpanishHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
     calendar_type = SpanishHistoricalCalendar
     gregorian_triplets = [(1582, 10, 15), (1752, 9, 2), (1752, 9, 14)]
     julian_triplets = [(1582, 10, 4)]
     transition_triplets = [(1582, 10, 5), (1582, 10, 9), (1582, 10, 14)]
+
 
 class TestFrenchHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
     calendar_type = FrenchHistoricalCalendar
@@ -56,9 +60,11 @@ class TestFrenchHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
     julian_triplets = []
     transition_triplets = []
 
+
 class TestHistoricalCalendars(unittest.TestCase):
     def test_FrenchHistoricalCalendar(self):
         self.assertIsNotNone(FrenchHistoricalCalendar())
+
 
 class TestSwitchDateWithCalendar(TestDateWithCalendar):
     def setUp(self):

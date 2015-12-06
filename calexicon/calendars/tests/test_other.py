@@ -9,6 +9,7 @@ from calendar_testing import CalendarTest
 from calexicon.calendars.other import JulianDayNumber
 from calexicon.constants import julian_day_number_of_last_vanilla_date
 
+
 class TestJulianDayNumber(CalendarTest):
     def setUp(self):
         self.calendar = JulianDayNumber()

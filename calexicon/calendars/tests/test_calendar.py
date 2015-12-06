@@ -15,6 +15,7 @@ from calexicon.calendars import ProlepticGregorianCalendar, JulianCalendar, Prol
 from calexicon.dates import DateWithCalendar, InvalidDate, BCEDate
 from calendar_testing import CalendarTest
 
+
 class TestProlepticGregorianCalendar(CalendarTest):
     def setUp(self):
         self.calendar = ProlepticGregorianCalendar()
@@ -44,6 +45,7 @@ class TestProlepticGregorianCalendar(CalendarTest):
         """ The display string for a date gives the correct date and specifies the calendar. """
         d = self.calendar.date(1415, 11, 3)
         self.assertEqual(str(d), "3rd November 1415 (Proleptic Gregorian Calendar)")
+
 
 class TestJulianCalendar(CalendarTest):
     def setUp(self):
@@ -92,6 +94,7 @@ class TestJulianCalendar(CalendarTest):
         julian_date = self.calendar.date(y, m, day)
         self.assertEqual(julian_date.to_date(), d)
 
+
 class TestProlepticJulianCalendar(TestJulianCalendar):
     def setUp(self):
         self.calendar = ProlepticJulianCalendar()
@@ -127,6 +130,7 @@ class TestProlepticJulianCalendar(TestJulianCalendar):
         d = self.calendar.date(-100, 7, 13)
         self.assertEqual(str(d), "13th July 100 BCE (Proleptic Julian Calendar)")
 
+
 class TestBCEDate(unittest.TestCase):
     def test_greater_than(self):
         self.assertFalse(
@@ -145,6 +149,7 @@ class TestBCEDate(unittest.TestCase):
             BCEDate(-100, 7, 13) >= 
             BCEDate(-100, 7, 1)
         )
+
 
 class JulianGregorianConversion(unittest.TestCase):
     def setUp(self):
@@ -257,6 +262,7 @@ class JulianGregorianConversion(unittest.TestCase):
             (8299, 12, 31),
             (8300, 3, 1)
         )
+
 
 class JulianGregorianRoundTripHypothesisTesting(JulianGregorianConversion):
     @given(datetimes(timezones=[]))

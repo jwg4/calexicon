@@ -4,6 +4,7 @@ from datetime import date, timedelta
 
 from calexicon.dates import DateWithCalendar
 
+
 class TestDateWithCalendar(unittest.TestCase):
     def setUp(self):
         date_dt = date(2010, 8, 1)
