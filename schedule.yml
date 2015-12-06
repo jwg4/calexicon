@@ -8,13 +8,10 @@
    task:
      - round trip testing of JulianDayNumber
    done: 1
- - date: 2015-12-04
+ - date: 2015-12-05
    task:
      - complete implementation of JulianDayNumber
-   done: 0
- - date: 2015-12-05
-   task: universal testing of cross conversions
-   done: 0
+   done: 1
  - date: 2015-12-06
    task: PEP8 testing
    done: 0
@@ -46,7 +43,7 @@
    task: document examples
    done: 0
  - date: 2015-12-16
-   task: ???
+   task: universal testing of cross conversions
    done: 0
  - date: 2015-12-17
    task: re-read all docs
