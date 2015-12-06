@@ -7,6 +7,7 @@ class JulianDayNumber(Calendar):
     first_ce_day = vanilla_date(1, 1, 1)
     first_ce_day_number = 1721423
     display_name = "Julian Day Number"
+    representation_keys = set(['day_number'])
 
     @staticmethod
     def date_display_string(d):

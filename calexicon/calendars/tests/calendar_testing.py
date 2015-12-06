@@ -36,7 +36,9 @@ class CalendarTest(unittest.TestCase):
             return 
         d = dt.date()
         dc = self.calendar.from_date(d)
-        self.assertIsNotNone(dc.native_representation())
+        representation = dc.native_representation()
+        self.assertIsNotNone(representation)
+        self.assertEqual(set(representation.keys()), self.calendar.representation_keys)
 
     def display_string_comparison(self, year, month, day, expected):
         d = self.calendar.date(year, month, day)

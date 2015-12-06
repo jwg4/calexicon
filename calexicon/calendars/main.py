@@ -8,6 +8,7 @@ from base import Calendar
 
 class ProlepticGregorianCalendar(Calendar):
     display_name = "Proleptic Gregorian Calendar"
+    representation_keys = set(['year', 'month', 'day'])
 
     def date(self, year, month, day):
         try:
@@ -27,6 +28,7 @@ class ProlepticGregorianCalendar(Calendar):
 
 class JulianCalendar(Calendar):
     display_name = "Julian Calendar"
+    representation_keys = set(['year', 'month', 'day'])
 
     @staticmethod
     def _is_julian_leap_year(y):
@@ -91,6 +93,7 @@ class JulianCalendar(Calendar):
 
 class ProlepticJulianCalendar(JulianCalendar):
     first_date = first_julian_date
+    representation_keys = set(['year', 'month', 'day'])
         
     def date(self, year, month, day):
         try:

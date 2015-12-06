@@ -13,6 +13,8 @@ class SwitchDateWithCalendar(DateWithCalendar):
         )
 
 class JulianToGregorianCalendar(Calendar):
+    representation_keys = set(['year', 'month', 'day'])
+
     def date(self, year, month, day):
         gregorian_date = vanilla_date(year, month, day)
         if gregorian_date < self.first_gregorian_day:
