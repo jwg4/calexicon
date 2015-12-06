@@ -13,10 +13,12 @@
      - complete implementation of JulianDayNumber
    done: 1
  - date: 2015-12-06
-   task: PEP8 testing
-   done: 0
+   task: 
+     - PEP8 testing
+     - complete PEP compliance
+   done: 1
  - date: 2015-12-07
-   task: complete PEP compliance
+   task: plan for all documentation - look at readthedocs.org
    done: 0
  - date: 2015-12-08
    task: tests for astronomical calendar
