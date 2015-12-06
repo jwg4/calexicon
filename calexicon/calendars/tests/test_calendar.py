@@ -134,19 +134,19 @@ class TestProlepticJulianCalendar(TestJulianCalendar):
 class TestBCEDate(unittest.TestCase):
     def test_greater_than(self):
         self.assertFalse(
-            BCEDate(-100, 7, 13) >= 
+            BCEDate(-100, 7, 13) >=
             BCEDate(-45, 1, 1)
         )
 
     def test_greater_than_same_year(self):
         self.assertTrue(
-            BCEDate(-45, 7, 13) >= 
+            BCEDate(-45, 7, 13) >=
             BCEDate(-45, 1, 1)
         )
 
     def test_greater_than_same_month(self):
         self.assertTrue(
-            BCEDate(-100, 7, 13) >= 
+            BCEDate(-100, 7, 13) >=
             BCEDate(-100, 7, 1)
         )
 
@@ -221,7 +221,7 @@ class JulianGregorianConversion(unittest.TestCase):
     def test_a_Gregorian_March_1st(self):
         """ This Gregorian date is March 1st, of a Julian-only leap year.
             Although the Julian date falls before the leap day,
-            since the Gregorian date falls after it, the number of 
+            since the Gregorian date falls after it, the number of
             days difference between the dates in the two calendars
             depends which calendar you use to measure it. """
         self.check_both_conversions(
