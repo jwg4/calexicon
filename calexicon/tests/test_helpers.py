@@ -12,7 +12,7 @@ class TestOrdinal(unittest.TestCase):
 
     def test_2nd(self):
         self.assertEqual(ordinal(2), "2nd")
-        
+
     def test_other_suffixes(self):
         self.assertEqual(ordinal(22), '22nd')
         self.assertEqual(ordinal(12), '12th')

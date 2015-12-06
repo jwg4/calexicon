@@ -25,7 +25,7 @@ class ProlepticGregorianCalendar(Calendar):
     @staticmethod
     def representation(d):
         return { 'year': d.year, 'month': d.month, 'day': d.day }
-        
+
 
 class JulianCalendar(Calendar):
     display_name = "Julian Calendar"
@@ -71,7 +71,7 @@ class JulianCalendar(Calendar):
     def representation(d):
         year, month, day = JulianCalendar.julian_representation(d)
         return { 'year': year, 'month': month, 'day': day }
-        
+
     @staticmethod
     def _number_of_extra_leap_days(end, start=vanilla_date(200, 3, 1)):
         count = 0
@@ -96,7 +96,7 @@ class JulianCalendar(Calendar):
 class ProlepticJulianCalendar(JulianCalendar):
     first_date = first_julian_date
     representation_keys = set(['year', 'month', 'day'])
-        
+
     def date(self, year, month, day):
         try:
             d = JulianCalendar().date(year, month, day)

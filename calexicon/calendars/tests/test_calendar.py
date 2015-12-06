@@ -246,7 +246,7 @@ class JulianGregorianConversion(unittest.TestCase):
             (8199, 12, 31),
             (8200, 2, 28)
         )
-        
+
     def test_1st_March_8200(self):
         """This is a Julian-only leap year and Feb 28th Gregorian
            falls in a different Julian year for the first time."""
@@ -274,7 +274,7 @@ class JulianGregorianRoundTripHypothesisTesting(JulianGregorianConversion):
         converted_date = original_gregorian_date.convert_to(self.julian)
         round_tripped_date = converted_date.convert_to(self.gregorian)
         self.assertEqual(original_gregorian_date, round_tripped_date)
-    
+
     @given(datetimes(timezones=[]))
     @example(datetime(8200, 3, 1, 0, 0, 0))
     @example(datetime(8200, 2, 28, 0, 0, 0))
