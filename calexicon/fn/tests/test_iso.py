@@ -5,7 +5,8 @@ from hypothesis.extra.datetime import datetimes
 
 import calexicon
 
-from datetime import date, MINYEAR, MAXYEAR
+from datetime import MINYEAR, MAXYEAR
+
 
 class TestIsoUtils(unittest.TestCase):
     @given(datetimes(timezones=[]))
@@ -22,11 +23,17 @@ class TestIsoUtils(unittest.TestCase):
 
     @given(integers(MINYEAR, MAXYEAR), integers(54), integers(1, 7))
     def test_weeks_greater_than_53_fail(self, year, week, day):
-        self.assertRaises(ValueError, lambda : calexicon.fn.iso_to_gregorian(year, week, day))
+        self.assertRaises(
+            ValueError,
+            lambda: calexicon.fn.iso_to_gregorian(year, week, day)
+        )
 
     @given(integers(MINYEAR, MAXYEAR), integers(None, 0), integers(1, 7))
     def test_weeks_smaller_than_1_fail(self, year, week, day):
-        self.assertRaises(ValueError, lambda : calexicon.fn.iso_to_gregorian(year, week, day))
+        self.assertRaises(
+            ValueError,
+            lambda: calexicon.fn.iso_to_gregorian(year, week, day)
+        )
 
     @given(integers(MINYEAR, MAXYEAR), integers(1, 7))
     @example(9999, 1)
@@ -43,4 +50,3 @@ class TestIsoUtils(unittest.TestCase):
         self.assertEqual(year, y)
         self.assertEqual(week, w)
         self.assertEqual(day, d)
-

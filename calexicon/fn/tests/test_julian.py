@@ -1,8 +1,7 @@
-import unittest
-
 from calexicon.calendars.tests.test_calendar import JulianGregorianConversion
 
 from calexicon.fn import julian_to_gregorian, gregorian_to_julian
+
 
 class TestJulianConversion(JulianGregorianConversion):
     def setUp(self):
@@ -21,4 +20,3 @@ class TestJulianConversion(JulianGregorianConversion):
             result,
             julian_args,
         )
-
