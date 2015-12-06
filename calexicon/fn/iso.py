@@ -3,12 +3,16 @@ from datetime import date as vanilla_date, timedelta
 from overflow import OverflowDate
 
 
-def iso_to_gregorian(year, week, weekday):
+def _check_week(week):
     if week < 1 or week > 54:
         raise ValueError(
             "Week number %d is invalid for an ISO calendar."
             % (week, )
         )
+
+
+def iso_to_gregorian(year, week, weekday):
+    _check_week(week)
     jan_8 = vanilla_date(year, 1, 8).isocalendar()
     offset = (week - jan_8[1]) * 7 + (weekday - jan_8[2])
     try:
