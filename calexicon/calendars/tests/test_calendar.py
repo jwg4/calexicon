@@ -278,5 +278,3 @@ class JulianGregorianRoundTripHypothesisTesting(JulianGregorianConversion):
         converted_date = original_julian_date.convert_to(self.gregorian)
         round_tripped_date = converted_date.convert_to(self.julian)
         self.assertEqual(original_julian_date, round_tripped_date)
-
-

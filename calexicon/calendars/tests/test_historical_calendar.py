@@ -63,4 +63,3 @@ class TestHistoricalCalendars(unittest.TestCase):
 class TestSwitchDateWithCalendar(TestDateWithCalendar):
     def setUp(self):
         self.date_wc = SwitchDateWithCalendar(None, date(2010, 8, 1))
-

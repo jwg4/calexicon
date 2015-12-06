@@ -70,4 +70,3 @@ class TestJulianDayNumber(CalendarTest):
         dn = d.native_representation()['day_number']
         new_d = self.calendar.date(dn)
         self.assertEqual(d, new_d)
-

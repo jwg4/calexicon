@@ -31,4 +31,3 @@ class JulianDayNumber(Calendar):
             d = BCEDate(1, 1, 1)
             self.bless(d)
             return d
-        

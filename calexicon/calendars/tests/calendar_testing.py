@@ -43,4 +43,3 @@ class CalendarTest(unittest.TestCase):
     def display_string_comparison(self, year, month, day, expected):
         d = self.calendar.date(year, month, day)
         self.assertEqual(d.__str__(), expected)
-

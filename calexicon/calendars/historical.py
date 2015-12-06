@@ -61,4 +61,3 @@ class SpanishHistoricalCalendar(JulianToGregorianCalendar):
 class FrenchHistoricalCalendar(JulianToGregorianCalendar):
     display_name = "French Historical Calendar"
     first_gregorian_day = vanilla_date(1582, 12, 20)
-

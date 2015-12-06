@@ -6,4 +6,3 @@ class Calendar(object):
 
     def bless(self, d):
         d.calendar = self.__class__
-

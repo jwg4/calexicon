@@ -20,4 +20,3 @@ class TestOrdinal(unittest.TestCase):
 class TestMonthString(unittest.TestCase):
     def test_valid_month(self):
         self.assertEqual(month_string(11), "November")
-

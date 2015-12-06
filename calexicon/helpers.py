@@ -15,4 +15,3 @@ def ordinal(n):
 def month_string(n):
     d = vanilla_date(1995, n, 1)
     return d.strftime("%B")
-    
