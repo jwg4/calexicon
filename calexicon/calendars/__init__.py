@@ -10,5 +10,5 @@ __all__ = [
 ]
 
 from main import JulianCalendar, ProlepticGregorianCalendar, ProlepticJulianCalendar
-from historical import EnglishHistoricalCalendar, SpanishHistoricalCalendar, FrenchHistoricalCalendar
+from historical import EnglishHistoricalCalendar, SpanishHistoricalCalendar, FrenchHistoricalCalendar  # noqa
 from other import JulianDayNumber

@@ -10,7 +10,7 @@ from datetime import date
 from test_calendar import CalendarTest
 from calexicon.tests.test_dates import TestDateWithCalendar
 
-from calexicon.calendars import EnglishHistoricalCalendar, SpanishHistoricalCalendar, FrenchHistoricalCalendar
+from calexicon.calendars import EnglishHistoricalCalendar, SpanishHistoricalCalendar, FrenchHistoricalCalendar  # noqa
 from calexicon.calendars.historical import SwitchDateWithCalendar
 
 
