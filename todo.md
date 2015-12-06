@@ -30,6 +30,7 @@
 
 ## Cleanups before version 0.1
  1. Move all constants into constants.py.
+ 2. Remove JulianCalendar.julian_day_number() and replace functionality with JulianDayNumber calendar.
 
 ## TODO after completing features for 0.1
 
