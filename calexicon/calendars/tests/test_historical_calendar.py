@@ -41,10 +41,16 @@ class TestEnglishHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
         self.assertIsInstance(self.calendar.date(1415, 10, 25), SwitchDateWithCalendar)
 
     def test_display_string(self):
-        self.display_string_comparison(1415, 10, 25, "25th October 1415 (English Historical Calendar - Julian)")
+        self.display_string_comparison(
+            1415, 10, 25,
+            "25th October 1415 (English Historical Calendar - Julian)"
+        )
 
     def test_display_string_gregorian_date(self):
-        self.display_string_comparison(2012, 10, 30, "30th October 2012 (English Historical Calendar - Gregorian)")
+        self.display_string_comparison(
+            2012, 10, 30,
+            "30th October 2012 (English Historical Calendar - Gregorian)"
+        )
 
 
 class TestSpanishHistoricalCalendar(BaseTestHistoricalCalendar, CalendarTest):
