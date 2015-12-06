@@ -5,11 +5,10 @@ if sys.hexversion < 0x02070000:
 else:
     import unittest
 
-from hypothesis import given, example
+from hypothesis import given
 from hypothesis.extra.datetime import datetimes
 
-from calexicon.calendars import ProlepticGregorianCalendar, JulianCalendar 
-from calexicon.dates import DateWithCalendar, InvalidDate
+from calexicon.dates import InvalidDate
 
 
 class CalendarTest(unittest.TestCase):

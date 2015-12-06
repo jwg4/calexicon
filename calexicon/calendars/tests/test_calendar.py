@@ -12,7 +12,7 @@ from hypothesis.extra.datetime import datetimes
 from datetime import date, datetime
 
 from calexicon.calendars import ProlepticGregorianCalendar, JulianCalendar, ProlepticJulianCalendar
-from calexicon.dates import DateWithCalendar, InvalidDate, BCEDate
+from calexicon.dates import DateWithCalendar, BCEDate
 from calendar_testing import CalendarTest
 
 
