@@ -7,8 +7,10 @@ install:
   - pip install -r requirements.txt
   - python setup.py install
   - pip install coveralls
+  - pip install flake8
 script:
-  coverage run --source=calexicon setup.py test
+  - flake8 calexicon/
+  - coverage run --source=calexicon setup.py test
 after_success:
   coveralls
 
