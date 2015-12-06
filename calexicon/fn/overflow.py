@@ -5,4 +5,3 @@ class OverflowDate(object):
     def isocalendar(self):
         if 'isocalendar' in self.info:
             return self.info['isocalendar']
-
