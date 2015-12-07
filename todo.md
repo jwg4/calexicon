@@ -31,6 +31,7 @@
 ## Cleanups before version 0.1
  1. Move all constants into constants.py.
  2. Remove JulianCalendar.julian_day_number() and replace functionality with JulianDayNumber calendar.
+ 3. Move _is_julian_leap_year etc from several places into global helpers.
 
 ## TODO after completing features for 0.1
 
@@ -41,4 +42,5 @@
  1. Deal with displaying calendar-specific strings in different locales.
  2. Deal with displaying calendar-specific strings with some notion of formatting.
  3. Make it work with Python 3.x.
+ 4. Use a single polymorphic date object which every calendar can be based on. Calendar objects are maybe not so important anymore.
 

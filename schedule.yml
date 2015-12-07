@@ -48,8 +48,11 @@
    task: document examples
    done: 0
  - date: 2015-12-16
-   task: universal testing of cross conversions
-   done: 0
+   tasks:
+    - task: universal testing of cross conversions
+      done: 0
+    - task: function to create a native representation in any given calendar and convert it to any other calendar.
+      done: 0
  - date: 2015-12-17
    task: re-read all docs
    done: 0
