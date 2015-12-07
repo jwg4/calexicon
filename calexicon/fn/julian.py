@@ -14,3 +14,11 @@ def gregorian_to_julian(year, month, day):
     d = calendar.date(year, month, day)
     converted = d.convert_to(JulianCalendar()).native_representation()
     return (converted['year'], converted['month'], converted['day'])
+
+
+def julian_to_julian_day_number(year, month, day):
+    return 1
+
+
+def julian_day_number_to_julian(number):
+    return (-4713, 1, 1)
