@@ -1,4 +1,4 @@
-from datetime import date as vanilla_date, timedelta
+from datetime import timedelta
 
 from base import BasicBCEDate
 from ..helpers import ordinal, month_string
@@ -50,11 +50,11 @@ class BCEDate(BasicBCEDate):
         else:
             return 365
 
-    @staticmethod
+    @staticmethod  # noqa
     def _subtract(a, b):
         if (a.year == b.year and a.month == b.month and a.day == b.day):
             return 0
-        if ((a.year < b.year) or 
+        if ((a.year < b.year) or
                 (a.year == b.year and a.month < b.month) or
                 (a.year == b.year and a.month == b.month and a.day < b.day)):
             return -BCEDate._subtract(b, a)
@@ -68,11 +68,18 @@ class BCEDate(BasicBCEDate):
                 if previous_year == 0:
                     previous_year = -1
                 return 31 + BCEDate._subtract(BCEDate(previous_year, 12, 1), b)
-            return BCEDate._month_length(a.year, a.month - 1) + BCEDate._subtract(BCEDate(a.year, a.month - 1, 1), b)
+            return (
+                BCEDate._month_length(a.year, a.month - 1) +
+                BCEDate._subtract(BCEDate(a.year, a.month - 1, 1), b)
+            )
         if a.year - b.year > 3:
             n_cycles = (a.year - b.year) // 4
-            return n_cycles * (365 * 3 + 366) + BCEDate._subtract(BCEDate(a.year - 4 * n_cycles, 3, 1), b)
-        return BCEDate._year_length(a.year) + BCEDate._subtract(BCEDate(a.year - 1, 3, 1), b)
+            n_days = n_cycles * (365 * 3 + 366)
+            return n_days + BCEDate._subtract(BCEDate(a.year - 4 * n_cycles, 3, 1), b)
+        return (
+            BCEDate._year_length(a.year) +
+            BCEDate._subtract(BCEDate(a.year - 1, 3, 1), b)
+        )
 
     def __sub__(self, other):
         try:
