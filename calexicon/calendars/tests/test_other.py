@@ -8,6 +8,7 @@ from calendar_testing import CalendarTest
 
 from calexicon.calendars.other import JulianDayNumber
 from calexicon.constants import julian_day_number_of_last_vanilla_date
+from calexicon.dates import BCEDate
 
 
 class TestJulianDayNumber(CalendarTest):
@@ -23,6 +24,11 @@ class TestJulianDayNumber(CalendarTest):
         vd = vanilla_date(1, 1, 1)
         d = self.calendar.from_date(vd)
         self.assertEqual(str(d), 'Day 1721423 (Julian Day Number)')
+
+    def test_make_bce_date(self):
+        bd = BCEDate(-4713, 1, 1)
+        d = self.calendar.from_date(bd)
+        self.assertIsNotNone(d)
 
     def compare_date_and_number(self, year, month, day, number):
         vd = vanilla_date(year, month, day)
