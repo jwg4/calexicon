@@ -25,4 +25,9 @@ def julian_to_julian_day_number(year, month, day):
 
 
 def julian_day_number_to_julian(number):
-    return (-4713, 1, 1)
+    calendar = JulianDayNumber()
+    d = calendar.date(number)
+    converted = d.convert_to(ProlepticJulianCalendar())
+    rep = converted.native_representation()
+    fields = [ rep[x] for x in ['year', 'month', 'day'] ]
+    return tuple(fields)

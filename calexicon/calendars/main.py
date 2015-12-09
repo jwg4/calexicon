@@ -56,6 +56,10 @@ class JulianCalendar(Calendar):
 
     @staticmethod
     def julian_representation(d):
+        try:
+            return d.julian_representation()
+        except:
+            pass
         original_month = d.month
         original_year = d.year
         offset = JulianCalendar._number_of_extra_leap_days(d)

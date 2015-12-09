@@ -87,3 +87,6 @@ class BCEDate(BasicBCEDate):
         except:
             other_date = other
         return timedelta(days=BCEDate._subtract(self._date, other_date))
+
+    def julian_representation(self):
+        return (self.year, self.month, self.day)
