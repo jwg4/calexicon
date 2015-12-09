@@ -31,6 +31,11 @@ class TestJulianDayNumber(CalendarTest):
         self.assertIsNotNone(d)
         self.assertEqual(d.to_date(), bd)
 
+    def test_make_bce_date_check_calendar(self):
+        bd = BCEDate(-4713, 1, 1)
+        d = self.calendar.from_date(bd)
+        self.assertEqual(d.calendar, self.calendar.__class__)
+
     def compare_date_and_number(self, year, month, day, number):
         vd = vanilla_date(year, month, day)
         d = self.calendar.from_date(vd)
@@ -64,6 +69,11 @@ class TestJulianDayNumber(CalendarTest):
     def test_construct_from_day_number(self, x):
         d = self.calendar.date(x)
         self.assertIsNotNone(d)
+
+    @given(integers(max_value=julian_day_number_of_last_vanilla_date))
+    def test_constructed_date_has_right_calendar(self, x):
+        d = self.calendar.date(x)
+        self.assertEqual(d.calendar, self.calendar.__class__)
 
     @given(integers(max_value=julian_day_number_of_last_vanilla_date))
     def test_round_trip_from_day_number(self, x):
