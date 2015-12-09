@@ -29,6 +29,7 @@ class TestJulianDayNumber(CalendarTest):
         bd = BCEDate(-4713, 1, 1)
         d = self.calendar.from_date(bd)
         self.assertIsNotNone(d)
+        self.assertEqual(d.to_date(), bd)
 
     def compare_date_and_number(self, year, month, day, number):
         vd = vanilla_date(year, month, day)
