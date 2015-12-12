@@ -14,6 +14,7 @@ from calexicon.dates import BCEDate
 class TestJulianDayNumber(CalendarTest):
     def setUp(self):
         self.calendar = JulianDayNumber()
+        self.setUpDateEquality()
 
     def test_make_date(self):
         vd = vanilla_date(2010, 8, 1)
