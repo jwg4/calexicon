@@ -75,6 +75,10 @@ class TestJulianDayNumber(CalendarTest):
         d = self.calendar.date(x)
         self.assertEqual(d.calendar, self.calendar.__class__)
 
+    def test_construct_from_specific_day_number(self):
+        d = self.calendar.date(0)
+        self.assertEqual(d, self.calendar.from_date(BCEDate(-4713, 1, 1)))
+
     @given(integers(max_value=julian_day_number_of_last_vanilla_date))
     def test_round_trip_from_day_number(self, x):
         d = self.calendar.date(x)

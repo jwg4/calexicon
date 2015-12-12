@@ -24,7 +24,7 @@
  - date: 2015-12-09
    tasks:
     - task: more testing for JulianDayNumber including round trips
-      done: 0
+      done: 1
     - task: tests for astronomical calendar
       done: 0
     - task: astronomical calendar
