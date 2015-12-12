@@ -1,6 +1,7 @@
 from datetime import date as vanilla_date, timedelta
 
 from .base import Calendar
+from ..dates import DateWithCalendar
 from ..dates.bce import BCEDate
 
 
@@ -23,12 +24,18 @@ class JulianDayNumber(Calendar):
     def _day_number(d):
         return (d - JulianDayNumber.first_ce_day).days + JulianDayNumber.first_ce_day_number
 
+    @staticmethod
+    def _bce_representation(n):
+        count = 0 - n
+        n_4_yr_periods = count // (365 * 4 + 1)
+        year = 0 - 4 * n_4_yr_periods
+        return (year, 1, 1)
+
     def date(self, n):
         offset = n - self.first_ce_day_number
         if offset >= 0:
             vd = self.first_ce_day + timedelta(days=offset)
             return JulianDayNumber().from_date(vd)
         else:
-            d = BCEDate(1, 1, 1)
-            self.bless(d)
-            return d
+            d = BCEDate(*self._bce_representation(n))
+            return DateWithCalendar(self, d)
