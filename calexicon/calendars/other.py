@@ -40,4 +40,4 @@ class JulianDayNumber(Calendar):
             return JulianDayNumber().from_date(vd)
         else:
             d = BCEDate(*self._bce_representation(offset))
-            return JulianDayNumber().from_date(d)
+            return self.from_date(d)
