@@ -28,8 +28,10 @@ class JulianDayNumber(Calendar):
     def _bce_representation(n):
         count = 0 - n
         n_4_yr_periods = count // (365 * 4 + 1)
-        year = 0 - 4 * n_4_yr_periods
-        return (year, 1, 1)
+        remainder = count % (365 * 4 + 1)
+        td = vanilla_date(8, 1, 1) - timedelta(days=remainder)
+        year = td.year - 8 - 4 * n_4_yr_periods
+        return (year, td.month, td.day)
 
     def date(self, n):
         offset = n - self.first_ce_day_number
