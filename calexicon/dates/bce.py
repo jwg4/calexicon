@@ -43,8 +43,6 @@ class BCEDate(BasicBCEDate):
 
     @staticmethod
     def _year_length(y):
-        if y == 0:
-            return 0
         if BCEDate._is_julian_leap_year(y):
             return 366
         else:
