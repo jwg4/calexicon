@@ -45,6 +45,13 @@ class JulianCalendar(Calendar):
             return True
         return False  # pragma: no cover
 
+    @staticmethod
+    def _is_julian_only_leap_year(y):
+        return (
+            JulianCalendar._is_julian_leap_year(y) and
+            not JulianCalendar._is_gregorian_leap_year(y)
+        )
+
     def julian_day_number(self, d):
         td = d - self.date(1, 1, 1)
         return td.days + 1721426
@@ -53,6 +60,13 @@ class JulianCalendar(Calendar):
     def date_display_string(d):
         year, month, day = JulianCalendar.julian_representation(d)
         return "%s %s %s" % (ordinal(day), month_string(month), year)
+
+    @staticmethod
+    def _add_one_day(d):
+        if d.month == 2 and d.day == 28:
+            return (d.year, 2, 29)
+        d = d + timedelta(days=1)
+        return (d.year, d.month, d.day)
 
     @staticmethod
     def julian_representation(d):
@@ -64,12 +78,10 @@ class JulianCalendar(Calendar):
         original_year = d.year
         offset = JulianCalendar._number_of_extra_leap_days(d)
         d = d - timedelta(days=offset)
-        if (JulianCalendar._is_julian_leap_year(original_year)
-                and not JulianCalendar._is_gregorian_leap_year(original_year)):
-            if original_month >= 3 and (d.month <= 2 or d.year < original_year):
-                if d.month == 2 and d.day == 28:
-                    return (d.year, 2, 29)
-                d = d + timedelta(days=1)
+        if (JulianCalendar._is_julian_only_leap_year(original_year)
+                and original_month >= 3
+                and (d.month <= 2 or d.year < original_year)):
+            return JulianCalendar._add_one_day(d)
         return (d.year, d.month, d.day)
 
     @staticmethod
