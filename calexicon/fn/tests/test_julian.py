@@ -43,7 +43,6 @@ class TestJulianNumberConversion(unittest.TestCase):
         self.assertEqual(julian_day_number_to_julian(0), (-4713, 1, 1))
         self.assertEqual(julian_day_number_to_julian(365), (-4712, 1, 1))
 
-    @unittest.skip("Not yet")
     @given(datetimes(timezones=[]))
     def test_round_trip_from_date_compare_tuples(self, dt):
         vd = dt.date()
@@ -52,7 +51,6 @@ class TestJulianNumberConversion(unittest.TestCase):
         result = julian_day_number_to_julian(jdn)
         self.assertEqual(result, (y, m, d))
 
-    @unittest.skip("Not yet")
     @given(datetimes(timezones=[]))
     def test_round_trip_from_date_compare_vanilla_dates(self, dt):
         vd = dt.date()
