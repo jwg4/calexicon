@@ -21,15 +21,14 @@
    tasks: 
     - task: create a function for Julian Day Number
       done: 1
- - date: 2015-12-08
+ - date: 2015-12-09
    tasks:
     - task: more testing for JulianDayNumber including round trips
-      done: 0
+      done: 1
     - task: tests for astronomical calendar
       done: 0
- - date: 2015-12-09
-   task: astronomical calendar
-   done: 0
+    - task: astronomical calendar
+      done: 0
  - date: 2015-12-10
    task: complete astronomical calendar 
    done: 0

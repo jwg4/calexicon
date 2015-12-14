@@ -8,11 +8,13 @@ from calendar_testing import CalendarTest
 
 from calexicon.calendars.other import JulianDayNumber
 from calexicon.constants import julian_day_number_of_last_vanilla_date
+from calexicon.dates import BCEDate
 
 
 class TestJulianDayNumber(CalendarTest):
     def setUp(self):
         self.calendar = JulianDayNumber()
+        self.setUpDateEquality()
 
     def test_make_date(self):
         vd = vanilla_date(2010, 8, 1)
@@ -23,6 +25,17 @@ class TestJulianDayNumber(CalendarTest):
         vd = vanilla_date(1, 1, 1)
         d = self.calendar.from_date(vd)
         self.assertEqual(str(d), 'Day 1721423 (Julian Day Number)')
+
+    def test_make_bce_date(self):
+        bd = BCEDate(-4713, 1, 1)
+        d = self.calendar.from_date(bd)
+        self.assertIsNotNone(d)
+        self.assertEqual(d.to_date(), bd)
+
+    def test_make_bce_date_check_calendar(self):
+        bd = BCEDate(-4713, 1, 1)
+        d = self.calendar.from_date(bd)
+        self.assertEqual(d.calendar, self.calendar.__class__)
 
     def compare_date_and_number(self, year, month, day, number):
         vd = vanilla_date(year, month, day)
@@ -57,6 +70,15 @@ class TestJulianDayNumber(CalendarTest):
     def test_construct_from_day_number(self, x):
         d = self.calendar.date(x)
         self.assertIsNotNone(d)
+
+    @given(integers(max_value=julian_day_number_of_last_vanilla_date))
+    def test_constructed_date_has_right_calendar(self, x):
+        d = self.calendar.date(x)
+        self.assertEqual(d.calendar, self.calendar.__class__)
+
+    def test_construct_from_specific_day_number(self):
+        d = self.calendar.date(0)
+        self.assertEqual(d, self.calendar.from_date(BCEDate(-4713, 1, 1)))
 
     @given(integers(max_value=julian_day_number_of_last_vanilla_date))
     def test_round_trip_from_day_number(self, x):

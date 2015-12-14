@@ -50,10 +50,7 @@ class TestProlepticGregorianCalendar(CalendarTest):
 class TestJulianCalendar(CalendarTest):
     def setUp(self):
         self.calendar = JulianCalendar()
-        self.addTypeEqualityFunc(
-            DateWithCalendar,
-            DateWithCalendar.make_assertEqual(self)
-        )
+        self.setUpDateEquality()
 
     def test_display_string(self):
         """ The display string for a date gives the correct date and specifies the calendar. """

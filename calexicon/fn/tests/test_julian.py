@@ -1,4 +1,13 @@
-import unittest
+import sys
+if sys.hexversion < 0x02070000:
+    import unittest2 as unittest
+else:
+    import unittest
+
+from hypothesis import given
+from hypothesis.extra.datetime import datetimes
+
+from datetime import date as vanilla_date
 
 from calexicon.calendars.tests.test_calendar import JulianGregorianConversion
 
@@ -32,3 +41,20 @@ class TestJulianNumberConversion(unittest.TestCase):
 
     def test_julian_date_to_number(self):
         self.assertEqual(julian_day_number_to_julian(0), (-4713, 1, 1))
+        self.assertEqual(julian_day_number_to_julian(365), (-4712, 1, 1))
+
+    @given(datetimes(timezones=[]))
+    def test_round_trip_from_date_compare_tuples(self, dt):
+        vd = dt.date()
+        (y, m, d) = (vd.year, vd.month, vd.day)
+        jdn = julian_to_julian_day_number(y, m, d)
+        result = julian_day_number_to_julian(jdn)
+        self.assertEqual(result, (y, m, d))
+
+    @given(datetimes(timezones=[]))
+    def test_round_trip_from_date_compare_vanilla_dates(self, dt):
+        vd = dt.date()
+        (y, m, d) = (vd.year, vd.month, vd.day)
+        jdn = julian_to_julian_day_number(y, m, d)
+        result = julian_day_number_to_julian(jdn)
+        self.assertEqual(vd, vanilla_date(*result))

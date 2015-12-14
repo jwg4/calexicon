@@ -43,8 +43,6 @@ class BCEDate(BasicBCEDate):
 
     @staticmethod
     def _year_length(y):
-        if y == 0:
-            return 0
         if BCEDate._is_julian_leap_year(y):
             return 366
         else:
@@ -87,3 +85,6 @@ class BCEDate(BasicBCEDate):
         except:
             other_date = other
         return timedelta(days=BCEDate._subtract(self._date, other_date))
+
+    def julian_representation(self):
+        return (self.year, self.month, self.day)

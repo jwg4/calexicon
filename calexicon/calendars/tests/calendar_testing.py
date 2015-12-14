@@ -8,11 +8,17 @@ else:
 from hypothesis import given
 from hypothesis.extra.datetime import datetimes
 
-from calexicon.dates import InvalidDate
+from calexicon.dates import InvalidDate, DateWithCalendar
 
 
 class CalendarTest(unittest.TestCase):
     calendar = None
+
+    def setUpDateEquality(self):
+        self.addTypeEqualityFunc(
+            DateWithCalendar,
+            DateWithCalendar.make_assertEqual(self)
+        )
 
     def check_valid_date(self, year, month, day):
         d = self.calendar.date(year, month, day)

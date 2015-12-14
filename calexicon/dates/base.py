@@ -16,6 +16,10 @@ class DateWithCalendar(object):
         return calendar.from_date(self._date)
 
     def __eq__(self, other):
+        try:
+            return self.year == other.year and self.month == other.month and self.day == other.day
+        except:
+            pass
         return self.calendar == other.calendar and self._date == other._date
 
     def __str__(self):
