@@ -1,7 +1,6 @@
 from datetime import date as vanilla_date, timedelta
 
 from .base import Calendar
-from ..dates import DateWithCalendar
 from ..dates.bce import BCEDate
 
 

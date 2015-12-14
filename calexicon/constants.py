@@ -11,4 +11,3 @@ julian_day_number_of_last_vanilla_date = (
     julian_day_number_of_first_vanilla_date
     + (last_vanilla_date - first_vanilla_date).days
 )
-
