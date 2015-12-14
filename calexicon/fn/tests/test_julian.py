@@ -1,6 +1,11 @@
+import sys
+if sys.hexversion < 0x02070000:
+    import unittest2 as unittest
+else:
+    import unittest
+
 from hypothesis import given
 from hypothesis.extra.datetime import datetimes
-import unittest
 
 from datetime import date as vanilla_date
 
