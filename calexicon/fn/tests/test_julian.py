@@ -40,7 +40,7 @@ class TestJulianNumberConversion(unittest.TestCase):
 
     @unittest.skip("Not yet")
     @given(datetimes(timezones=[]))
-    def test_round_trip_from_date(self, dt):
+    def test_round_trip_from_date_compare_tuples(self, dt):
         vd = dt.date()
         (y, m, d) = (vd.year, vd.month, vd.day)
         jdn = julian_to_julian_day_number(y, m, d)
@@ -49,7 +49,7 @@ class TestJulianNumberConversion(unittest.TestCase):
 
     @unittest.skip("Not yet")
     @given(datetimes(timezones=[]))
-    def test_round_trip_from_date(self, dt):
+    def test_round_trip_from_date_compare_vanilla_dates(self, dt):
         vd = dt.date()
         (y, m, d) = (vd.year, vd.month, vd.day)
         jdn = julian_to_julian_day_number(y, m, d)
