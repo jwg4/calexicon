@@ -6,7 +6,7 @@ from hypothesis.extra.datetime import datetimes
 
 from calendar_testing import CalendarTest
 
-from calexicon.calendars.other import JulianDayNumber
+from calexicon.calendars.other import JulianDayNumber, AstronomicalCalendar
 from calexicon.constants import julian_day_number_of_last_vanilla_date
 from calexicon.dates import BCEDate
 
@@ -93,3 +93,10 @@ class TestJulianDayNumber(CalendarTest):
         dn = d.native_representation()['day_number']
         new_d = self.calendar.date(dn)
         self.assertEqual(d, new_d)
+
+class TestAstronomicalCalendar(CalendarTest):
+    def setUp(self):
+        self.calendar = AstronomicalCalendar()
+
+    def test_zero_year_date(self):
+        pass
