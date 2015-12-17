@@ -40,3 +40,15 @@ class JulianDayNumber(Calendar):
         else:
             d = BCEDate(*self._bce_representation(offset))
             return self.from_date(d)
+
+class AstronomicalCalendar(Calendar):
+    display_name = "Astronomical Calendar"
+    representation_keys = set(['year', 'month', 'day'])
+
+    @staticmethod
+    def date_display_string(d):
+        return "0/1/1"
+
+    @staticmethod
+    def representation(d):
+        return dict(year=0, month=1, day=1)
