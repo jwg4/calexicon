@@ -52,3 +52,12 @@ class AstronomicalCalendar(Calendar):
     @staticmethod
     def representation(d):
         return dict(year=0, month=1, day=1)
+
+    def date(self, y, m, d):
+        try:
+            vd = vanilla_date(y, m, d)
+            return self.from_date(vd)
+        except ValueError:
+            d = None
+            return self.from_date(d)
+

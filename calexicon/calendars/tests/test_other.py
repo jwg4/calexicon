@@ -99,4 +99,5 @@ class TestAstronomicalCalendar(CalendarTest):
         self.calendar = AstronomicalCalendar()
 
     def test_zero_year_date(self):
-        pass
+        d = self.calendar.date(0, 1, 1)
+        self.assertIsNotNone(d)
