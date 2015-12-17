@@ -36,7 +36,7 @@ class JulianDayNumber(Calendar):
         offset = n - self.first_ce_day_number
         if offset >= 0:
             vd = self.first_ce_day + timedelta(days=offset)
-            return JulianDayNumber().from_date(vd)
+            return self.from_date(vd)
         else:
             d = BCEDate(*self._bce_representation(offset))
             return self.from_date(d)
