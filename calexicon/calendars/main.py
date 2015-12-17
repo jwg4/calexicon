@@ -3,6 +3,7 @@ from datetime import date as vanilla_date, timedelta
 from ..helpers import ordinal, month_string
 from ..dates import InvalidDate
 from ..dates.bce import BCEDate
+from ..dates.distant import DistantDate
 from ..constants import first_julian_date
 from base import Calendar
 
@@ -119,5 +120,7 @@ class ProlepticJulianCalendar(JulianCalendar):
             d = JulianCalendar().date(year, month, day)
         except ValueError:
             d = BCEDate(year, month, day)
+        except OverflowError:
+            d = DistantDate(year, month, day)
         self.bless(d)
         return d
