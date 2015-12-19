@@ -1,4 +1,5 @@
 from datetime import date as vanilla_date
+import unittest
 
 from hypothesis import given
 from hypothesis.strategies import integers
@@ -6,9 +7,10 @@ from hypothesis.extra.datetime import datetimes
 
 from calendar_testing import CalendarTest
 
+from calexicon.calendars.main import ProlepticJulianCalendar
 from calexicon.calendars.other import JulianDayNumber, AstronomicalCalendar
 from calexicon.constants import julian_day_number_of_last_vanilla_date
-from calexicon.dates import BCEDate
+from calexicon.dates import BCEDate, DateWithCalendar, DistantDate
 
 
 class TestJulianDayNumber(CalendarTest):
@@ -93,6 +95,29 @@ class TestJulianDayNumber(CalendarTest):
         dn = d.native_representation()['day_number']
         new_d = self.calendar.date(dn)
         self.assertEqual(d, new_d)
+
+
+class TestJulianDateConversion(unittest.TestCase):
+    def setUp(self):
+        self.addTypeEqualityFunc(
+            DateWithCalendar,
+            DateWithCalendar.make_assertEqual(self)
+        )
+
+    def test_conversion(self):
+        calendar = ProlepticJulianCalendar()
+        d = calendar.date(9999, 12, 1)
+        converted = d.convert_to(JulianDayNumber())
+        self.assertIsNotNone(converted)
+        self.assertEqual(converted, DateWithCalendar(JulianDayNumber, DistantDate(10000, 2, 12)))
+
+    def test_conversion_2(self):
+        calendar = ProlepticJulianCalendar()
+        d = calendar.date(9999, 9, 19)
+        converted = d.convert_to(JulianDayNumber())
+        self.assertIsNotNone(converted)
+        self.assertEqual(converted, DateWithCalendar(JulianDayNumber, vanilla_date(9999, 12, 1)))
+
 
 class TestAstronomicalCalendar(CalendarTest):
     def setUp(self):
