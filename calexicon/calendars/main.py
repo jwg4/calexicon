@@ -96,7 +96,7 @@ class JulianCalendar(Calendar):
         for x in range(start.year, end.year + 1, 100):
             if not JulianCalendar._is_gregorian_leap_year(x):
                 leap_day = vanilla_date(x, 2, 28)
-                if start < leap_day < end:
+                if start < leap_day and end > leap_day:
                     count = count + 1
         return count
 
