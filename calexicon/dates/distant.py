@@ -12,6 +12,10 @@ class DistantDate(DateWithCalendar):
     def _date(self):
         return self
 
+    def __str__(self):
+        s = "%d/%d/%d CE (Distant Date)"
+        return s % (self.year, self.month, self.day)
+
     def __sub__(self, other):
         try:
             _ = other.year
