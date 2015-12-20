@@ -13,7 +13,17 @@ class DistantDate(DateWithCalendar):
         return self
 
     def __sub__(self, other):
-        return timedelta(days=0)
+        try:
+            _ = other.year
+            return timedelta(days=0)
+        except:
+            pass
+        try:
+            _ = other.days
+            return DistantDate(10000, 1, 1)
+        except:
+            pass
+        return None
 
     def __ge__(self, other):
         if self.year != other.year:
