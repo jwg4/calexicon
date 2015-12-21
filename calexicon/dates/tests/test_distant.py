@@ -14,3 +14,9 @@ class TestDistantDate(unittest.TestCase):
         dd = DistantDate(10000, 1, 2)
         dd2 = DistantDate(10000, 1, 1)
         self.assertEqual(dd - dd2, timedelta(days=1))
+
+    def test_subtract_vanilla_date_from_distant_date(self):
+        dd = DistantDate(10000, 1, 2)
+        d = vanilla_date(9984, 2, 29)
+        x = 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31 + 15 * 365 + 3 + 2
+        self.assertEqual(dd - d, timedelta(days=x))

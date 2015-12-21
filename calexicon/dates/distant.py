@@ -1,4 +1,4 @@
-from datetime import timedelta
+from datetime import timedelta, date as vanilla_date
 
 from base import DateWithCalendar
 
@@ -19,6 +19,11 @@ class DistantDate(DateWithCalendar):
     def __sub__(self, other):
         try:
             o_year = other.year
+            if o_year < 10000:
+                a = self - DistantDate(10000, 1, 1)
+                b = vanilla_date(9999, 12, 31) - other
+                x = a.days + b.days + 1
+                return timedelta(days=x)
             if self.year == o_year:
                 if self.month == other.month:
                     return timedelta(days=self.day - other.day)
