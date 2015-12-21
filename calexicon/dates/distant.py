@@ -18,7 +18,10 @@ class DistantDate(DateWithCalendar):
 
     def __sub__(self, other):
         try:
-            _ = other.year
+            o_year = other.year
+            if self.year == o_year:
+                if self.month == other.month:
+                    return timedelta(days=self.day - other.day)
             return timedelta(days=0)
         except:
             pass
