@@ -23,7 +23,7 @@ class DistantDate(DateWithCalendar):
                 if self.month == other.month:
                     return timedelta(days=self.day - other.day)
             return timedelta(days=0)
-        except:
+        except AttributeError:
             pass
         try:
             _ = other.days
