@@ -12,7 +12,7 @@ from hypothesis.extra.datetime import datetimes
 from datetime import date, datetime
 
 from calexicon.calendars import ProlepticGregorianCalendar, JulianCalendar, ProlepticJulianCalendar
-from calexicon.dates import DateWithCalendar, BCEDate
+from calexicon.dates import DateWithCalendar, BCEDate, DistantDate
 from calendar_testing import CalendarTest
 
 
@@ -130,6 +130,9 @@ class TestProlepticJulianCalendar(TestJulianCalendar):
         d = self.calendar.date(-100, 7, 13)
         self.assertEqual(str(d), "13th July 100 BCE (Proleptic Julian Calendar)")
 
+    def test_distant_date(self):
+        d = self.calendar.date(9999, 12, 1)
+        self.assertEqual(d, DateWithCalendar(ProlepticJulianCalendar, DistantDate(10000, 2, 12)))
 
 class TestBCEDate(unittest.TestCase):
     def test_greater_than(self):
