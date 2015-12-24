@@ -132,7 +132,9 @@ class TestProlepticJulianCalendar(TestJulianCalendar):
 
     def test_distant_date(self):
         d = self.calendar.date(9999, 12, 1)
-        self.assertEqual(d, DateWithCalendar(ProlepticJulianCalendar, DistantDate(10000, 2, 12)))
+        dd = DateWithCalendar(ProlepticJulianCalendar, DistantDate(10000, 2, 12))
+        self.assertEqual(d.calendar, dd.calendar)
+        self.assertEqual(d, dd)
 
 class TestBCEDate(unittest.TestCase):
     def test_greater_than(self):
