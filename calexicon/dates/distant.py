@@ -54,3 +54,7 @@ class DistantDate(DateWithCalendar):
 
     def __gt__(self, other):
         return not (self <= other)
+
+    @staticmethod
+    def julian_to_gregorian(y, m, d):
+        return (y, m, d)
