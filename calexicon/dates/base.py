@@ -63,6 +63,13 @@ class DateWithCalendar(object):
             other_date = other
         return self._date - other_date
 
+    @property
+    def y(self):
+        try:
+            return self.year
+        except:
+            return self._date.year
+
     @staticmethod
     def make_assertEqual(test_case):
         def assertEqual(a, b, msg):
