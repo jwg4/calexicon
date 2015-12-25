@@ -33,3 +33,8 @@ class TestDistantDate(unittest.TestCase):
         ProlepticJulianCalendar().bless(dd)
         dwc = DateWithCalendar(ProlepticJulianCalendar, DistantDate(2010, 8, 1)) 
         self.assertTrue(dd == dwc)
+
+    def test_equality_of_two_distant_dates(self):
+        d1 = DistantDate(2010, 8, 1)
+        d2 = DistantDate(2010, 8, 1)
+        self.assertTrue(d1 == d2)
