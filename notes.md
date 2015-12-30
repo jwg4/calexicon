@@ -1,6 +1,10 @@
 ## Important sources
  - How to build a package is at http://python-packaging.readthedocs.org/en/latest/index.html
 
+## Automated code quality
+ - Codacy
+ - Code climate
+
 ## Calendar sources
  - Lots of detail about calendar conversion is at http://norbyhus.dk/calendar.php
  - A mistake in Wolfram Alpha (and a good test case) http://mathematica.stackexchange.com/questions/97818/why-does-mathematicas-date-for-the-battle-agincourt-differ-from-the-us-navys
