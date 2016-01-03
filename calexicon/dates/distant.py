@@ -1,6 +1,7 @@
 from datetime import timedelta, date as vanilla_date
 
 from base import DateWithCalendar
+from ..internal.julian import distant_julian_to_gregorian
 
 class DistantDate(DateWithCalendar):
     def __init__(self, y, m, d):
@@ -57,4 +58,4 @@ class DistantDate(DateWithCalendar):
 
     @staticmethod
     def julian_to_gregorian(y, m, d):
-        return (y, m, d)
+        return distant_julian_to_gregorian(y, m, d)

@@ -121,6 +121,7 @@ class ProlepticJulianCalendar(JulianCalendar):
         except ValueError:
             d = BCEDate(year, month, day)
         except OverflowError:
+            year, month, day = DistantDate.julian_to_gregorian(year, month, day)
             d = DistantDate(year, month, day)
         self.bless(d)
         return d
