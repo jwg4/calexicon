@@ -9,6 +9,7 @@
  - Lots of detail about calendar conversion is at http://norbyhus.dk/calendar.php
  - A mistake in Wolfram Alpha (and a good test case) http://mathematica.stackexchange.com/questions/97818/why-does-mathematicas-date-for-the-battle-agincourt-differ-from-the-us-navys
  - This page has lots of information about conversion algorithms: https://en.wikipedia.org/wiki/Julian_day
+ - Conversion sample code: http://aa.usno.navy.mil/faq/docs/JD_Formula.php
 
 ## Interesting calendars
  - Swedish historical calendar
@@ -17,6 +18,7 @@
  - Julian day numbers
  - Roman historical calendar - not Julian until 4BC, due to leap year corrections.
  - Revised Julian Calendar - https://en.wikipedia.org/wiki/Revised_Julian_calendar
+ - Modified Julian Date - http://tycho.usno.navy.mil/mjd.html
 
 ## Year conversions
  - A special case of calendars - all dates are the same, but the years have different numbers.
