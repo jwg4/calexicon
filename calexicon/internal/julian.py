@@ -35,5 +35,5 @@ def distant_julian_to_gregorian(y, m, d):
     n = (y - 1600) // 400
     d = julian_to_gregorian(y - n * 400, m, d)
     d = d + timedelta(days=3 * n)
-    return (d.year + n * 400, m, d)
+    return (d.year + n * 400, d.month, d.day)
 
