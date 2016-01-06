@@ -28,6 +28,8 @@ class DistantDate(DateWithCalendar):
             if self.year == o_year:
                 if self.month == other.month:
                     return timedelta(days=self.day - other.day)
+                offset = ((self.year - 1600) // 400) * 400
+                return vanilla_date(self.year - offset, self.month, self.day) - vanilla_date(other.year - offset, other.month, other.day)
             return timedelta(days=0)
         except AttributeError:
             pass
