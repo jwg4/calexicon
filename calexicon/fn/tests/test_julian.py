@@ -38,12 +38,12 @@ class TestJulianNumberConversion(unittest.TestCase):
     def test_julian_date_to_number(self):
         self.assertEqual(julian_to_julian_day_number(-4713, 1, 1), 0)
         self.assertEqual(julian_to_julian_day_number(-4712, 1, 1), 365)
-        self.assertEqual(julian_to_julian_day_number(9999, 12 ,1), 5373451)
+        self.assertEqual(julian_to_julian_day_number(9999, 10, 19), 5373481)
 
     def test_number_to_julian_date(self):
         self.assertEqual(julian_day_number_to_julian(0), (-4713, 1, 1))
         self.assertEqual(julian_day_number_to_julian(365), (-4712, 1, 1))
-        self.assertEqual(julian_day_number_to_julian(5373482), (9999, 1, 1))
+        self.assertEqual(julian_day_number_to_julian(5373481), (9999, 10, 19))
 
     @example(datetime(9999, 12, 1, 0, 0, 0))
     @given(datetimes(timezones=[]))
