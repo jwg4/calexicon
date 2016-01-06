@@ -22,6 +22,12 @@ class TestDistantDate(unittest.TestCase):
         x = 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31 + 15 * 365 + 3 + 2
         self.assertEqual(dd - d, timedelta(days=x))
 
+    def test_subtract_early_vanilla_date(self):
+        dd = DistantDate(10000, 2, 12)
+        d = vanilla_date(1, 1, 1)
+        x = vanilla_date(9999, 12, 31) - vanilla_date(1, 1, 1) + timedelta(days=43)
+        self.assertEqual(dd - d, x)
+
     def test_equality(self):
         dd = DistantDate(2010, 8, 1)
         ProlepticJulianCalendar().bless(dd)
