@@ -33,6 +33,10 @@ class TestDistantDate(unittest.TestCase):
         dd2 = DistantDate(10000, 1, 1)
         self.assertEqual(dd - dd2, timedelta(days=42))
 
+    def test_addition(self):
+        dd = DistantDate(10000, 1, 1)
+        td = timedelta(days=1)
+        self.assertEqual(dd + td, DistantDate(10000, 1, 2))
     def test_equality(self):
         dd = DistantDate(2010, 8, 1)
         ProlepticJulianCalendar().bless(dd)
