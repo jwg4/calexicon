@@ -1,7 +1,9 @@
 from datetime import date as vanilla_date, timedelta
 
 from .base import Calendar
+from ..constants import number_of_vanilla_dates
 from ..dates.bce import BCEDate
+from ..dates.distant import DistantDate
 
 
 class JulianDayNumber(Calendar):
@@ -34,9 +36,11 @@ class JulianDayNumber(Calendar):
 
     def date(self, n):
         offset = n - self.first_ce_day_number
-        if offset >= 0:
+        if offset >= 0 and offset <= number_of_vanilla_dates:
             vd = self.first_ce_day + timedelta(days=offset)
             return self.from_date(vd)
+        elif offset > number_of_vanilla_dates:
+            d = DistantDate(10000, 1, 1) + timedelta(days=offset)
         else:
             d = BCEDate(*self._bce_representation(offset))
             return self.from_date(d)
