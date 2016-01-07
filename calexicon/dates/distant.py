@@ -42,6 +42,12 @@ class DistantDate(DateWithCalendar):
             pass
         return None
 
+    def __add__(self, other):
+        offset = ((self.year - 1600) // 400) * 400
+        offset_self = vanilla_date(self.year - offset, self.month, self.day)
+        offset_sum = offset_self + other
+        return DistantDate(offset_sum.year + offset, offset_sum.month, offset_sum.day)
+
     def __ge__(self, other):
         if self.year != other.year:
             return self.year > other.year
