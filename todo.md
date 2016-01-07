@@ -33,6 +33,7 @@
  1. Move all constants into constants.py.
  2. Remove JulianCalendar.julian_day_number() and replace functionality with JulianDayNumber calendar.
  3. Move _is_julian_leap_year etc from several places into global helpers.
+ 4. All calculations in internal. calendars, dates and fn call these helper functions.
 
 ## TODO after completing features for 0.1
 
