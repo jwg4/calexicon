@@ -13,3 +13,5 @@ julian_day_number_of_last_vanilla_date = (
 )
 
 number_of_vanilla_dates = (last_vanilla_date - first_vanilla_date).days
+
+number_of_days_in_400_gregorian_years = (vanilla_date(2000, 1, 1) - vanilla_date(1600, 1, 1)).days
