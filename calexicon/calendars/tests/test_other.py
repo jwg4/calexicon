@@ -118,6 +118,13 @@ class TestJulianDateConversion(unittest.TestCase):
         self.assertIsNotNone(converted)
         self.assertEqual(converted, DateWithCalendar(JulianDayNumber, vanilla_date(9999, 12, 1)))
 
+    def test_jdn_to_julian(self):
+        calendar = JulianDayNumber()
+        d = calendar.date(5373524)
+        converted = d.convert_to(ProlepticJulianCalendar())
+        self.assertIsNotNone(converted)
+        self.assertEqual(converted, DateWithCalendar(ProlepticJulianCalendar, DistantDate(10000, 2, 12)))
+
 
 class TestAstronomicalCalendar(CalendarTest):
     def setUp(self):
