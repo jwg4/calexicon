@@ -1,18 +1,11 @@
 from datetime import date as vanilla_date, timedelta
 
-def _is_gregorian_leap_year(y):
-    if (y % 400) == 0:
-        return True
-    if (y % 100) == 0:
-        return False
-    if (y % 4) == 0:
-        return True
-    return False  # pragma: no cover
+from gregorian import is_gregorian_leap_year
 
 def _number_of_extra_leap_days(end, start=vanilla_date(200, 3, 1)):
     count = 0
     for x in range(start.year, end.year + 1, 100):
-        if not _is_gregorian_leap_year(x):
+        if not is_gregorian_leap_year(x):
             leap_day = vanilla_date(x, 2, 28)
             if start < leap_day and end > leap_day:
                 count = count + 1
