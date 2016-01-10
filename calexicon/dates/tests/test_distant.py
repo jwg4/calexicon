@@ -33,6 +33,11 @@ class TestDistantDate(unittest.TestCase):
         dd2 = DistantDate(10000, 1, 1)
         self.assertEqual(dd - dd2, timedelta(days=42))
 
+    def test_subtract_timedelta_from_dd(self):
+        dd = DistantDate(10000, 2, 12)
+        td = timedelta(days=1)
+        self.assertEqual(dd - td, DistantDate(10000, 2, 11))
+
     def test_addition(self):
         dd = DistantDate(10000, 1, 1)
         td = timedelta(days=1)

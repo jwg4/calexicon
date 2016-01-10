@@ -37,7 +37,9 @@ class DistantDate(DateWithCalendar):
         except AttributeError:
             pass
         try:
-            _ = other.days
+            n = other.days
+            if n < self.day:
+                return DistantDate(self.year, self.month, self.day - n)
             return DistantDate(10000, 1, 1)
         except:
             pass
