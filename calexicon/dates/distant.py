@@ -1,7 +1,7 @@
 from datetime import timedelta, date as vanilla_date
 
 from base import DateWithCalendar
-from ..internal.gregorian import days_in_previous_month
+from ..internal.gregorian import days_in_previous_month, previous_month
 from ..internal.julian import distant_julian_to_gregorian
 from ..constants import number_of_days_in_400_gregorian_years
 
@@ -45,12 +45,7 @@ class DistantDate(DateWithCalendar):
             return DistantDate(self.year, self.month, self.day - n)
         n_days_in_month = days_in_previous_month(self.year, self.month)
         if self.day < n_days_in_month < n:
-            if self.month == 1:
-                y = self.year - 1
-                m = 12
-            else:
-                y = self.year
-                m = self.month - 1
+            y, m = previous_month(self.year, self.month)
             return DistantDate(y, m, self.day) - timedelta(days=(n - n_days_in_month))
         return DistantDate(10000, 1, 1)
 
