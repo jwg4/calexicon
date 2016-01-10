@@ -38,21 +38,20 @@ class DistantDate(DateWithCalendar):
             pass
         try:
             n = other.days
-            if n < self.day:
-                return DistantDate(self.year, self.month, self.day - n)
-            n_days_in_month = days_in_month(self.year, self.month)
-            if self.day < n_days_in_month < n:
-                if month == 1:
-                    y = self.year - 1
-                    m = 12
-                else:
-                    y = self.year
-                    m = self.month - 1
-                return DistantDate(y, m, self.day) - timedelta(days=(n - n_days_in_month))
-            return DistantDate(10000, 1, 1)
         except:
-            pass
-        return None
+            return None
+        if n < self.day:
+            return DistantDate(self.year, self.month, self.day - n)
+        n_days_in_month = days_in_month(self.year, self.month)
+        if self.day < n_days_in_month < n:
+            if month == 1:
+                y = self.year - 1
+                m = 12
+            else:
+                y = self.year
+                m = self.month - 1
+            return DistantDate(y, m, self.day) - timedelta(days=(n - n_days_in_month))
+        return DistantDate(10000, 1, 1)
 
     def __add__(self, other):
         try:
