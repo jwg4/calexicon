@@ -47,6 +47,9 @@ class DistantDate(DateWithCalendar):
         if self.day < n_days_in_month <= n:
             y, m = previous_month(self.year, self.month)
             return DistantDate(y, m, self.day) - timedelta(days=(n - n_days_in_month))
+        if self.day <= n and n < self.day + n_days_in_month:
+            y, m = previous_month(self.year, self.month)
+            return DistantDate(y, m, self.day - n + n_days_in_month)
         return DistantDate(10000, 1, 1)
 
     def __add__(self, other):
