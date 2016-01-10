@@ -12,3 +12,10 @@ def days_in_month(year, month):
         return 29
     return [None, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month]
 
+def days_in_previous_month(year, month):
+    return days_in_month(*_previous_month(year, month))
+
+def _previous_month(year, month):
+    if month == 1:
+        return (year - 1, 12)
+    return (year, month - 1)
