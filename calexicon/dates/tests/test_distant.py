@@ -34,9 +34,16 @@ class TestDistantDate(unittest.TestCase):
         self.assertEqual(dd - dd2, timedelta(days=42))
 
     def test_subtract_timedelta_from_dd(self):
+        """ The simplest possible case."""
         dd = DistantDate(10000, 2, 12)
         td = timedelta(days=1)
         self.assertEqual(dd - td, DistantDate(10000, 2, 11))
+
+    def test_subtract_timedelta_from_dd_2(self):
+        """ This involves changing the year and being aware of leap days. """
+        dd = DistantDate(10001, 2, 12)
+        td = timedelta(days=365)
+        self.assertEqual(dd - td, DistantDate(10001, 2, 13))
 
     def test_addition(self):
         dd = DistantDate(10000, 1, 1)
