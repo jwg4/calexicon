@@ -6,6 +6,12 @@ from calexicon.calendars import ProlepticJulianCalendar
 from calexicon.dates import DateWithCalendar, DistantDate
 
 class TestDistantDate(unittest.TestCase):
+    def setUp(self):
+        self.addTypeEqualityFunc(
+            DistantDate,
+            DistantDate.make_assertEqual(self)
+        )
+
     def test_subtraction(self):
         dd = DistantDate(10000, 1, 1)
         self.assertIsInstance(dd - vanilla_date(9999, 1, 1), timedelta)

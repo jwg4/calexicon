@@ -80,5 +80,19 @@ class DistantDate(DateWithCalendar):
         return not (self <= other)
 
     @staticmethod
+    def make_assertEqual(test_case):
+        def assertEqual(a, b, msg):
+            if a.year == b.year and a.month == b.month and a.day == b.day:
+                return True
+            else:                # pragma: no cover
+                if msg is None:
+                    msg = (
+                        "DistantDate %d-%d-%d is not equal to DistantDate %d-%d-%d"
+                        % (a.year, a.month, a.day, b.year, b.month, b.day)
+                    )
+                raise test_case.failureException(msg)
+        return assertEqual
+
+    @staticmethod
     def julian_to_gregorian(y, m, d):
         return distant_julian_to_gregorian(y, m, d)
