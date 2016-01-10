@@ -49,7 +49,7 @@ class TestDistantDate(unittest.TestCase):
         """ This involves changing the year and being aware of leap days. """
         dd = DistantDate(10001, 2, 12)
         td = timedelta(days=365)
-        self.assertEqual(dd - td, DistantDate(10001, 2, 13))
+        self.assertEqual(dd - td, DistantDate(10000, 2, 13))
 
     def test_addition(self):
         dd = DistantDate(10000, 1, 1)
