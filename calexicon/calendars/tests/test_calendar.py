@@ -143,11 +143,11 @@ class TestProlepticJulianCalendar(TestJulianCalendar):
     def test_representation(self):
         self.assertEqual(
             ProlepticJulianCalendar.representation(DistantDate(10000, 2, 12)),
-            {'year': 10000, 'month': 1, 'day': 1}
+            {'year': 9999, 'month': 12, 'day': 1}
         )
         self.assertEqual(
             ProlepticJulianCalendar.representation(DistantDate(10000, 2, 13)),
-            {'year': 10000, 'month': 1, 'day': 2}
+            {'year': 9999, 'month': 12, 'day': 2}
         )
 
 class TestBCEDate(unittest.TestCase):
