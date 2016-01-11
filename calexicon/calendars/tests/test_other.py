@@ -109,21 +109,24 @@ class TestJulianDateConversion(unittest.TestCase):
         d = calendar.date(9999, 12, 1)
         converted = d.convert_to(JulianDayNumber())
         self.assertIsNotNone(converted)
-        self.assertEqual(converted, DateWithCalendar(JulianDayNumber, DistantDate(10000, 2, 12)))
+        expected = DateWithCalendar(JulianDayNumber, DistantDate(10000, 2, 12))
+        self.assertEqual(converted, expected)
 
     def test_conversion_2(self):
         calendar = ProlepticJulianCalendar()
         d = calendar.date(9999, 9, 19)
         converted = d.convert_to(JulianDayNumber())
         self.assertIsNotNone(converted)
-        self.assertEqual(converted, DateWithCalendar(JulianDayNumber, vanilla_date(9999, 12, 1)))
+        expected = DateWithCalendar(JulianDayNumber, vanilla_date(9999, 12, 1))
+        self.assertEqual(converted, expected)
 
     def test_jdn_to_julian(self):
         calendar = JulianDayNumber()
         d = calendar.date(5373524)
         converted = d.convert_to(ProlepticJulianCalendar())
         self.assertIsNotNone(converted)
-        self.assertEqual(converted, DateWithCalendar(ProlepticJulianCalendar, DistantDate(10000, 2, 12)))
+        expected = DateWithCalendar(ProlepticJulianCalendar, DistantDate(10000, 2, 12))
+        self.assertEqual(converted, expected)
 
 
 class TestAstronomicalCalendar(CalendarTest):
