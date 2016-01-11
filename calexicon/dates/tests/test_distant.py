@@ -1,4 +1,4 @@
-import unittest 
+import unittest
 
 from datetime import date as vanilla_date, timedelta
 
@@ -60,13 +60,13 @@ class TestDistantDate(unittest.TestCase):
     def test_equality(self):
         dd = DistantDate(2010, 8, 1)
         ProlepticJulianCalendar().bless(dd)
-        dwc = DateWithCalendar(ProlepticJulianCalendar, DistantDate(2010, 8, 1)) 
+        dwc = DateWithCalendar(ProlepticJulianCalendar, DistantDate(2010, 8, 1))
         self.assertTrue(dwc == dd)
 
     def test_equality_2(self):
         dd = DistantDate(2010, 8, 1)
         ProlepticJulianCalendar().bless(dd)
-        dwc = DateWithCalendar(ProlepticJulianCalendar, DistantDate(2010, 8, 1)) 
+        dwc = DateWithCalendar(ProlepticJulianCalendar, DistantDate(2010, 8, 1))
         self.assertTrue(dd == dwc)
 
     def test_equality_of_two_distant_dates(self):

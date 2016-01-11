@@ -1,7 +1,7 @@
 __all__ = [
     'InvalidDate',
     'DateWithCalendar',
-    'BCEDate', 
+    'BCEDate',
     'DistantDate'
 ]
 
