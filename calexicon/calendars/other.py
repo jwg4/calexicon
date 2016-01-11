@@ -40,7 +40,7 @@ class JulianDayNumber(Calendar):
             vd = self.first_ce_day + timedelta(days=offset)
             return self.from_date(vd)
         elif offset > number_of_vanilla_dates:
-            d = DistantDate(10000, 1, 1) + timedelta(days=offset - number_of_vanilla_dates)
+            d = DistantDate(10000, 1, 1) + timedelta(days=offset - number_of_vanilla_dates - 1)
             return self.from_date(d)
         else:
             d = BCEDate(*self._bce_representation(offset))
