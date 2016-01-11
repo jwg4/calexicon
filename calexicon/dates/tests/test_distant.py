@@ -5,6 +5,7 @@ from datetime import date as vanilla_date, timedelta
 from calexicon.calendars import ProlepticJulianCalendar
 from calexicon.dates import DateWithCalendar, DistantDate
 
+
 class TestDistantDate(unittest.TestCase):
     def setUp(self):
         self.addTypeEqualityFunc(

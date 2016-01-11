@@ -46,6 +46,7 @@ class JulianDayNumber(Calendar):
             d = BCEDate(*self._bce_representation(offset))
             return self.from_date(d)
 
+
 class AstronomicalCalendar(Calendar):
     display_name = "Astronomical Calendar"
     representation_keys = set(['year', 'month', 'day'])
@@ -65,4 +66,3 @@ class AstronomicalCalendar(Calendar):
         except ValueError:
             d = None
             return self.from_date(d)
-

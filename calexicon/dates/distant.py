@@ -5,6 +5,7 @@ from ..internal.gregorian import days_in_previous_month, previous_month
 from ..internal.julian import distant_julian_to_gregorian
 from ..constants import number_of_days_in_400_gregorian_years
 
+
 class DistantDate(DateWithCalendar):
     def __init__(self, y, m, d):
         self.year = y

@@ -150,6 +150,7 @@ class TestProlepticJulianCalendar(TestJulianCalendar):
             {'year': 9999, 'month': 12, 'day': 2}
         )
 
+
 class TestBCEDate(unittest.TestCase):
     def test_greater_than(self):
         self.assertFalse(
