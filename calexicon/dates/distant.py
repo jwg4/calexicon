@@ -48,19 +48,22 @@ class DistantDate(DateWithCalendar):
             return DistantDate(y, m, self.day - n + n_days_in_month)
         return DistantDate(10000, 1, 1)
 
+    def _sub_date(self, other):
+        if other.year < 10000:
+            return self._sub_vanilla_date(other)
+        return self._sub_distant_date(other)
+
     def __sub__(self, other):
         try:
-            o_year = other.year
-            if o_year < 10000:
-                return self._sub_vanilla_date(other)
-            return self._sub_distant_date(other)
+            other.year
+            return self._sub_date(other)
         except AttributeError:
             pass
         try:
             n = other.days
-        except:
-            return None
-        return self._sub_days(n)
+            return self._sub_days(n)
+        except AttributeError:
+            pass
 
     def __add__(self, other):
         try:
