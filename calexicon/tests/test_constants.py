@@ -1,6 +1,6 @@
 import unittest
 
-from calexicon.constants import *
+from calexicon.constants import number_of_days_in_400_gregorian_years
 
 
 class TestConstants(unittest.TestCase):
