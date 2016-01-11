@@ -20,28 +20,23 @@ class DistantDate(DateWithCalendar):
         s = "%d/%d/%d CE (Distant Date)"
         return s % (self.year, self.month, self.day)
 
-    def __sub__(self, other):
-        try:
-            o_year = other.year
-            if o_year < 10000:
-                a = self - DistantDate(10000, 1, 1)
-                b = vanilla_date(9999, 12, 31) - other
-                x = a.days + b.days + 1
-                return timedelta(days=x)
-            if self.year == o_year:
-                if self.month == other.month:
-                    return timedelta(days=self.day - other.day)
-                offset = ((self.year - 1600) // 400) * 400
-                offset_self = vanilla_date(self.year - offset, self.month, self.day)
-                offset_other = vanilla_date(other.year - offset, other.month, other.day)
-                return offset_self - offset_other
-            return timedelta(days=0)
-        except AttributeError:
-            pass
-        try:
-            n = other.days
-        except:
-            return None
+    def _sub_vanilla_date(self, other):
+        a = self - DistantDate(10000, 1, 1)
+        b = vanilla_date(9999, 12, 31) - other
+        x = a.days + b.days + 1
+        return timedelta(days=x)
+
+    def _sub_distant_date(self, other):
+        if self.year == other.year:
+            if self.month == other.month:
+                return timedelta(days=self.day - other.day)
+            offset = ((self.year - 1600) // 400) * 400
+            offset_self = vanilla_date(self.year - offset, self.month, self.day)
+            offset_other = vanilla_date(other.year - offset, other.month, other.day)
+            return offset_self - offset_other
+        return timedelta(days=0)
+
+    def _sub_days(self, n):
         if n < self.day:
             return DistantDate(self.year, self.month, self.day - n)
         n_days_in_month = days_in_previous_month(self.year, self.month)
@@ -52,6 +47,20 @@ class DistantDate(DateWithCalendar):
             y, m = previous_month(self.year, self.month)
             return DistantDate(y, m, self.day - n + n_days_in_month)
         return DistantDate(10000, 1, 1)
+
+    def __sub__(self, other):
+        try:
+            o_year = other.year
+            if o_year < 10000:
+                return self._sub_vanilla_date(other)
+            return self._sub_distant_date(other)
+        except AttributeError:
+            pass
+        try:
+            n = other.days
+        except:
+            return None
+        return self._sub_days(n)
 
     def __add__(self, other):
         try:
