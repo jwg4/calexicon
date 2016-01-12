@@ -1,5 +1,10 @@
+import sys
+
+if sys.hexversion < 0x02070000:
+    import unittest2 as unittest
+else:
+    import unittest
 from datetime import date as vanilla_date
-import unittest
 
 from hypothesis import given
 from hypothesis.strategies import integers
