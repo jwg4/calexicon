@@ -88,5 +88,19 @@ class TestDistantDate(unittest.TestCase):
         d2 = DistantDate(2010, 8, 1)
         self.assertTrue(d1 == d2)
 
+    def test_comparison_of_two_distant_dates(self):
+        d1 = DistantDate(2010, 9, 1)
+        d2 = DistantDate(2010, 8, 1)
+        self.assertTrue(d1 >= d2)
+        self.assertFalse(d1 <= d2)
+        self.assertFalse(d1 < d2)
+
+    def test_comparison_of_two_close_distant_dates(self):
+        d1 = DistantDate(12010, 5, 5)
+        d2 = DistantDate(12010, 5, 15)
+        self.assertFalse(d1 >= d2)
+        self.assertTrue(d1 <= d2)
+        self.assertTrue(d1 < d2)
+
     def test_julian_to_gregorian(self):
         self.assertEqual(DistantDate.julian_to_gregorian(9999, 12, 1), (10000, 2, 12))
