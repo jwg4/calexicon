@@ -79,9 +79,9 @@ class JulianCalendar(Calendar):
         original_year = d.year
         offset = JulianCalendar._number_of_extra_leap_days(d)
         d = d - timedelta(days=offset)
-        if (JulianCalendar._is_julian_only_leap_year(original_year)
-                and original_month >= 3
-                and (d.month <= 2 or d.year < original_year)):
+        if (JulianCalendar._is_julian_only_leap_year(original_year) and
+                original_month >= 3 and
+                (d.month <= 2 or d.year < original_year)):
             return JulianCalendar._add_one_day(d)
         return (d.year, d.month, d.day)
 

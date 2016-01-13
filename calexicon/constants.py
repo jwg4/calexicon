@@ -8,8 +8,8 @@ last_vanilla_date = vanilla_date(9999, 12, 31)
 
 julian_day_number_of_first_vanilla_date = 1721423
 julian_day_number_of_last_vanilla_date = (
-    julian_day_number_of_first_vanilla_date
-    + (last_vanilla_date - first_vanilla_date).days
+    julian_day_number_of_first_vanilla_date +
+    (last_vanilla_date - first_vanilla_date).days
 )
 
 number_of_vanilla_dates = (last_vanilla_date - first_vanilla_date).days
