@@ -9,7 +9,7 @@ install:
   - pip install coveralls
   - pip install flake8
 script:
-  - flake8 calexicon/ --max-complexity 5 --max-line-length 99 --ignore E201,E202
+  - flake8 calexicon/ --max-complexity 4 --max-line-length 99 --ignore E201,E202
   - coverage run --source=calexicon setup.py test
 after_success:
   coveralls
