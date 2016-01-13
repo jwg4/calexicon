@@ -21,6 +21,7 @@ class TestDistantDate(unittest.TestCase):
     def test_str(self):
         dd = DistantDate(12345, 6, 7)
         self.assertEqual(str(dd), '12345/6/7 CE (Distant Date)')
+
     def test_subtraction(self):
         dd = DistantDate(10000, 1, 1)
         self.assertIsInstance(dd - vanilla_date(9999, 1, 1), timedelta)
