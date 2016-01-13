@@ -9,4 +9,3 @@ class TestGregorian(unittest.TestCase):
         self.assertTrue(is_gregorian_leap_year(1984))
         self.assertFalse(is_gregorian_leap_year(1900))
         self.assertFalse(is_gregorian_leap_year(1901))
-
