@@ -141,3 +141,7 @@ class TestAstronomicalCalendar(CalendarTest):
     def test_zero_year_date(self):
         d = self.calendar.date(0, 1, 1)
         self.assertIsNotNone(d)
+
+    def test_non_zero_year_date(self):
+        d = self.calendar.date(1, 1, 1)
+        self.assertIsNotNone(d)
