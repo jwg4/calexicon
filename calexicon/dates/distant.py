@@ -34,7 +34,6 @@ class DistantDate(DateWithCalendar):
             offset_self = vanilla_date(self.year - offset, self.month, self.day)
             offset_other = vanilla_date(other.year - offset, other.month, other.day)
             return offset_self - offset_other
-        return timedelta(days=0)
 
     def _sub_days(self, n):
         if n < self.day:
@@ -46,7 +45,6 @@ class DistantDate(DateWithCalendar):
         if self.day <= n and n < self.day + n_days_in_month:
             y, m = previous_month(self.year, self.month)
             return DistantDate(y, m, self.day - n + n_days_in_month)
-        return DistantDate(10000, 1, 1)
 
     def _sub_date(self, other):
         if other.year < 10000:
@@ -59,11 +57,8 @@ class DistantDate(DateWithCalendar):
             return self._sub_date(other)
         except AttributeError:
             pass
-        try:
-            n = other.days
-            return self._sub_days(n)
-        except AttributeError:
-            pass
+        n = other.days
+        return self._sub_days(n)
 
     def __add__(self, other):
         try:
