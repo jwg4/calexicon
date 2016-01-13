@@ -62,6 +62,15 @@ class TestDistantDate(unittest.TestCase):
         td = timedelta(days=1)
         self.assertEqual(dd + td, DistantDate(10000, 1, 2))
 
+    def test_long_addition(self):
+        dd = DistantDate(10000, 1, 1)
+        td = timedelta(days=4 * 365 + 2)
+        self.assertEqual(dd + td, DistantDate(10004, 1, 2))
+
+    def test_addition_of_an_integer(self):
+        dd = DistantDate(10004, 2, 3)
+        self.assertEqual(dd + 34, DistantDate(10004, 3, 8))
+
     def test_equality(self):
         dd = DistantDate(2010, 8, 1)
         ProlepticJulianCalendar().bless(dd)
