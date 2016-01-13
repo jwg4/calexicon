@@ -68,7 +68,7 @@ class DistantDate(DateWithCalendar):
             n = other
             td = timedelta(days=other)
         if n > number_of_days_in_400_gregorian_years:
-            shifted_date = DistantDate(self.year - 400, self.month, self.day)
+            shifted_date = DistantDate(self.year + 400, self.month, self.day)
             shift = n - number_of_days_in_400_gregorian_years
             return shifted_date + shift
         offset = ((self.year - 1600) // 400) * 400

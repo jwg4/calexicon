@@ -71,6 +71,11 @@ class TestDistantDate(unittest.TestCase):
         dd = DistantDate(10004, 2, 3)
         self.assertEqual(dd + 34, DistantDate(10004, 3, 8))
 
+    def test_addition_of_a_big_integer(self):
+        dd = DistantDate(10004, 2, 3)
+        n = 400 * 365 + 97 + 34
+        self.assertEqual(dd + n, DistantDate(10404, 3, 8))
+
     def test_equality(self):
         dd = DistantDate(2010, 8, 1)
         ProlepticJulianCalendar().bless(dd)
