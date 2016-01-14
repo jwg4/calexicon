@@ -13,7 +13,7 @@ def _number_of_extra_leap_days(end, start=vanilla_date(200, 3, 1)):
     return count
 
 
-def _is_julian_leap_year(y):
+def is_julian_leap_year(y):
     return (y % 4) == 0
 
 
