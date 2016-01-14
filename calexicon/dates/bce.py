@@ -1,7 +1,7 @@
 from datetime import timedelta
 
 from base import BasicBCEDate
-from ..helpers import ordinal, month_string
+from ..internal.output import ordinal, month_string
 from ..constants import first_julian_date
 
 

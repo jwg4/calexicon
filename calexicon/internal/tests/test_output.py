@@ -1,6 +1,6 @@
 import unittest
 
-from calexicon.helpers import ordinal, month_string
+from calexicon.internal.output import ordinal, month_string
 
 
 class TestOrdinal(unittest.TestCase):

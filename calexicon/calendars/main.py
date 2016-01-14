@@ -1,6 +1,6 @@
 from datetime import date as vanilla_date, timedelta
 
-from ..helpers import ordinal, month_string
+from ..internal.output import ordinal, month_string
 from ..dates import InvalidDate
 from ..dates.bce import BCEDate
 from ..dates.distant import DistantDate
