@@ -8,7 +8,7 @@ def is_gregorian_leap_year(y):
         return False
     if (y % 4) == 0:
         return True
-    return False  # pragma: no cover
+    return False
 
 
 def days_in_month(year, month):
