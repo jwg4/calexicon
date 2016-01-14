@@ -4,6 +4,7 @@ This is package for interpretation, conversion, information and testing of calen
 
 [![Build Status](https://travis-ci.org/jwg4/calexicon.svg?branch=master)](https://travis-ci.org/jwg4/calexicon)
 [![Coverage Status](https://coveralls.io/repos/jwg4/calexicon/badge.svg?branch=master&service=github)](https://coveralls.io/github/jwg4/calexicon?branch=master)
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/81a3e2bb39384e33a7bde326a66e0dd4)](https://www.codacy.com/app/jack-grahl/calexicon)
 
  - What's this package for, doesn't everyone use the same calendar?
  - *Well, everyone agrees on what today is (apart from some people in other time zones), which is why datetime doesn't have to worry about this stuff. But not everyone agrees on what a date 2050 years ago should be called. Python `datetime` and Unix `cal` don't even agree on how many days there are in September 1752.*
