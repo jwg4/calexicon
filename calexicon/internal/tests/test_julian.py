@@ -2,7 +2,8 @@ import unittest
 
 from datetime import date as vanilla_date
 
-from calexicon.internal.julian import distant_julian_to_gregorian, julian_to_gregorian, is_julian_leap_year
+from calexicon.internal.julian import distant_julian_to_gregorian, julian_to_gregorian
+from calexicon.internal.julian import is_julian_leap_year
 
 
 class TestJulian(unittest.TestCase):
