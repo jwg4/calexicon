@@ -1,3 +1,6 @@
+from general import previous_month
+
+
 def is_gregorian_leap_year(y):
     if (y % 400) == 0:
         return True
@@ -16,9 +19,3 @@ def days_in_month(year, month):
 
 def days_in_previous_month(year, month):
     return days_in_month(*previous_month(year, month))
-
-
-def previous_month(year, month):
-    if month == 1:
-        return (year - 1, 12)
-    return (year, month - 1)
