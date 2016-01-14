@@ -18,7 +18,7 @@ def is_julian_leap_year(y):
 
 
 def julian_to_gregorian(year, month, day):
-    if day == 29 and month == 2 and _is_julian_leap_year(year):
+    if day == 29 and month == 2 and is_julian_leap_year(year):
         d = vanilla_date(year, 2, 28)
         offset = _number_of_extra_leap_days(d) + 1
     else:
