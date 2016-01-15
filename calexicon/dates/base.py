@@ -75,7 +75,7 @@ class DateWithCalendar(object):
         def assertEqual(a, b, msg):
             if a.__eq__(b):
                 return True
-            else:                # pragma: no cover
+            else:
                 if msg is None:
                     msg = (
                         "%s (%s) is not equal to %s (%s)"
