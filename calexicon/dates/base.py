@@ -20,7 +20,10 @@ class DateWithCalendar(object):
             return self.year == other.year and self.month == other.month and self.day == other.day
         except:
             pass
-        return self.calendar == other.calendar and self._date == other._date
+        try:
+            return self.calendar == other.calendar and self._date == other._date
+        except AttributeError:
+            return False
 
     def __str__(self):
         return "%s (%s)" % (
