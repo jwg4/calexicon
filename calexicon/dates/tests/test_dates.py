@@ -18,7 +18,10 @@ class TestDateWithCalendar(unittest.TestCase):
             The main purpose of this test is to have code
             coverage for the false branch of the
             custom assertEqual. """
-        self.assertNotEqual(self.date_wc, date(2010, 8, 1))
+        try:
+            self.assertEqual(self.date_wc, date(2010, 8, 1))
+        except AssertionError:
+            pass
 
     def test_comparisons(self):
         self.assertTrue(self.date_wc < date(2010, 8, 2))
