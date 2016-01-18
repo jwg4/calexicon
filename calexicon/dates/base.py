@@ -1,8 +1,5 @@
 from ..internal.julian import days_in_month as days_in_month_julian
-
-
-class InvalidDate(Exception):
-    pass
+from ..internal.exception import InvalidDate
 
 
 class DateWithCalendar(object):
