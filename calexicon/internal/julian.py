@@ -1,6 +1,7 @@
 from datetime import date as vanilla_date, timedelta
 
 from gregorian import is_gregorian_leap_year
+from exception import InvalidDate
 
 
 def _number_of_extra_leap_days(end, start=vanilla_date(200, 3, 1)):
@@ -18,6 +19,10 @@ def is_julian_leap_year(y):
 
 
 def days_in_month(year, month):
+    if year == 0:
+        raise InvalidDate(
+            'There is no year 0 in the Proleptic Julian Calendar'
+        )
     if month == 2 and is_julian_leap_year(year):
         return 29
     return [None, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month]

@@ -100,9 +100,5 @@ class BasicBCEDate(DateWithCalendar):
 
     @staticmethod
     def _validate(year, month, day):
-        if year == 0:
-            raise InvalidDate(
-                'There is no year 0 in the Proleptic Julian Calendar'
-            )
         if day > days_in_month_julian(year, month):
             raise InvalidDate('That month does not have %d days.' % day)
