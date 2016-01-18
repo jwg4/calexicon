@@ -17,6 +17,12 @@ def is_julian_leap_year(y):
     return (y % 4) == 0
 
 
+def days_in_month(year, month):
+    if month == 2 and is_julian_leap_year(year):
+        return 29
+    return [None, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month]
+
+
 def julian_to_gregorian(year, month, day):
     if day == 29 and month == 2 and is_julian_leap_year(year):
         d = vanilla_date(year, 2, 28)
