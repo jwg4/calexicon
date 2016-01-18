@@ -1,3 +1,4 @@
+from ..internal.julian import days_in_month as days_in_month_julian
 
 
 class InvalidDate(Exception):
@@ -106,8 +107,5 @@ class BasicBCEDate(DateWithCalendar):
             raise InvalidDate(
                 'There is no year 0 in the Proleptic Julian Calendar'
             )
-        lengths = [None, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-        if year % 4 == 0:
-            lengths[2] = 29
-        if day > lengths[month]:
+        if day > days_in_month_julian(year, month):
             raise InvalidDate('That month does not have %d days.' % day)
