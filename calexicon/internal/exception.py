@@ -1,3 +1,2 @@
 class InvalidDate(Exception):
     pass
-
