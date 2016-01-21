@@ -4,6 +4,7 @@ from base import DateWithCalendar
 from ..constants import first_julian_date
 from ..internal.exception import InvalidDate
 from ..internal.julian import days_in_month as days_in_month_julian
+from ..internal.julian import is_julian_leap_year
 from ..internal.output import ordinal, month_string
 
 
@@ -50,19 +51,15 @@ class BCEDate(BasicBCEDate):
         return self
 
     @staticmethod
-    def _is_julian_leap_year(y):
-        return (y % 4) == 0
-
-    @staticmethod
     def _month_length(y, m):
-        if BCEDate._is_julian_leap_year(y):
+        if is_julian_leap_year(y):
             return [None, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][m]
         else:
             return [None, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][m]
 
     @staticmethod
     def _year_length(y):
-        if BCEDate._is_julian_leap_year(y):
+        if is_julian_leap_year(y):
             return 366
         else:
             return 365
