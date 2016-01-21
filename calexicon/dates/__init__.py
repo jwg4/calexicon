@@ -6,5 +6,5 @@ __all__ = [
 ]
 
 from bce import BCEDate
-from base import InvalidDate, DateWithCalendar
+from base import DateWithCalendar
 from distant import DistantDate

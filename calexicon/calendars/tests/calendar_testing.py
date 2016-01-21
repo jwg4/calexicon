@@ -8,7 +8,8 @@ else:
 from hypothesis import given
 from hypothesis.extra.datetime import datetimes
 
-from calexicon.dates import InvalidDate, DateWithCalendar
+from calexicon.dates import DateWithCalendar
+from calexicon.internal.exception import InvalidDate
 
 
 class CalendarTest(unittest.TestCase):
