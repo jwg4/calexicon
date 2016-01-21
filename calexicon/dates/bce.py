@@ -23,6 +23,8 @@ class BasicBCEDate(DateWithCalendar):
 
 
 class BCEDate(BasicBCEDate):
+    first_julian_date = BasicBCEDate(*first_julian_date)
+
     def __str__(self):
         date_string = "%s %s %s BCE" % (
             ordinal(self.day),
@@ -31,7 +33,7 @@ class BCEDate(BasicBCEDate):
         )
         display_name = (
             "Julian Calendar"
-            if (self >= first_julian_date)
+            if (self >= BCEDate.first_julian_date)
             else "Proleptic Julian Calendar"
         )
         return "%s (%s)" % (date_string, display_name)
