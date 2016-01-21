@@ -87,18 +87,3 @@ class DateWithCalendar(object):
 
     def native_representation(self):
         return self.calendar.representation(self._date)
-
-
-class BasicBCEDate(DateWithCalendar):
-    def __init__(self, year, month, day):
-        self._validate(year, month, day)
-        self.calendar = None
-        self.date = None
-        self.year = year
-        self.month = month
-        self.day = day
-
-    @staticmethod
-    def _validate(year, month, day):
-        if day > days_in_month_julian(year, month):
-            raise InvalidDate('That month does not have %d days.' % day)

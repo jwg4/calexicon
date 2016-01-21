@@ -1,8 +1,25 @@
 from datetime import timedelta
 
-from base import BasicBCEDate
+from ..internal.exception import InvalidDate
 from ..internal.output import ordinal, month_string
+from ..internal.julian import days_in_month as days_in_month_julian
 from ..constants import first_julian_date
+from base import DateWithCalendar
+
+
+class BasicBCEDate(DateWithCalendar):
+    def __init__(self, year, month, day):
+        self._validate(year, month, day)
+        self.calendar = None
+        self.date = None
+        self.year = year
+        self.month = month
+        self.day = day
+
+    @staticmethod
+    def _validate(year, month, day):
+        if day > days_in_month_julian(year, month):
+            raise InvalidDate('That month does not have %d days.' % day)
 
 
 class BCEDate(BasicBCEDate):
