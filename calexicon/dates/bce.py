@@ -51,13 +51,6 @@ class BCEDate(BasicBCEDate):
         return self
 
     @staticmethod
-    def _month_length(y, m):
-        if is_julian_leap_year(y):
-            return [None, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][m]
-        else:
-            return [None, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][m]
-
-    @staticmethod
     def _year_length(y):
         if is_julian_leap_year(y):
             return 366
@@ -83,7 +76,7 @@ class BCEDate(BasicBCEDate):
                     previous_year = -1
                 return 31 + BCEDate._subtract(BCEDate(previous_year, 12, 1), b)
             return (
-                BCEDate._month_length(a.year, a.month - 1) +
+                days_in_month_julian(a.year, a.month - 1) +
                 BCEDate._subtract(BCEDate(a.year, a.month - 1, 1), b)
             )
         if a.year - b.year > 3:
