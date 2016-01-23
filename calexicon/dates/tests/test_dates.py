@@ -9,6 +9,10 @@ class TestDateWithCalendar(unittest.TestCase):
     def setUp(self):
         date_dt = date(2010, 8, 1)
         self.date_wc = DateWithCalendar(None, date_dt)
+        self.addTypeEqualityFunc(
+            DateWithCalendar,
+            DateWithCalendar.make_assertEqual(self)
+        )
 
     def test_equality(self):
         self.assertTrue(self.date_wc != date(2010, 8, 1))
