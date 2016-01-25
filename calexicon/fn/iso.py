@@ -1,6 +1,6 @@
 from datetime import date as vanilla_date, timedelta
 
-from overflow import OverflowDate
+from ..dates.overflow import OverflowDate
 
 
 def _check_week(week):
