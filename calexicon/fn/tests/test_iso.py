@@ -22,6 +22,7 @@ class TestIsoUtils(unittest.TestCase):
         self.assertEqual(day, d)
 
     @given(integers(MINYEAR, MAXYEAR), integers(54), integers(1, 7))
+    @example(1066, 54, 7)
     def test_weeks_greater_than_53_fail(self, year, week, day):
         self.assertRaises(
             ValueError,
