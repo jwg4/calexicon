@@ -12,6 +12,7 @@ install:
 script:
   - flake8 calexicon/ --max-complexity 5 --max-line-length 99 --ignore E201,E202,E402
   - coverage run --source=calexicon setup.py test
+  - python -m doctest README.md
 after_success:
   coveralls
 
