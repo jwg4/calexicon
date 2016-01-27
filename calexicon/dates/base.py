@@ -75,7 +75,7 @@ class DateWithCalendar(object):
             if a.__eq__(b):
                 return True
             else:
-                if msg is None:
+                if msg is None: # pragma: no cover
                     msg = (
                         "%s (%s) is not equal to %s (%s)"
                         % (a, a._date, b, b._date)
