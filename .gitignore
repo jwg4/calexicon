@@ -58,3 +58,4 @@ target/
 /venv/
 /.hypothesis
 /_build/
+/venv3/
