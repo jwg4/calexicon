@@ -1,9 +1,9 @@
 from datetime import date as vanilla_date
 
-from base import Calendar
+from .base import Calendar
 from ..dates import DateWithCalendar
 from ..internal.exception import InvalidDate
-from main import JulianCalendar, ProlepticGregorianCalendar
+from .main import JulianCalendar, ProlepticGregorianCalendar
 
 
 class SwitchDateWithCalendar(DateWithCalendar):

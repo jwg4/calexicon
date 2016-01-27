@@ -7,7 +7,7 @@ else:
 
 from datetime import date
 
-from test_calendar import CalendarTest
+from .test_calendar import CalendarTest
 from calexicon.dates.tests.test_dates import TestDateWithCalendar
 
 from calexicon.calendars import EnglishHistoricalCalendar, SpanishHistoricalCalendar, FrenchHistoricalCalendar  # noqa

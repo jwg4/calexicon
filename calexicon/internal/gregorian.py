@@ -1,4 +1,4 @@
-from general import previous_month
+from .general import previous_month
 
 
 def is_gregorian_leap_year(y):

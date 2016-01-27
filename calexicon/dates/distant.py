@@ -1,6 +1,6 @@
 from datetime import timedelta, date as vanilla_date
 
-from base import DateWithCalendar
+from .base import DateWithCalendar
 from ..internal.gregorian import days_in_previous_month, previous_month
 from ..internal.julian import distant_julian_to_gregorian
 from ..constants import number_of_days_in_400_gregorian_years

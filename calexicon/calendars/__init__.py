@@ -10,6 +10,6 @@ __all__ = [
     'AstronomicalCalendar'
 ]
 
-from main import JulianCalendar, ProlepticGregorianCalendar, ProlepticJulianCalendar
-from historical import EnglishHistoricalCalendar, SpanishHistoricalCalendar, FrenchHistoricalCalendar  # noqa
-from other import JulianDayNumber, AstronomicalCalendar
+from .main import JulianCalendar, ProlepticGregorianCalendar, ProlepticJulianCalendar
+from .historical import EnglishHistoricalCalendar, SpanishHistoricalCalendar, FrenchHistoricalCalendar  # noqa
+from .other import JulianDayNumber, AstronomicalCalendar

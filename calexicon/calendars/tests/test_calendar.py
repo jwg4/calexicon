@@ -13,7 +13,7 @@ from datetime import date, datetime
 
 from calexicon.calendars import ProlepticGregorianCalendar, JulianCalendar, ProlepticJulianCalendar
 from calexicon.dates import DateWithCalendar, BCEDate, DistantDate
-from calendar_testing import CalendarTest
+from .calendar_testing import CalendarTest
 
 
 class TestProlepticGregorianCalendar(CalendarTest):

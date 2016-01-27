@@ -5,7 +5,7 @@ from ..internal.exception import InvalidDate
 from ..dates.bce import BCEDate
 from ..dates.distant import DistantDate
 from ..constants import first_julian_date
-from base import Calendar
+from .base import Calendar
 
 
 class ProlepticGregorianCalendar(Calendar):

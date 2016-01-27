@@ -10,7 +10,7 @@ from hypothesis import given
 from hypothesis.strategies import integers
 from hypothesis.extra.datetime import datetimes
 
-from calendar_testing import CalendarTest
+from .calendar_testing import CalendarTest
 
 from calexicon.calendars.main import ProlepticJulianCalendar
 from calexicon.calendars.other import JulianDayNumber, AstronomicalCalendar

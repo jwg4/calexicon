@@ -1,6 +1,6 @@
 from datetime import timedelta
 
-from base import DateWithCalendar
+from .base import DateWithCalendar
 from ..constants import first_julian_date
 from ..internal.exception import InvalidDate
 from ..internal.julian import days_in_month as days_in_month_julian
