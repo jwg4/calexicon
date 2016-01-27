@@ -16,7 +16,7 @@ class ProlepticGregorianCalendar(Calendar):
         try:
             d = vanilla_date(year, month, day)
         except ValueError as e:
-            raise InvalidDate(e.message)
+            raise InvalidDate(e)
         return self.from_date(d)
 
     @staticmethod
