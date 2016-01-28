@@ -30,8 +30,11 @@ This is package for interpretation, conversion, information and testing of calen
 >>> d3 = d.convert_to(cal3)
 >>> str(d3)
 '7th March 1000 (Proleptic Gregorian Calendar)'
->>> d3.native_representation() == {'day': 7, 'month': 3, 'year': 1000}
-True
+>>> mydate = d3.native_representation()
+>>> mydate['day']
+7
+>>> mydate['month']
+3
 
 ```
 
