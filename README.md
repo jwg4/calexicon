@@ -17,30 +17,21 @@ This is package for interpretation, conversion, information and testing of calen
 
 ## How to create a date in a given calendar
 ```
-In [1]: import calexicon
+>>> import calexicon
+>>> cal = calexicon.calendars.FrenchHistoricalCalendar()
+>>> cal2 = calexicon.calendars.JulianCalendar()
+>>> cal3 = calexicon.calendars.ProlepticGregorianCalendar()
+>>> d = cal.date(1000, 3, 1)
+>>> str(d)
+'1st March 1000 (French Historical Calendar - Julian)'
+>>> d2 = d.convert_to(cal2)
+>>> str(d2)
+'1st March 1000 (Julian Calendar)'
+>>> d3 = d.convert_to(cal3)
+>>> str(d3)
+'7th March 1000 (Proleptic Gregorian Calendar)'
+>>> d3.native_representation()
+{'month': 3, 'day': 7, 'year': 1000}
 
-In [2]: cal = calexicon.calendars.FrenchHistoricalCalendar()
-
-In [3]: cal2 = calexicon.calendars.JulianCalendar()
-
-In [4]: cal3 = calexicon.calendars.ProlepticGregorianCalendar()
-
-In [5]: d = cal.date(1500, 3, 1)
-
-In [6]: str(d)
-Out[6]: '1st March 1500 (French Historical Calendar - Julian)'
-
-In [7]: d2 = d.convert_to(cal2)
-
-In [8]: str(d2)
-Out[8]: '1st March 1500 (Julian Calendar)'
-
-In [9]: d3 = d.convert_to(cal3)
-
-In [10]: str(d3)
-Out[10]: '11th March 1500 (Proleptic Gregorian Calendar)'
-
-In [11]: d3.native_representation()
-Out[11]: {'day': 11, 'month': 3, 'year': 1500}
 ```
 
