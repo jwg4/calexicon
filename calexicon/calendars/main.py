@@ -1,11 +1,11 @@
 from datetime import date as vanilla_date, timedelta
 
-from ..internal.output import ordinal, month_string
-from ..internal.exception import InvalidDate
-from ..dates.bce import BCEDate
-from ..dates.distant import DistantDate
-from ..constants import first_julian_date
-from .base import Calendar
+from calexicon.internal.output import ordinal, month_string
+from calexicon.internal.exception import InvalidDate
+from calexicon.dates.bce import BCEDate
+from calexicon.dates.distant import DistantDate
+from calexicon.constants import first_julian_date
+from calexicon.calendars.base import Calendar
 
 
 class ProlepticGregorianCalendar(Calendar):
