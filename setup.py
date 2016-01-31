@@ -8,7 +8,7 @@ setup(
     author='Jack Grahl',
     author_email='jack.grahl@yahoo.co.uk',
     license='Apache License 2.0',
-    packages=['calexicon', 'calexicon.calendars', 'calexicon.internal', 'calexicon.dates', 'calexicon.fn'],
+    packages=['calexicon', 'calexicon.calendars', 'calexicon.dates', 'calexicon.fn'],
     test_suite='nose.collector',
     tests_require=['nose', 'hypothesis']
 )
