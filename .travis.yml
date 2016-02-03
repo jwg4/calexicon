@@ -17,6 +17,7 @@ script:
   - python -m doctest README.md
   - cd examples/
   - python -m doctest basic.md
+  - python -m doctest calendars.md
 after_success:
   coveralls
 
