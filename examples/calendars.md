@@ -2,5 +2,7 @@
 
 >>> from datetime import date
 >>> from calexicon.calendars import *
->>> d = GregorianCalendar().from_date(date(2010, 8, 1))
->>> d.convert_to(JulianCalendar())
+>>> d = ProlepticGregorianCalendar().from_date(date(2010, 8, 1))
+>>> converted = d.convert_to(JulianCalendar())
+>>> str(converted)
+'19th July 2010 (Julian Calendar)'
