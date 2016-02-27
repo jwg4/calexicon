@@ -6,3 +6,6 @@
 >>> converted = d.convert_to(JulianCalendar())
 >>> str(converted)
 '19th July 2010 (Julian Calendar)'
+
+# Creating dates in the calendar's own notation
+>>> d = AstronomicalCalendar().date(0, 4, 1)
