@@ -9,3 +9,5 @@
 
 # Creating dates in the calendar's own notation
 >>> d = AstronomicalCalendar().date(0, 4, 1)
+>>> str(d)
+'0/4/1 (Astronomical Calendar)'
