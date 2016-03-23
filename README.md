@@ -4,7 +4,7 @@ This is package for interpretation, conversion, information and testing of calen
 
 [![PyPI](https://img.shields.io/pypi/v/calexicon.svg)](https://pypi.python.org/pypi/calexicon)
 [![PyPI](https://img.shields.io/pypi/dm/calexicon.svg)](https://pypi.python.org/pypi/calexicon)
-[![PyPI](https://img.shields.io/pypi/license/calexicon.svg)](https://pypi.python.org/pypi/calexicon)
+[![PyPI](https://img.shields.io/pypi/l/calexicon.svg)](https://pypi.python.org/pypi/calexicon)
 [![Build Status](https://travis-ci.org/jwg4/calexicon.svg?branch=master)](https://travis-ci.org/jwg4/calexicon)
 [![Coverage Status](https://coveralls.io/repos/jwg4/calexicon/badge.svg?branch=master&service=github)](https://coveralls.io/github/jwg4/calexicon?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/81a3e2bb39384e33a7bde326a66e0dd4)](https://www.codacy.com/app/jack-grahl/calexicon)
