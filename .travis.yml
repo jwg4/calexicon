@@ -1,29 +1,26 @@
 language: python
 python:
-  - "2.6"
-  - "2.7"
-  - "3.3"
-  - "3.4"
-  - "3.5"
-  - "pypy"
-install: 
-  - pip install -r requirements.txt
-  - python setup.py install
-  - pip install coveralls
-  - pip install flake8==2.5.0
+- '2.6'
+- '2.7'
+- '3.3'
+- '3.4'
+- '3.5'
+- pypy
+install:
+- pip install -r requirements.txt
+- python setup.py install
+- pip install coveralls
+- pip install flake8==2.5.0
 script:
-  - flake8 calexicon/ --max-complexity 5 --max-line-length 99 --ignore E201,E202,E402
-  - coverage run --source=calexicon setup.py test
-  - python -m doctest README.md
-  - cd examples/
-  - python -m doctest basic.md
-  - python -m doctest calendars.md
-after_success:
-  coveralls
-
+- flake8 calexicon/ --max-complexity 5 --max-line-length 99 --ignore E201,E202,E402
+- coverage run --source=calexicon setup.py test
+- python -m doctest README.md
+- cd examples/
+- python -m doctest basic.md
+- python -m doctest calendars.md
+after_success: coveralls
 branches:
   only:
-    - master
-
+  - master
 notifications:
   email: false
