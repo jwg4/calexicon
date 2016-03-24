@@ -19,9 +19,6 @@ script:
 - python -m doctest basic.md
 - python -m doctest calendars.md
 after_success: coveralls
-branches:
-  only:
-  - master
 notifications:
   email: false
 deploy:
