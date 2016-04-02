@@ -53,16 +53,17 @@ class AstronomicalCalendar(Calendar):
 
     @staticmethod
     def date_display_string(d):
-        return "0/1/1"
+        return "%d/%d/%d" % (d.year, d.month, d.day)
 
     @staticmethod
     def representation(d):
-        return dict(year=0, month=1, day=1)
+        return dict(year=d.year, month=d.month, day=d.day)
 
     def date(self, y, m, d):
         try:
             vd = vanilla_date(y, m, d)
             return self.from_date(vd)
         except ValueError:
-            d = None
+            y = y - 1
+            d = BCEDate(y, m, d)
             return self.from_date(d)
