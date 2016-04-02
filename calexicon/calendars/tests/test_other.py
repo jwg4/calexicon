@@ -137,6 +137,10 @@ class TestJulianDateConversion(unittest.TestCase):
 class TestAstronomicalCalendar(CalendarTest):
     def setUp(self):
         self.calendar = AstronomicalCalendar()
+        self.addTypeEqualityFunc(
+            DateWithCalendar,
+            DateWithCalendar.make_assertEqual(self)
+        )
 
     def test_zero_year_date(self):
         d = self.calendar.date(0, 1, 1)
@@ -145,3 +149,11 @@ class TestAstronomicalCalendar(CalendarTest):
     def test_non_zero_year_date(self):
         d = self.calendar.date(1, 1, 1)
         self.assertIsNotNone(d)
+
+    @given(integers(min_value=1, max_value=1582))
+    def test_CE_dates_before_1582(self, y):
+        d = self.calendar.date(y, 1, 1)
+        converted = d.convert_to(ProlepticJulianCalendar())
+        self.assertIsNotNone(converted)
+        expected = ProlepticJulianCalendar().date(y, 1, 1)
+        self.assertEqual(converted, expected)

@@ -1,5 +1,6 @@
 from datetime import date as vanilla_date, timedelta
 
+from historical import FrenchHistoricalCalendar
 from .base import Calendar
 from ..constants import number_of_vanilla_dates
 from ..dates.bce import BCEDate
@@ -61,8 +62,8 @@ class AstronomicalCalendar(Calendar):
 
     def date(self, y, m, d):
         try:
-            vd = vanilla_date(y, m, d)
-            return self.from_date(vd)
+            d = FrenchHistoricalCalendar().date(y, m, d)
+            return self.from_date(d._date)
         except ValueError:
             y = y - 1
             d = BCEDate(y, m, d)
