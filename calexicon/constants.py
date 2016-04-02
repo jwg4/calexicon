@@ -5,6 +5,8 @@ first_julian_date = (-45, 1, 1)
 first_vanilla_date = vanilla_date(1, 1, 1)
 last_vanilla_date = vanilla_date(9999, 12, 31)
 
+last_vanilla_year = 9999
+
 julian_day_number_of_first_vanilla_date = 1721423
 julian_day_number_of_last_vanilla_date = (
     julian_day_number_of_first_vanilla_date +
