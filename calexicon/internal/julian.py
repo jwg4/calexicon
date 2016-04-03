@@ -1,5 +1,6 @@
 from datetime import date as vanilla_date, timedelta
 
+from ..constants import number_of_days_in_400_gregorian_years 
 from .gregorian import is_gregorian_leap_year
 from .exception import InvalidDate
 
@@ -42,5 +43,8 @@ def julian_to_gregorian(year, month, day):
 def distant_julian_to_gregorian(y, m, d):
     n = (y - 1600) // 400
     d = julian_to_gregorian(y - n * 400, m, d)
-    d = d + timedelta(days=3 * n)
-    return (d.year + n * 400, d.month, d.day)
+    day_offset = 3 * n
+    year_offset = day_offset // number_of_days_in_400_gregorian_years
+    day_offset = day_offset - year_offset * number_of_days_in_400_gregorian_years
+    d = d + timedelta(days=day_offset)
+    return (d.year + (n + year_offset) * 400, d.month, d.day)
