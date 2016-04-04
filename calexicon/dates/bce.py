@@ -8,6 +8,13 @@ from ..internal.julian import is_julian_leap_year
 from ..internal.output import ordinal, month_string
 
 
+class ExtendedTimeDelta(object):
+    days = None
+
+    def __init__(self, days):
+        self.days = days
+
+
 class BasicBCEDate(DateWithCalendar):
     def __init__(self, year, month, day):
         self._validate(year, month, day)
@@ -88,12 +95,25 @@ class BCEDate(BasicBCEDate):
             BCEDate._subtract(BCEDate(a.year - 1, 3, 1), b)
         )
 
+    class ExtendedTimeDelta(object):
+        days = None
+
+        def __init__(self, days):
+            self.days = days
+
+    @staticmethod
+    def make_safe_timedelta(days):
+        if -1000000000 < days < 1000000000:
+            return timedelta(days=days)
+        else:
+            return ExtendedTimeDelta(days=days)
+
     def __sub__(self, other):
         try:
             other_date = other._date
         except:
             other_date = other
-        return timedelta(days=BCEDate._subtract(self._date, other_date))
+        return self.make_safe_timedelta(days=BCEDate._subtract(self._date, other_date))
 
     def julian_representation(self):
         return (self.year, self.month, self.day)
