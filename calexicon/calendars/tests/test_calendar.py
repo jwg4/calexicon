@@ -110,11 +110,13 @@ class TestProlepticJulianCalendar(TestJulianCalendar):
     def test_year_0_does_not_exist(self, month, day):
         self.check_invalid_date(0, month, day)
 
+    @example(-2147483649)
     @given(integers(None, -1))
     def test_feb_29th_does_not_exist_except_julian_leap_years(self, year):
         assume(year % 4 != 0)
         self.check_invalid_date(year, 2, 29)
 
+    @example(-2147483652)
     @given(integers(None, -1))
     def test_feb_29th_does_exist_in_julian_leap_years(self, year):
         assume(year % 4 == 0)
