@@ -6,7 +6,7 @@ else:
     import unittest
 from datetime import date as vanilla_date
 
-from hypothesis import given
+from hypothesis import given, example
 from hypothesis.strategies import integers
 from hypothesis.extra.datetime import datetimes
 
@@ -87,6 +87,7 @@ class TestJulianDayNumber(CalendarTest):
         d = self.calendar.date(0)
         self.assertEqual(d, self.calendar.from_date(BCEDate(-4713, 1, 1)))
 
+    @example(-998278577)
     @given(integers(max_value=julian_day_number_of_last_vanilla_date))
     def test_round_trip_from_day_number(self, x):
         d = self.calendar.date(x)
