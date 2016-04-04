@@ -118,6 +118,7 @@ class ProlepticJulianCalendar(JulianCalendar):
     def date(self, year, month, day):
         try:
             d = JulianCalendar().date(year, month, day)
+            return d
         except ValueError:
             d = BCEDate(year, month, day)
         except OverflowError:
@@ -126,5 +127,4 @@ class ProlepticJulianCalendar(JulianCalendar):
             except ValueError:
                 raise InvalidDate('Not a valid date in the Gregorian calendar.')
             d = DistantDate(year, month, day)
-        self.bless(d)
-        return d
+        return self.from_date(d)
