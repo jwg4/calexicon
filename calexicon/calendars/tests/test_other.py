@@ -169,9 +169,17 @@ class TestAstronomicalCalendar(CalendarTest):
 
     @example(-2147483648)
     @given(integers(max_value=-45))
-    def test_BCE_dates(self, y):
+    def test_BCE_proleptic_dates(self, y):
         expected = ProlepticJulianCalendar().date(y-1, 1, 1)
         d = self.calendar.date(y, 1, 1)
         converted = d.convert_to(ProlepticJulianCalendar())
+        self.assertIsNotNone(converted)
+        self.assertEqual(converted, expected)
+
+    @given(integers(min_value=-44, max_value=-1))
+    def test_BCE_julian_dates(self, y):
+        expected = JulianCalendar().date(y-1, 1, 1)
+        d = self.calendar.date(y, 1, 1)
+        converted = d.convert_to(JulianCalendar())
         self.assertIsNotNone(converted)
         self.assertEqual(converted, expected)
