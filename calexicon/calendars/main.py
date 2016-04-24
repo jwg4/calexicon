@@ -114,6 +114,7 @@ class JulianCalendar(Calendar):
 class ProlepticJulianCalendar(JulianCalendar):
     first_date = first_julian_date
     representation_keys = set(['year', 'month', 'day'])
+    display_name = "Proleptic Julian Calendar"
 
     def date(self, year, month, day):
         try:
