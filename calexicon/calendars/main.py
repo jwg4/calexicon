@@ -113,6 +113,8 @@ class JulianCalendar(Calendar):
             except:
                 if year < -45:
                     raise ValueError('This year is before the start of the Julian Calendar')
+                if year == 0:
+                    raise InvalidDate('There was no year 0 in the Julian Calendar')
                 d = DistantDate(year, month, day)
             offset = self._number_of_extra_leap_days(d)
         d = d + timedelta(days=offset)
