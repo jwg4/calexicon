@@ -67,6 +67,7 @@ class TestJulianCalendar(CalendarTest):
         julian_representation = self.calendar.julian_representation(d)
         year, month, day = julian_representation
         julian_date_from_representation = self.calendar.date(year, month, day)
+        self.calendar.bless(julian_date_from_representation)
         self.assertEqual(julian_date_from_date, julian_date_from_representation)
 
     def test_julian_number(self):
