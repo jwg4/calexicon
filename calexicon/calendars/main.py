@@ -128,3 +128,12 @@ class ProlepticJulianCalendar(JulianCalendar):
                 raise InvalidDate('Not a valid date in the Gregorian calendar.')
             d = DistantDate(year, month, day)
         return self.from_date(d)
+
+    @staticmethod
+    def date_display_string(d):
+        year, month, day = JulianCalendar.julian_representation(d)
+        if year > 0:
+            return "%s %s %s" % (ordinal(day), month_string(month), year)
+        else:
+            return "%s %s %s BCE" % (ordinal(day), month_string(month), -year)
+
