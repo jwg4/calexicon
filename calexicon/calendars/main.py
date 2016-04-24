@@ -105,7 +105,12 @@ class JulianCalendar(Calendar):
             d = vanilla_date(year, 2, 28)
             offset = self._number_of_extra_leap_days(d) + 1
         else:
-            d = vanilla_date(year, month, day)
+            try:
+                d = vanilla_date(year, month, day)
+            except:
+                if year < -45:
+                    raise ValueError('This year is before the start of the Julian Calendar')
+                d = DistantDate(year, month, day)
             offset = self._number_of_extra_leap_days(d)
         d = d + timedelta(days=offset)
         return self.from_date(d)
