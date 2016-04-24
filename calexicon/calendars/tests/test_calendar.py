@@ -102,7 +102,7 @@ class TestProlepticJulianCalendar(TestJulianCalendar):
         )
 
     def test_year_1_bce(self):
-        self.check_valid_date(-1, 3, 1)
+        self.check_valid_date(-1, 3, 1, JulianCalendar)
 
     def test_date_near_end_of_vanilla_dates(self):
         self.check_valid_date(9999, 12, 1)
