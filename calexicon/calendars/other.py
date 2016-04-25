@@ -53,8 +53,15 @@ class AstronomicalCalendar(Calendar):
     representation_keys = set(['year', 'month', 'day'])
 
     @staticmethod
+    def normalize_year(y):
+        if y > 0:
+            return y
+        else:
+            return y + 1
+
+    @staticmethod
     def date_display_string(d):
-        return "%d/%d/%d" % (d.year, d.month, d.day)
+        return "%d/%d/%d" % (AstronomicalCalendar.normalize_year(d.year), d.month, d.day)
 
     @staticmethod
     def representation(d):
