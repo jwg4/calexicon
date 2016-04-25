@@ -129,16 +129,20 @@ class ProlepticJulianCalendar(JulianCalendar):
     representation_keys = set(['year', 'month', 'day'])
     display_name = "Proleptic Julian Calendar"
 
+    def _make_distant_date(self, year, month, day):
+        try:
+            year, month, day = DistantDate.julian_to_gregorian(year, month, day)
+        except ValueError:
+            raise InvalidDate('Not a valid date in the Gregorian calendar.')
+        return DistantDate(year, month, day)
+
     def date(self, year, month, day):
         try:
             d = JulianCalendar().date(year, month, day)
             return d
         except ValueError:
             d = BCEDate(year, month, day)
+            return self.from_date(d)
         except OverflowError:
-            try:
-                year, month, day = DistantDate.julian_to_gregorian(year, month, day)
-            except ValueError:
-                raise InvalidDate('Not a valid date in the Gregorian calendar.')
-            d = DistantDate(year, month, day)
-        return self.from_date(d)
+            d = self._make_distant_date(year, month, day)
+            return self.from_date(d)
