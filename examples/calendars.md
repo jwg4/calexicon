@@ -11,5 +11,10 @@
 >>> d = AstronomicalCalendar().date(0, 4, 1)
 >>> str(d)
 '0/4/1 (Astronomical Calendar)'
->>> d.native_representation()
-{'month': 4, 'day': 1, 'year': 0}
+>>> representation = d.native_representation()
+>>> sorted(representation.keys())
+['day', 'month', 'year']
+>>> representation['day']
+1
+>>> representation['year']
+0
