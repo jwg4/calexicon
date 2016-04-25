@@ -11,3 +11,5 @@
 >>> d = AstronomicalCalendar().date(0, 4, 1)
 >>> str(d)
 '0/4/1 (Astronomical Calendar)'
+>>> d.native_representation()
+{'month': 4, 'day': 1, 'year': 0}

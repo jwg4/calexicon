@@ -65,7 +65,7 @@ class AstronomicalCalendar(Calendar):
 
     @staticmethod
     def representation(d):
-        return dict(year=d.year, month=d.month, day=d.day)
+        return dict(year=AstronomicalCalendar.normalize_year(d.year), month=d.month, day=d.day)
 
     def date(self, y, m, d):
         try:
