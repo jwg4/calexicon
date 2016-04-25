@@ -12,7 +12,8 @@ from hypothesis.extra.datetime import datetimes
 
 from .calendar_testing import CalendarTest
 
-from calexicon.calendars.main import JulianCalendar, ProlepticJulianCalendar, ProlepticGregorianCalendar
+from calexicon.calendars.main import JulianCalendar, ProlepticJulianCalendar
+from calexicon.calendars.main import ProlepticGregorianCalendar
 from calexicon.calendars.other import JulianDayNumber, AstronomicalCalendar
 from calexicon.constants import julian_day_number_of_last_vanilla_date, last_vanilla_year
 from calexicon.dates import BCEDate, DateWithCalendar, DistantDate
@@ -170,7 +171,7 @@ class TestAstronomicalCalendar(CalendarTest):
     @example(-2147483648)
     @given(integers(max_value=-45))
     def test_BCE_proleptic_dates(self, y):
-        expected = ProlepticJulianCalendar().date(y-1, 1, 1)
+        expected = ProlepticJulianCalendar().date(y - 1, 1, 1)
         d = self.calendar.date(y, 1, 1)
         converted = d.convert_to(ProlepticJulianCalendar())
         self.assertIsNotNone(converted)
@@ -178,7 +179,7 @@ class TestAstronomicalCalendar(CalendarTest):
 
     @given(integers(min_value=-44, max_value=-1))
     def test_BCE_julian_dates(self, y):
-        expected = JulianCalendar().date(y-1, 1, 1)
+        expected = JulianCalendar().date(y - 1, 1, 1)
         d = self.calendar.date(y, 1, 1)
         converted = d.convert_to(JulianCalendar())
         self.assertIsNotNone(converted)

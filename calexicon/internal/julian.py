@@ -1,6 +1,6 @@
 from datetime import date as vanilla_date, timedelta
 
-from ..constants import number_of_days_in_400_gregorian_years 
+from ..constants import number_of_days_in_400_gregorian_years
 from .gregorian import is_gregorian_leap_year
 from .exception import InvalidDate
 

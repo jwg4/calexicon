@@ -139,4 +139,3 @@ class ProlepticJulianCalendar(JulianCalendar):
                 raise InvalidDate('Not a valid date in the Gregorian calendar.')
             d = DistantDate(year, month, day)
         return self.from_date(d)
-
