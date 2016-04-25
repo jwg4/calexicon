@@ -1,6 +1,6 @@
 from datetime import date as vanilla_date, timedelta
 
-from historical import FrenchHistoricalCalendar
+from .historical import FrenchHistoricalCalendar
 from .base import Calendar
 from ..constants import number_of_vanilla_dates
 from ..dates.bce import BCEDate
